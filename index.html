@@ -1,46 +1,495 @@
-body {
-    background: url('path/to/flower-of-life-image.png') no-repeat center center fixed;
-    background-size: cover;
-    font-family: Arial, sans-serif;
-    color: #fff;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Spiritual Personality Profile Test (CSPPT)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Comprehensive Spiritual Personality Profile Test (CSPPT)</h1>
+        <form id="personality-test">
+            <!-- Question 1 -->
+            <div class="question">
+                <label>1. Imagine a close friend gives you a heartfelt compliment about your achievements. How do you feel?</label>
+                <select name="q1">
+                    <option value="6">Extremely proud and deserving</option>
+                    <option value="5">Happy and confident</option>
+                    <option value="4">Happy, but slightly undeserving</option>
+                    <option value="3">Indifferent but unsure if I deserve it</option>
+                    <option value="2">Uncomfortable and doubt I deserve it</option>
+                    <option value="1">Completely undeserving and dismissive</option>
+                </select>
+            </div>
+            
+            <!-- Question 2 -->
+            <div class="question">
+                <label>2. How do you typically react to unexpected changes in your plans?</label>
+                <select name="q2">
+                    <option value="6">I adapt quickly and find new opportunities</option>
+                    <option value="5">I stay calm and adjust as needed</option>
+                    <option value="4">I feel slightly stressed but manage</option>
+                    <option value="3">I struggle to adjust and feel anxious</option>
+                    <option value="2">I become very stressed and upset</option>
+                    <option value="1">I cannot handle unexpected changes at all</option>
+                </select>
+            </div>
+            
+            <!-- Question 3 -->
+            <div class="question">
+                <label>3. When working on a team project, what role do you usually take?</label>
+                <select name="q3">
+                    <option value="6">Leader and decision-maker</option>
+                    <option value="5">Motivator and encourager</option>
+                    <option value="4">Contributor and supporter</option>
+                    <option value="3">Observer and follower</option>
+                    <option value="2">Reluctant participant</option>
+                    <option value="1">I prefer to work alone</option>
+                </select>
+            </div>
 
-.container {
-    width: 60%;
-    margin: auto;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-    margin-top: 50px;
-}
+            <!-- Question 4 -->
+            <div class="question">
+                <label>4. How do you feel in competitive situations, such as sports or work performance?</label>
+                <select name="q4">
+                    <option value="6">I thrive and enjoy the competition</option>
+                    <option value="5">I participate but feel moderate pressure</option>
+                    <option value="4">I feel anxious and prefer to avoid competition</option>
+                    <option value="3">I feel indifferent about competition</option>
+                    <option value="2">I dislike competition and avoid it</option>
+                    <option value="1">I find competition stressful and overwhelming</option>
+                </select>
+            </div>
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
+            <!-- Question 5 -->
+            <div class="question">
+                <label>5. How do you respond to constructive criticism?</label>
+                <select name="q5">
+                    <option value="6">I appreciate it and use it to improve</option>
+                    <option value="5">I accept it and try to learn from it</option>
+                    <option value="4">I feel slightly defensive but consider it</option>
+                    <option value="3">I feel uncomfortable but acknowledge it</option>
+                    <option value="2">I find it hard to accept and feel hurt</option>
+                    <option value="1">I reject it and feel offended</option>
+                </select>
+            </div>
 
-form {
-    display: flex;
-    flex-direction: column;
-}
+            <!-- Question 6 -->
+            <div class="question">
+                <label>6. When making decisions, how much do you rely on your intuition?</label>
+                <select name="q6">
+                    <option value="6">Always, my intuition guides me</option>
+                    <option value="5">Often, I trust my gut feelings</option>
+                    <option value="4">Sometimes, depending on the situation</option>
+                    <option value="3">Rarely, I prefer logical analysis</option>
+                    <option value="2">Hardly ever, I rely on facts and data</option>
+                    <option value="1">Never, I do not trust my intuition</option>
+                </select>
+            </div>
 
-.question {
-    margin-bottom: 20px;
-}
+            <!-- Question 7 -->
+            <div class="question">
+                <label>7. How do you handle stressful situations?</label>
+                <select name="q7">
+                    <option value="6">I remain calm and find solutions</option>
+                    <option value="5">I stay composed but feel pressure</option>
+                    <option value="4">I manage but feel stressed</option>
+                    <option value="3">I struggle and feel overwhelmed</option>
+                    <option value="2">I become anxious and find it hard to cope</option>
+                    <option value="1">I panic and cannot handle it</option>
+                </select>
+            </div>
 
-.email-section {
-    margin-bottom: 20px;
-}
+            <!-- Question 8 -->
+            <div class="question">
+                <label>8. How important is personal growth to you?</label>
+                <select name="q8">
+                    <option value="6">Extremely important, I actively seek it</option>
+                    <option value="5">Very important, I focus on it often</option>
+                    <option value="4">Moderately important, I work on it occasionally</option>
+                    <option value="3">Somewhat important, I think about it sometimes</option>
+                    <option value="2">Not very important, I rarely focus on it</option>
+                    <option value="1">Not important at all, I do not think about it</option>
+                </select>
+            </div>
 
-button {
-    padding: 10px;
-    background: #444;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+            <!-- Question 9 -->
+            <div class="question">
+                <label>9. How do you feel about seeking support when stressed?</label>
+                <select name="q9">
+                    <option value="6">Comfortable and confident in seeking help</option>
+                    <option value="5">Slightly hesitant but willing to ask for support</option>
+                    <option value="4">Reluctant but recognize the need for help</option>
+                    <option value="3">Uncomfortable and try to avoid seeking help</option>
+                    <option value="2">Very uncomfortable and prefer to handle it alone</option>
+                    <option value="1">I never seek help and handle stress alone</option>
+                </select>
+            </div>
 
-button:hover {
-    background: #555;
-}
+            <!-- Question 10 -->
+            <div class="question">
+                <label>10. How do you approach new and unfamiliar tasks?</label>
+                <select name="q10">
+                    <option value="6">With enthusiasm and curiosity</option>
+                    <option value="5">With interest and willingness to learn</option>
+                    <option value="4">With slight hesitation but willingness to try</option>
+                    <option value="3">With caution and some reluctance</option>
+                    <option value="2">With anxiety and reluctance</option>
+                    <option value="1">With fear and avoidance</option>
+                </select>
+            </div>
+
+            <!-- Question 11 -->
+            <div class="question">
+                <label>11. How do you feel about setting and achieving goals?</label>
+                <select name="q11">
+                    <option value="6">Highly motivated and always set goals</option>
+                    <option value="5">Motivated and often set goals</option>
+                    <option value="4">Moderately motivated and set goals occasionally</option>
+                    <option value="3">Somewhat motivated but rarely set goals</option>
+                    <option value="2">Not very motivated and rarely set goals</option>
+                    <option value="1">Not motivated at all and never set goals</option>
+                </select>
+            </div>
+
+            <!-- Question 12 -->
+            <div class="question">
+                <label>12. How do you react to failure or setbacks?</label>
+                <select name="q12">
+                    <option value="6">I learn from them and move forward</option>
+                    <option value="5">I feel disappointed but try to improve</option>
+                    <option value="4">I feel discouraged but keep trying</option>
+                    <option value="3">I feel disheartened and lose motivation</option>
+                    <option value="2">I feel defeated and struggle to continue</option>
+                    <option value="1">I give up and do not try again</option>
+                </select>
+            </div>
+
+            <!-- Question 13 -->
+            <div class="question">
+                <label>13. How do you feel about taking risks?</label>
+                <select name="q13">
+                    <option value="6">I enjoy taking risks and seek them out</option>
+                    <option value="5">I am comfortable with taking risks</option>
+                    <option value="4">I take risks occasionally</option>
+                    <option value="3">I feel cautious about taking risks</option>
+                    <option value="2">I avoid taking risks whenever possible</option>
+                    <                    <option value="2">I avoid taking risks whenever possible</option>
+                    <option value="1">I never take risks and play it safe</option>
+                </select>
+            </div>
+
+            <!-- Question 14 -->
+            <div class="question">
+                <label>14. How do you handle conflicts in your personal relationships?</label>
+                <select name="q14">
+                    <option value="6">I address them calmly and seek resolution</option>
+                    <option value="5">I handle them well but feel stressed</option>
+                    <option value="4">I try to avoid conflicts but address them if necessary</option>
+                    <option value="3">I struggle with conflicts and feel anxious</option>
+                    <option value="2">I feel overwhelmed and avoid conflicts</option>
+                    <option value="1">I cannot handle conflicts and break down</option>
+                </select>
+            </div>
+
+            <!-- Question 15 -->
+            <div class="question">
+                <label>15. How do you feel about your overall self-worth?</label>
+                <select name="q15">
+                    <option value="6">Extremely high, I value myself greatly</option>
+                    <option value="5">High, I feel confident in myself</option>
+                    <option value="4">Moderate, I have a healthy self-esteem</option>
+                    <option value="3">Low, I often doubt myself</option>
+                    <option value="2">Very low, I struggle with self-worth</option>
+                    <option value="1">Extremely low, I have no self-worth</option>
+                </select>
+            </div>
+
+            <!-- Question 16 -->
+            <div class="question">
+                <label>16. How do you feel about expressing your emotions?</label>
+                <select name="q16">
+                    <option value="6">Very comfortable, I express them freely</option>
+                    <option value="5">Comfortable, I express them when needed</option>
+                    <option value="4">Somewhat comfortable, I express them occasionally</option>
+                    <option value="3">Uncomfortable, I struggle to express them</option>
+                    <option value="2">Very uncomfortable, I rarely express them</option>
+                    <option value="1">Extremely uncomfortable, I never express them</option>
+                </select>
+            </div>
+
+            <!-- Question 17 -->
+            <div class="question">
+                <label>17. How do you feel about your ability to adapt to new environments?</label>
+                <select name="q17">
+                    <option value="6">Very confident, I adapt easily</option>
+                    <option value="5">Confident, I adjust well</option>
+                    <option value="4">Somewhat confident, I manage to adapt</option>
+                    <option value="3">Uncomfortable, I struggle to adapt</option>
+                    <option value="2">Very uncomfortable, I find it hard to adapt</option>
+                    <option value="1">Extremely uncomfortable, I cannot adapt</option>
+                </select>
+            </div>
+
+            <!-- Question 18 -->
+            <div class="question">
+                <label>18. How do you handle tasks that require meticulous attention to detail?</label>
+                <select name="q18">
+                    <option value="6">I excel at them and enjoy the challenge</option>
+                    <option value="5">I handle them well and stay focused</option>
+                    <option value="4">I manage but sometimes feel overwhelmed</option>
+                    <option value="3">I struggle and feel stressed</option>
+                    <option value="2">I find them very challenging and frustrating</option>
+                    <option value="1">I avoid them whenever possible</option>
+                </select>
+            </div>
+
+            <!-- Question 19 -->
+            <div class="question">
+                <label>19. How do you perceive your ability to empathize with others?</label>
+                <select name="q19">
+                    <option value="6">Very high, I easily understand others' feelings</option>
+                    <option value="5">High, I often relate to others' emotions</option>
+                    <option value="4">Moderate, I sometimes empathize with others</option>
+                    <option value="3">Low, I struggle to understand others' feelings</option>
+                    <option value="2">Very low, I rarely empathize with others</option>
+                    <option value="1">Extremely low, I cannot relate to others' emotions</option>
+                </select>
+            </div>
+
+            <!-- Question 20 -->
+            <div class="question">
+                <label>20. How do you feel about planning and organizing activities?</label>
+                <select name="q20">
+                    <option value="6">I excel at planning and enjoy organizing</option>
+                    <option value="5">I am good at it and find it satisfying</option>
+                    <option value="4">I manage well but sometimes feel stressed</option>
+                    <option value="3">I struggle with planning and organizing</option>
+                    <option value="2">I find it very challenging and frustrating</option>
+                    <option value="1">I avoid it whenever possible</option>
+                </select>
+            </div>
+
+            <!-- Question 21 -->
+            <div class="question">
+                <label>21. How do you feel about your ability to motivate others?</label>
+                <select name="q21">
+                    <option value="6">Very confident, I inspire others easily</option>
+                    <option value="5">Confident, I motivate others well</option>
+                    <option value="4">Somewhat confident, I can motivate when needed</option>
+                    <option value="3">Uncomfortable, I struggle to motivate others</option>
+                    <option value="2">Very uncomfortable, I rarely motivate others</option>
+                    <option value="1">Extremely uncomfortable, I cannot motivate others</option>
+                </select>
+            </div>
+
+            <!-- Question 22 -->
+            <div class="question">
+                <label>22. How do you feel about trying new hobbies or activities?</label>
+                <select name="q22">
+                    <option value="6">Very excited and eager to try new things</option>
+                    <option value="5">Excited and willing to try new things</option>
+                    <option value="4">Somewhat interested in trying new things</option>
+                    <option value="3">Hesitant but open to trying new things</option>
+                    <option value="2">Uncomfortable and reluctant to try new things</option>
+                    <option value="1">Very uncomfortable and avoid new things</option>
+                </select>
+            </div>
+
+            <!-- Question 23 -->
+            <div class="question">
+                <label>23. How do you feel about expressing your creativity?</label>
+                <select name="q23">
+                    <option value="6">Very confident and expressive</option>
+                    <option value="5">Confident and enjoy being creative</option>
+                    <option value="4">Somewhat confident and expressive</option>
+                    <option value="3">Uncomfortable but try to be creative</option>
+                    <option value="2">Very uncomfortable and struggle to be creative</option>
+                    <option value="1">Extremely uncomfortable and avoid creativity</option>
+                </select>
+            </div>
+
+            <!-- Question 24 -->
+            <div class="question">
+                <label>24. How do you handle tasks that require logical thinking?</label>
+                <select name="q24">
+                    <option value="6">I excel at them and enjoy the challenge</option>
+                    <option value="5">I handle them well and stay focused</option>
+                    <option value="4">I manage but sometimes feel overwhelmed</option>
+                    <option value="3">I struggle and feel stressed</option>
+                    <option value="2">I find them very challenging and frustrating</option>
+                    <option value="1">I avoid them whenever possible</option>
+                </select>
+            </div>
+
+            <!-- Question 25 -->
+            <div class="question">
+                <label>25. How do you feel about maintaining long-term relationships?</label>
+                <select name="q25">
+                    <option value="6">Very confident, I maintain them easily</option>
+                    <option value="5">Confident, I maintain them well</option>
+                    <option value="4">Somewhat confident, I manage but sometimes struggle</option>
+                    <option value="3">Uncomfortable, I find it hard to maintain</option>
+                    <option value="2">Very uncomfortable, I struggle greatly</option>
+                    <option value="1">Extremely uncomfortable, I cannot maintain them</option>
+                </select>
+            </div>
+
+            <!-- Question 26 -->
+            <div class="question">
+                <label>26. How do you feel about exploring new ideas and philosophies?</label>
+                <select name="q26">
+                    <option value="6">Very excited and open-minded</option>
+                    <option value="5">Excited and willing to explore</option>
+                    <option value="4">Somewhat interested and open</option>
+                    <option value="3">Hesitant but open to new ideas</option>
+                    <option value="2">Uncomfortable and reluctant to explore</option>
+                    <option value="1">Very uncomfortable and avoid new ideas</option>
+                </select>
+            </div>
+
+            <!-- Question 27 -->
+            <div class="question">
+                <label>27. How do you feel about your emotional resilience?</
+                <select name="q27">
+                    <option value="6">Very high, I recover quickly from setbacks</option>
+                    <option value="5">High, I handle setbacks well</option>
+                    <option value="4">Moderate, I manage but feel stressed</option>
+                    <option value="3">Low, I struggle to recover</option>
+                    <option value="2">Very low, I find it very difficult to recover</option>
+                    <option value="1">Extremely low, I cannot recover from setbacks</option>
+                </select>
+            </div>
+
+            <!-- Question 28 -->
+            <div class="question">
+                <label>28. How do you feel about making important life decisions?</label>
+                <select name="q28">
+                    <option value="6">Very confident and decisive</option>
+                    <option value="5">Confident and thoughtful</option>
+                    <option value="4">Somewhat confident but hesitant</option>
+                    <option value="3">Uncomfortable and indecisive</option>
+                    <option value="2">Very uncomfortable and struggle greatly</option>
+                    <option value="1">Extremely uncomfortable and avoid making decisions</option>
+                </select>
+            </div>
+
+            <!-- Question 29 -->
+            <div class="question">
+                <label>29. How do you feel about your ability to handle complex problems?</label>
+                <select name="q29">
+                    <option value="6">Very confident, I solve them easily</option>
+                    <option value="5">Confident, I manage them well</option>
+                    <option value="4">Somewhat confident but struggle sometimes</option>
+                    <option value="3">Uncomfortable and find it challenging</option>
+                    <option value="2">Very uncomfortable and struggle greatly</option>
+                    <option value="1">Extremely uncomfortable and avoid complex problems</option>
+                </select>
+            </div>
+
+            <!-- Question 30 -->
+            <div class="question">
+                <label>30. How do you feel about your social skills?</label>
+                <select name="q30">
+                    <option value="6">Very confident, I socialize easily</option>
+                    <option value="5">Confident, I socialize well</option>
+                    <option value="4">Somewhat confident but feel awkward sometimes</option>
+                    <option value="3">Uncomfortable, I struggle to socialize</option>
+                    <option value="2">Very uncomfortable, I find it very challenging</option>
+                    <option value="1">Extremely uncomfortable, I avoid social situations</option>
+                </select>
+            </div>
+
+            <!-- Question 31 -->
+            <div class="question">
+                <label>31. How do you feel about pursuing your passions and interests?</label>
+                <select name="q31">
+                    <option value="6">Very motivated and always pursue them</option>
+                    <option value="5">Motivated and often pursue them</option>
+                    <option value="4">Somewhat motivated and pursue them occasionally</option>
+                    <option value="3">Unmotivated but think about them</option>
+                    <option value="2">Very unmotivated and rarely pursue them</option>
+                    <option value="1">Extremely unmotivated and never pursue them</option>
+                </select>
+            </div>
+
+            <!-- Question 32 -->
+            <div class="question">
+                <label>32. How do you feel about your ability to influence others?</label>
+                <select name="q32">
+                    <option value="6">Very confident, I influence others easily</option>
+                    <option value="5">Confident, I influence others well</option>
+                    <option value="4">Somewhat confident but not always effective</option>
+                    <option value="3">Uncomfortable, I struggle to influence others</option>
+                    <option value="2">Very uncomfortable, I rarely influence others</option>
+                    <option value="1">Extremely uncomfortable, I cannot influence others</option>
+                </select>
+            </div>
+
+            <!-- Question 33 -->
+            <div class="question">
+                <label>33. How do you feel about taking on leadership roles?</label>
+                <select name="q33">
+                    <option value="6">Very confident and always willing</option>
+                    <option value="5">Confident and often willing</option>
+                    <option value="4">Somewhat confident but hesitant</option>
+                    <option value="3">Uncomfortable and reluctant</option>
+                    <option value="2">Very uncomfortable and avoid leadership</option>
+                    <option value="1">Extremely uncomfortable and never take on leadership</option>
+                </select>
+            </div>
+
+            <!-- Question 34 -->
+            <div class="question">
+                <label>34. How do you feel about your ability to handle criticism?</label>
+                <select name="q34">
+                    <option value="6">Very confident, I handle it well</option>
+                    <option value="5">Confident, I accept it and learn from it</option>
+                    <option value="4">Somewhat confident but feel defensive</option>
+                    <option value="3">Uncomfortable, I struggle to accept it</option>
+                    <option value="2">Very uncomfortable, I feel hurt by it</option>
+                    <option value="1">Extremely uncomfortable, I reject it entirely</option>
+                </select>
+            </div>
+
+            <!-- Question 35 -->
+            <div class="question">
+                <label>35. How do you feel about your ability to manage your time effectively?</label>
+                <select name="q35">
+                    <option value="6">Very confident, I manage my time well</option>
+                    <option value="5">Confident, I prioritize and manage tasks</option>
+                    <option value="4">Somewhat confident but sometimes struggle</option>
+                    <option value="3">Uncomfortable, I find it challenging</option>
+                    <option value="2">Very uncomfortable, I struggle greatly</option>
+                    <option value="1">Extremely uncomfortable, I cannot manage my time</option>
+                </select>
+            </div>
+
+            <!-- Question 36 -->
+            <div class="question">
+                <label>36. How do you feel about balancing work and personal life?</label>
+                <select name="q36">
+                    <option value="6">Very confident, I balance them well</option>
+                    <option value="5">Confident, I manage to balance them</option>
+                    <option value="4">Somewhat confident but sometimes struggle</option>
+                    <option value="3">Uncomfortable, I find it challenging</option>
+                    <option value="2">Very uncomfortable, I struggle greatly</option>
+                    <option value="1">Extremely uncomfortable, I cannot balance them</option>
+                </select>
+            </div>
+
+            <!-- Email Input -->
+            <div class="email-section">
+                <label for="email">Please enter your email to receive your results:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
