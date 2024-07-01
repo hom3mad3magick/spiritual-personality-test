@@ -1,25 +1,30 @@
 document.getElementById('personality-test').addEventListener('submit', function(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const formData = new FormData(event.target);
-    const data = {};
-    formData.forEach((value, key) => {
-        data[key] = value;
-    });
+  const formData = new FormData(event.target);
+  const data = {};
 
-    // Example calculation (replace with your own logic)
-    const score = Object.values(data).reduce((acc, val) => acc + parseInt(val), 0);
+  formData.forEach((value, key) => {
+    data[key] = value;
+  });
 
-    // Example email sending logic
-    const email = data.email;
-    const results = `Your score is ${score}`;
-    sendEmail(email, results);
+  // Example calculation (replace with your own logic)
+  const score = Object.values(data).reduce((acc, val) => acc + parseInt(val), 0);
+  const results = `Your score is ${score}`;
 
-    alert('Thank you for taking the test! Your results will be sent to your email.');
-    window.location.href = 'https://hom3mad3magick.com';
+  // Display the results on the screen
+  const resultsContainer = document.createElement('div');
+  resultsContainer.style.marginTop = '20px';
+  resultsContainer.style.padding = '20px';
+  resultsContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+  resultsContainer.style.color = '#fff';
+  resultsContainer.style.borderRadius = '10px';
+  resultsContainer.innerText = results;
+
+  document.body.appendChild(resultsContainer);
+
+  // Redirect to homepage after displaying results
+  setTimeout(() => {
+    window.location.href = 'https://www.hom3mad3magick.com';
+  }, 5000); // 5 seconds delay
 });
-
-function sendEmail(email, results) {
-    // Implement your email sending logic here
-    console.log(`Sending results to ${email}: ${results}`);
-}
