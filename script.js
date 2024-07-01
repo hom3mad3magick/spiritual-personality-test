@@ -1,6 +1,5 @@
 document.getElementById('personality-test').addEventListener('submit', function(event) {
     event.preventDefault();
-
     const formData = new FormData(event.target);
     const data = {};
     formData.forEach((value, key) => {
@@ -8,31 +7,29 @@ document.getElementById('personality-test').addEventListener('submit', function(
     });
 
     const score = Object.values(data).reduce((acc, val) => acc + parseInt(val), 0);
-    const personalityType = determinePersonalityType(score);
-
-    const resultsContainer = document.createElement('div');
-    resultsContainer.innerHTML = `
-        <h2>Your Personality Type</h2>
-        <h3>${personalityType.name}</h3>
-        <p>${personalityType.description}</p>
-        <p><strong>Personality Traits:</strong> ${personalityType.traits}</p>
-        <p><strong>Behavior in Social Settings:</strong> ${personalityType.social}</p>
-        <p><strong>Employment:</strong> ${personalityType.employment}</p>
-        <p><strong>Leisure Activities:</strong> ${personalityType.leisure}</p>
-        <p><strong>Things to Avoid:</strong> ${personalityType.avoid}</p>
-        <p><strong>Self-Perception:</strong> ${personalityType.perception}</p>
-        <p><strong>Strengths:</strong> ${personalityType.strengths}</p>
-        <p><strong>Weaknesses:</strong> ${personalityType.weaknesses}</p>
-        <p><strong>Obstacles:</strong> ${personalityType.obstacles}</p>
-        <p><strong>Spiritual Life:</strong> ${personalityType.spiritual}</p>
+    const result = getResult(score);
+    
+    document.body.innerHTML = `
+        <div class="container">
+            <h1>Your Personality Type: ${result.name}</h1>
+            <p><strong>Description:</strong> ${result.description}</p>
+            <p><strong>Personality Traits:</strong> ${result.traits}</p>
+            <p><strong>Behavior in Social Settings:</strong> ${result.social}</p>
+            <p><strong>Employment:</strong> ${result.employment}</p>
+            <p><strong>Leisure Activities:</strong> ${result.leisure}</p>
+            <p><strong>Things to Avoid:</strong> ${result.avoid}</p>
+            <p><strong>Self-Perception:</strong> ${result.perception}</p>
+            <p><strong>Strengths:</strong> ${result.strengths}</p>
+            <p><strong>Weaknesses:</strong> ${result.weaknesses}</p>
+            <p><strong>Obstacles:</strong> ${result.obstacles}</p>
+            <p><strong>Spiritual Life:</strong> ${result.spiritual}</p>
+        </div>
     `;
-    document.body.innerHTML = '';  // Clear the existing content
-    document.body.appendChild(resultsContainer);  // Display the results
 });
 
-function determinePersonalityType(score) {
-    if (score <= 36) {
-        return {
+function getResult(score) {
+    const personalityTypes = [
+        {
             name: 'Adaptive Performer',
             description: "You are known for your adaptability and growth-oriented mindset, combined with a balanced approach to spirituality and rationality. Your ability to navigate different situations with grace and flexibility makes you a natural leader and innovator. You inspire others with your resilience and positivity, often finding creative solutions to challenges. Your balanced perspective allows you to see the big picture while managing details effectively.",
             traits: "Adaptable, growth-oriented, balanced, innovative.",
@@ -99,7 +96,7 @@ function determinePersonalityType(score) {
             behavior: "You engage in deep and meaningful conversations, often providing balanced insights.",
             employment: "You may seek careers in research, counseling, or fields that allow you to explore new ideas and help others.",
             leisure: "You enjoy intellectual discussions, exploring different philosophies, and engaging in activities that promote personal growth.",
-            avoid: "Becoming overly skeptical and dismissing ideas too quickly.",
+                        avoid: "Becoming overly skeptical and dismissing ideas too quickly.",
             perception: "You see yourself as a thoughtful and inquisitive individual.",
             strengths: "Empathy, connection, balanced perspective.",
             weaknesses: "Risk of becoming overly analytical and emotionally detached.",
@@ -123,23 +120,8 @@ function determinePersonalityType(score) {
             howOthersSeeYou: "People admire your positivity and resilience, often looking to you for inspiration and hope."
         },
         {
-            name: "Pragmatic Seeker",
-            description: "You approach life with a blend of practicality and spiritual seeking, always looking for tangible benefits from your spiritual practices. Your curiosity drives you to explore different spiritual paths, integrating what works best into your daily life. You value efficiency and effectiveness, often finding practical applications for spiritual concepts.",
-            traits: "Practical, curious, efficient, spiritually seeking.",
-            behavior: "You engage in discussions about practical applications of spirituality, sharing your insights and discoveries.",
-            employment: "You excel in roles that combine practicality with exploration, such as consulting, research, or entrepreneurship.",
-            leisure: "You enjoy activities that offer both practical benefits and spiritual growth, like yoga, meditation, or self-improvement courses.",
-            avoid: "Becoming too focused on tangible outcomes and losing sight of deeper spiritual meanings.",
-            perception: "You see yourself as a practical and curious seeker.",
-            strengths: "Practicality, curiosity, efficiency.",
-            weaknesses: "Risk of focusing too much on tangible outcomes and losing sight of deeper spiritual meanings.",
-            obstacles: "Balancing practicality with spiritual depth.",
-            spiritual: "You seek tangible benefits from your spiritual practices, integrating them into your daily life.",
-            howOthersSeeYou: "People appreciate your practical approach to spirituality, often seeking your advice on integrating spiritual practices into their lives."
-        },
-        {
             name: "Grounded Visionary",
-                        description: "You have a unique ability to blend visionary ideas with grounded practicality. Your creative mind and forward-thinking nature allow you to see possibilities that others might miss. At the same time, your practical approach ensures that your ideas are feasible and actionable. You inspire others with your vision while providing practical steps to achieve it. Your balanced perspective helps turn dreams into reality, making you a valuable asset in any team.",
+            description: "You have a unique ability to blend visionary ideas with grounded practicality. Your creative mind and forward-thinking nature allow you to see possibilities that others might miss. At the same time, your practical approach ensures that your ideas are feasible and actionable. You inspire others with your vision while providing practical steps to achieve it. Your balanced perspective helps turn dreams into reality, making you a valuable asset in any team.",
             traits: "Visionary, practical, creative, forward-thinking.",
             behavior: "You engage others with your visionary ideas and practical plans, inspiring and motivating them.",
             employment: "You thrive in roles that require both creativity and practicality, such as project management, innovation, or strategic planning.",
@@ -228,7 +210,7 @@ function determinePersonalityType(score) {
             howOthersSeeYou: "People admire your empathy and healing abilities, often turning to you for support and guidance."
         },
         {
-            name: "Logical Thinker",
+                        name: "Logical Thinker",
             description: "You approach life with a logical and analytical mindset, valuing reason and evidence above all else. Your ability to think critically and solve complex problems makes you a valuable asset in any analytical or technical field. While you may struggle with emotional expression, your logical approach ensures that you make well-informed decisions.",
             traits: "Logical, analytical, critical thinker, evidence-based.",
             behavior: "You engage in intellectual discussions and provide logical insights.",
@@ -248,7 +230,7 @@ function determinePersonalityType(score) {
             traits: "Empathetic, compassionate, understanding, supportive.",
             behavior: "You provide emotional support and understanding, often being the one people turn to for comfort.",
             employment: "You excel in roles that involve listening and supporting others, such as counseling, social work, or healthcare.",
-                        leisure: "You enjoy activities that nurture your empathetic nature, like volunteering, reading, or spending time with loved ones.",
+            leisure: "You enjoy activities that nurture your empathetic nature, like volunteering, reading, or spending time with loved ones.",
             avoid: "Taking on too much emotional burden from others.",
             perception: "You see yourself as a compassionate and understanding person.",
             strengths: "Empathy, compassion, listening skills.",
@@ -337,7 +319,7 @@ function determinePersonalityType(score) {
             description: "You are driven by a deep sense of compassion and a desire to advocate for those in need. Your empathetic nature allows you to connect with others and understand their struggles. You are passionate about making a positive impact and often take on causes that align with your values. Your advocacy is rooted in a genuine desire to help others and create a better world.",
             traits: "Compassionate, empathetic, advocate, passionate.",
             behavior: "You engage others with your passion for advocacy and inspire them to take action.",
-            employment: "You excel in roles that involve advocating for others, such as social work, activism, or nonprofit work.",
+                        employment: "You excel in roles that involve advocating for others, such as social work, activism, or nonprofit work.",
             leisure: "You enjoy activities that align with your advocacy, like volunteering, organizing events, or raising awareness.",
             avoid: "Becoming overwhelmed by the weight of advocacy work.",
             perception: "You see yourself as a compassionate advocate for change.",
@@ -360,7 +342,7 @@ function determinePersonalityType(score) {
             weaknesses: "Risk of becoming overwhelmed by ideas and not following through.",
             obstacles: "Balancing visionary ideas with practical steps.",
             spiritual: "You incorporate visionary insights into your spiritual practices, grounding them in daily life.",
-                        howOthersSeeYou: "People admire your ability to turn ideas into action, often seeking your guidance on projects and plans."
+            howOthersSeeYou: "People admire your ability to turn ideas into action, often seeking your guidance on projects and plans."
         },
         {
             name: "Practical Visionary",
@@ -447,7 +429,7 @@ function determinePersonalityType(score) {
             avoid: "Getting lost in ideas without taking action.",
             perception: "You see yourself as a creative and practical thinker.",
             strengths: "Vision, practicality, creativity.",
-            weaknesses: "Risk of becoming overwhelmed by ideas and not following through.",
+                        weaknesses: "Risk of becoming overwhelmed by ideas and not following through.",
             obstacles: "Balancing visionary ideas with practical steps.",
             spiritual: "You incorporate visionary insights into your spiritual practices, grounding them in daily life.",
             howOthersSeeYou: "People admire your ability to turn ideas into action, often seeking your guidance on projects and plans."
@@ -469,7 +451,7 @@ function determinePersonalityType(score) {
         },
         {
             name: "Compassionate Innovator",
-            description: "Your compassion and innovative thinking allow you to create solutions that help others. You are driven by a desire to make a positive impact and often come up with creative ways to address challenges. Your empathetic nature enables you to             understand the needs of others, and your innovative mindset helps you devise practical solutions. While you strive to help others, it's important to ensure your ideas are actionable and not just idealistic.",
+            description: "Your compassion and innovative thinking allow you to create solutions that help others. You are driven by a desire to make a positive impact and often come up with creative ways to address challenges. Your empathetic nature enables you to understand the needs of others, and your innovative mindset helps you devise practical solutions. While you strive to help others, it's important to ensure your ideas are actionable and not just idealistic.",
             traits: "Compassionate, innovative, empathetic, practical.",
             behavior: "You engage others with your creative ideas and inspire them with your compassion.",
             employment: "You excel in roles that combine innovation with helping others, such as social entrepreneurship, counseling, or community projects.",
@@ -544,38 +526,76 @@ function determinePersonalityType(score) {
         }
     ];
 
-    // Example calculation (replace with your own logic)
-    const score = Object.values(data).reduce((acc, val) => acc + parseInt(val), 0);
-
-    // Determine personality type based on score
-    let personalityType;
-    if (score >= 200) {
-        personalityType = personalityTypes[0]; // Example: Adaptive Performer
-    } else if (score >= 180) {
-        personalityType = personalityTypes[1]; // Example: Balanced Pragmatist
-    } // Add more conditions for other personality types
-
-    // Display results
-    const resultsDiv = document.getElementById('results');
-    if (personalityType) {
-        resultsDiv.innerHTML = `
-            <h2>${personalityType.name}</h2>
-            <p>${personalityType.description}</p>
-            <p><strong>Traits:</strong> ${personalityType.traits}</p>
-            <p><strong>Behavior in Social Settings:</strong> ${personalityType.behavior}</p>
-            <p><strong>Employment:</strong> ${personalityType.employment}</p>
-            <p><strong>Leisure Activities:</strong> ${personalityType.leisure}</p>
-            <p><strong>Things to Avoid:</strong> ${personalityType.avoid}</p>
-            <p><strong>Self-Perception:</strong> ${personalityType.perception}</p>
-            <p><strong>Strengths:</strong> ${personalityType.strengths}</p>
-            <p><strong>Weaknesses:</strong> ${personalityType.weaknesses}</p>
-            <p><strong>Obstacles:</strong> ${personalityType.obstacles}</p>
-            <p><strong>Spiritual Life:</strong> ${personalityType.spiritual}</p>
-            <p><strong>How Others See You:</strong> ${personalityType.howOthersSeeYou}</p>
-        `;
-    } else {
-        resultsDiv.innerHTML = `<p>Unable to determine personality type. Please check your responses and try again.</p>`;
+    let result;
+    if (score < 40) {
+        result = personalityTypes[0];
+    } else if (score < 80) {
+        result = personalityTypes[1];
+    } else if (score < 120) {
+        result = personalityTypes[2];
+    } else if (score < 160) {
+        result = personalityTypes[3];
+    } else if (score < 200) {
+        result = personalityTypes[4];
+    } else if (score < 240) {
+        result = personalityTypes[5];
+    } else if (score < 280) {
+        result = personalityTypes[6];
+    } else if (score < 320) {
+        result = personalityTypes[7];
+    } else if (score < 360) {
+        result = personalityTypes[8];
+    } else if (score < 400) {
+        result = personalityTypes[9];
+    } else if (score < 440) {
+        result = personalityTypes[10];
+    } else if (score < 480) {
+        result = personalityTypes[11];
+        } else if (score < 520) {
+        result = personalityTypes[12];
+    } else if (score < 560) {
+        result = personalityTypes[13];
+    } else if (score < 600) {
+        result = personalityTypes[14];
+    } else if (score < 640) {
+        result = personalityTypes[15];
+    } else if (score < 680) {
+        result = personalityTypes[16];
+    } else if (score < 720) {
+        result = personalityTypes[17];
+    } else if (score < 760) {
+        result = personalityTypes[18];
+    } else if (score < 800) {
+        result = personalityTypes[19];
+    } else if (score < 840) {
+        result = personalityTypes[20];
+    } else if (score < 880) {
+        result = personalityTypes[21];
+    } else if (score < 920) {
+        result = personalityTypes[22];
+    } else if (score < 960) {
+        result = personalityTypes[23];
+    } else if (score < 1000) {
+        result = personalityTypes[24];
+    } else if (score < 1040) {
+        result = personalityTypes[25];
+    } else if (score < 1080) {
+        result = personalityTypes[26];
+    } else if (score < 1120) {
+        result = personalityTypes[27];
+    } else if (score < 1160) {
+        result = personalityTypes[28];
+    } else if (score < 1200) {
+        result = personalityTypes[29];
+    } else if (score < 1240) {
+        result = personalityTypes[30];
+    } else if (score < 1280) {
+        result = personalityTypes[31];
+    } else if (score < 1320) {
+        result = personalityTypes[32];
+    } else if (score < 1360) {
+        result = personalityTypes[33];
     }
-});
 
-
+    return result;
+}
