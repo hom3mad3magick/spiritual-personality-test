@@ -29,9 +29,11 @@ document.getElementById('personality-test').addEventListener('submit', function(
     document.body.innerHTML = '';  // Clear the existing content
     document.body.appendChild(resultsContainer);  // Display the results
 });
-    const personalityTypes = [
-        {
-            name: "Adaptive Performer",
+
+function determinePersonalityType(score) {
+    if (score <= 36) {
+        return {
+            name: 'Adaptive Performer',
             description: "You are known for your adaptability and growth-oriented mindset, combined with a balanced approach to spirituality and rationality. Your ability to navigate different situations with grace and flexibility makes you a natural leader and innovator. You inspire others with your resilience and positivity, often finding creative solutions to challenges. Your balanced perspective allows you to see the big picture while managing details effectively.",
             traits: "Adaptable, growth-oriented, balanced, innovative.",
             behavior: "You engage confidently and inspire others with your adaptable and positive nature.",
