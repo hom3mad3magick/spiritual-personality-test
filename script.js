@@ -1,11 +1,34 @@
 document.getElementById('personality-test').addEventListener('submit', function(event) {
     event.preventDefault();
+
     const formData = new FormData(event.target);
     const data = {};
     formData.forEach((value, key) => {
         data[key] = value;
     });
 
+    const score = Object.values(data).reduce((acc, val) => acc + parseInt(val), 0);
+    const personalityType = determinePersonalityType(score);
+
+    const resultsContainer = document.createElement('div');
+    resultsContainer.innerHTML = `
+        <h2>Your Personality Type</h2>
+        <h3>${personalityType.name}</h3>
+        <p>${personalityType.description}</p>
+        <p><strong>Personality Traits:</strong> ${personalityType.traits}</p>
+        <p><strong>Behavior in Social Settings:</strong> ${personalityType.social}</p>
+        <p><strong>Employment:</strong> ${personalityType.employment}</p>
+        <p><strong>Leisure Activities:</strong> ${personalityType.leisure}</p>
+        <p><strong>Things to Avoid:</strong> ${personalityType.avoid}</p>
+        <p><strong>Self-Perception:</strong> ${personalityType.perception}</p>
+        <p><strong>Strengths:</strong> ${personalityType.strengths}</p>
+        <p><strong>Weaknesses:</strong> ${personalityType.weaknesses}</p>
+        <p><strong>Obstacles:</strong> ${personalityType.obstacles}</p>
+        <p><strong>Spiritual Life:</strong> ${personalityType.spiritual}</p>
+    `;
+    document.body.innerHTML = '';  // Clear the existing content
+    document.body.appendChild(resultsContainer);  // Display the results
+});
     const personalityTypes = [
         {
             name: "Adaptive Performer",
