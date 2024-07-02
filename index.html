@@ -10,7 +10,7 @@
     <div class="container">
         <h1>Comprehensive Spiritual Personality Profile Test (CSPPT)</h1>
         <form id="personality-test">
-            <!-- Question 1 -->
+            <!-- Self-Worth (8 questions) -->
             <div class="question">
                 <label>1. Imagine a close friend gives you a heartfelt compliment about your achievements. How do you feel?</label>
                 <select name="q1">
@@ -22,422 +22,542 @@
                     <option value="1">Completely undeserving and dismissive</option>
                 </select>
             </div>
-            
-            <!-- Question 2 -->
             <div class="question">
-                <label>2. How do you typically react to unexpected changes in your plans?</label>
+                <label>2. You have to make a significant decision about your career. How confident are you in your decision-making?</label>
                 <select name="q2">
-                    <option value="6">I adapt quickly and find new opportunities</option>
-                    <option value="5">I stay calm and adjust as needed</option>
-                    <option value="4">I feel slightly stressed but manage</option>
-                    <option value="3">I struggle to adjust and feel anxious</option>
-                    <option value="2">I become very stressed and upset</option>
-                    <option value="1">I cannot handle unexpected changes at all</option>
+                    <option value="6">I trust my decision completely</option>
+                    <option value="5">I trust my decision but seek reassurance</option>
+                    <option value="4">I feel unsure and often second-guess myself</option>
+                    <option value="3">I doubt my decision and often regret it</option>
+                    <option value="2">I rely heavily on others to decide for me</option>
+                    <option value="1">I avoid making decisions</option>
                 </select>
             </div>
-            
-            <!-- Question 3 -->
             <div class="question">
-                <label>3. When working on a team project, what role do you usually take?</label>
+                <label>3. How do you feel when someone expresses their love and appreciation for you?</label>
                 <select name="q3">
-                    <option value="6">Leader and decision-maker</option>
-                    <option value="5">Motivator and encourager</option>
-                    <option value="4">Contributor and supporter</option>
-                    <option value="3">Observer and follower</option>
-                    <option value="2">Reluctant participant</option>
-                    <option value="1">I prefer to work alone</option>
+                    <option value="6">I feel fully worthy and accept it wholeheartedly</option>
+                    <option value="5">I appreciate it but feel slightly unworthy</option>
+                    <option value="4">I find it hard to believe and feel unworthy</option>
+                    <option value="3">I reject or doubt their feelings</option>
+                    <option value="2">I feel embarrassed and try to change the subject</option>
+                    <option value="1">I avoid situations where this might happen</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>4. When you achieve a personal goal, how do you perceive your accomplishment?</label>
+                <select name="q4">
+                    <option value="6">I feel extremely proud and share my success</option>
+                    <option value="5">I feel proud and content</option>
+                    <option value="4">I feel happy but quickly move to the next goal</option>
+                    <option value="3">I feel neutral and don't dwell on it</option>
+                    <option value="2">I feel it wasn't that significant</option>
+                    <option value="1">I feel it was a fluke or luck</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>5. How do you react when faced with a new and challenging task at work?</label>
+                <select name="q5">
+                    <option value="6">I feel excited and confident I will do great</option>
+                    <option value="5">I feel ready and prepared to give my best</option>
+                    <option value="4">I feel slightly nervous but willing to try</option>
+                    <option value="3">I feel apprehensive and unsure of my abilities</option>
+                    <option value="2">I feel anxious and doubt my capabilities</option>
+                    <option value="1">I feel overwhelmed and avoid the task</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>6. When you look in the mirror, how do you feel about yourself?</label>
+                <select name="q6">
+                    <option value="6">I feel very confident and appreciate my appearance</option>
+                    <option value="5">I feel confident and generally happy with how I look</option>
+                    <option value="4">I feel okay but notice flaws</option>
+                    <option value="3">I feel critical of my appearance</option>
+                    <option value="2">I feel unhappy and avoid looking in the mirror</option>
+                    <option value="1">I feel very negative and disgust myself</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>7. How do you feel about your ability to achieve long-term goals?</label>
+                <select name="q7">
+                    <option value="6">Extremely confident and proactive</option>
+                    <option value="5">Confident and motivated</option>
+                    <option value="4">Somewhat confident but with occasional doubts</option>
+                    <option value="3">Often doubtful and unsure</option>
+                    <option value="2">Pessimistic and lacking confidence</option>
+                    <option value="1">Very doubtful and avoid setting long-term goals</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>8. How do you respond to constructive criticism?</label>
+                <select name="q8">
+                    <option value="6">I take it positively and use it to improve</option>
+                    <option value="5">I accept it and consider how to use it</option>
+                    <option value="4">I feel slightly defensive but try to apply it</option>
+                    <option value="3">I feel defensive and struggle to accept it</option>
+                    <option value="2">I feel hurt and tend to ignore it</option>
+                    <option value="1">I feel very upset and avoid receiving feedback</option>
                 </select>
             </div>
 
-            <!-- Question 4 -->
+            <!-- Resilience (8 questions) -->
             <div class="question">
-                <label>4. How do you feel in competitive situations, such as sports or work performance?</label>
-                <select name="q4">
+                <label>9. You encounter a major setback in a project. How do you react?</label>
+                <select name="q9">
+                    <option value="6">I feel determined to overcome it and move forward</option>
+                    <option value="5">I feel upset but try to find a way through</option>
+                    <option value="4">I feel discouraged and struggle to continue</option>
+                    <option value="3">I feel defeated and consider giving up</option>
+                    <option value="2">I try to find away out of the project</option>
+                    <option value="1">I ignore it and hope it resolves itself</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>10. How hopeful are you about achieving your long-term goals?</label>
+                <select name="q10">
+                    <option value="6">I am very hopeful and optimistic</option>
+                    <option value="5">I am hopeful but sometimes worry</option>
+                    <option value="4">I have doubts about my chances</option>
+                    <option value="3">I feel pessimistic and lack hope</option>
+                    <option value="2">I rely on external validation to feel hopeful</option>
+                    <option value="1">I often give up my goals</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>11. You are given a new challenging project at work. How confident are you that you will succeed?</label>
+                <select name="q11">
+                    <option value="6">I am very confident and eager to start</option>
+                    <option value="5">I am confident but have some concerns</option>
+                    <option value="4">I have significant doubts about my success</option>
+                    <option value="3">I feel I will likely fail and feel anxious</option>
+                    <option value="2">I seek constant reassurance from others</option>
+                    <option value="1">I avoid taking on challenging projects</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>12. How do you feel about trying new and difficult activities?</label>
+                <select name="q12">
+                    <option value="6">Very excited and motivated</option>
+                    <option value="5">Motivated but slightly apprehensive</option>
+                    <option value="4">Willing but nervous</option>
+                    <option value="3">Reluctant and anxious</option>
+                    <option value="2">Very hesitant and often avoid them</option>
+                    <option value="1">Completely avoid trying new activities</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>13. When you experience a personal failure, how do you handle it?</label>
+                <select name="q13">
+                    <option value="6">I use it as motivation for the future</option>
+                    <option value="5">I feel upset but look for lessons</option>
+                    <option value="4">I feel discouraged but try to move on</option>
+                                        <option value="3">I feel very down and dwell on it</option>
+                    <option value="2">I feel it confirms my fears about myself</option>
+                    <option value="1">I avoid thinking about it and distract myself</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>14. How do you cope with unexpected changes in your plans?</label>
+                <select name="q14">
+                    <option value="6">Adapt quickly and find new solutions</option>
+                    <option value="5">Feel slightly stressed but manage to adapt</option>
+                    <option value="4">Feel stressed but eventually find a way</option>
+                    <option value="3">Feel very stressed and struggle to adapt</option>
+                    <option value="2">Feel overwhelmed and need significant help</option>
+                    <option value="1">Feel paralyzed and unable to cope</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>15. How do you feel about taking risks?</label>
+                <select name="q15">
+                    <option value="6">Very comfortable and excited</option>
+                    <option value="5">Comfortable but slightly cautious</option>
+                    <option value="4">Nervous but willing to try</option>
+                    <option value="3">Anxious and hesitant</option>
+                    <option value="2">Very anxious and prefer to avoid risks</option>
+                    <option value="1">Completely avoid taking risks</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>16. How do you handle criticism and setbacks from others?</label>
+                <select name="q16">
+                    <option value="6">Take it in stride and use it constructively</option>
+                    <option value="5">Accept it but feel slightly hurt</option>
+                    <option value="4">Feel discouraged but try to learn</option>
+                    <option value="3">Feel very hurt and struggle to move on</option>
+                    <option value="2">Feel demoralized and question my abilities</option>
+                    <option value="1">Feel deeply affected and avoid further attempts</option>
+                </select>
+            </div>
+
+            <!-- Flexibility (7 questions) -->
+            <div class="question">
+                <label>17. How do you react when a major change occurs in your life?</label>
+                <select name="q17">
+                    <option value="6">I embrace it and adapt quickly</option>
+                    <option value="5">I accept it but take time to adjust</option>
+                    <option value="4">I feel stressed and resistant to the change</option>
+                    <option value="3">I feel overwhelmed and struggle to cope</option>
+                    <option value="2">I fear change and dwell on the negative possibilities</option>
+                    <option value="1">I avoid dealing with the change altogether</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>18. How do you feel in competitive situations, such as sports or work performance?</label>
+                <select name="q18">
                     <option value="6">I thrive and enjoy the competition</option>
                     <option value="5">I participate but feel moderate pressure</option>
                     <option value="4">I feel anxious and prefer to avoid competition</option>
                     <option value="3">I feel indifferent about competition</option>
-                    <option value="2">I dislike competition and avoid it</option>
-                    <option value="1">I find competition stressful and overwhelming</option>
+                    <option value="2">I feel stressed and avoid competitive situations</option>
+                    <option value="1">I strongly dislike and fear competition</option>
                 </select>
             </div>
-
-            <!-- Question 5 -->
             <div class="question">
-                <label>5. How do you respond to constructive criticism?</label>
-                <select name="q5">
-                    <option value="6">I appreciate it and use it to improve</option>
-                    <option value="5">I accept it and try to learn from it</option>
-                    <option value="4">I feel slightly defensive but consider it</option>
-                    <option value="3">I feel uncomfortable but acknowledge it</option>
-                    <option value="2">I find it hard to accept and feel hurt</option>
-                    <option value="1">I reject it and feel offended</option>
+                <label>19. How do you handle changes in your routine?</label>
+                <select name="q19">
+                    <option value="6">Embrace them and adjust easily</option>
+                    <option value="5">Accept them but need some time</option>
+                    <option value="4">Feel stressed but manage to adapt</option>
+                    <option value="3">Feel very stressed and struggle to adapt</option>
+                    <option value="2">Feel overwhelmed and need help to adjust</option>
+                    <option value="1">Avoid changes as much as possible</option>
                 </select>
             </div>
-
-            <!-- Question 6 -->
             <div class="question">
-                <label>6. When making decisions, how much do you rely on your intuition?</label>
-                <select name="q6">
-                    <option value="6">Always, my intuition guides me</option>
-                    <option value="5">Often, I trust my gut feelings</option>
-                    <option value="4">Sometimes, depending on the situation</option>
-                    <option value="3">Rarely, I prefer logical analysis</option>
-                    <option value="2">Hardly ever, I rely on facts and data</option>
-                    <option value="1">Never, I do not trust my intuition</option>
+                <label>20. How do you feel about moving to a new place?</label>
+                <select name="q20">
+                    <option value="6">Excited and eager for the change</option>
+                    <option value="5">Comfortable but slightly nervous</option>
+                    <option value="4">Nervous but willing to adapt</option>
+                    <option value="3">Anxious and hesitant</option>
+                    <option value="2">Very anxious and prefer to avoid it</option>
+                    <option value="1">Completely avoid moving if possible</option>
                 </select>
             </div>
-
-            <!-- Question 7 -->
             <div class="question">
-                <label>7. How do you handle stressful situations?</label>
-                <select name="q7">
-                    <option value="6">I remain calm and find solutions</option>
-                    <option value="5">I stay composed but feel pressure</option>
-                    <option value="4">I manage but feel stressed</option>
-                    <option value="3">I struggle and feel overwhelmed</option>
-                    <option value="2">I become anxious and find it hard to cope</option>
-                    <option value="1">I panic and cannot handle it</option>
+                <label>21. How do you handle unexpected disruptions at work?</label>
+                <select name="q21">
+                    <option value="6">Adapt quickly and find solutions</option>
+                    <option value="5">Feel slightly stressed but manage to adapt</option>
+                    <option value="4">Feel stressed but eventually cope</option>
+                    <option value="3">Feel very stressed and struggle to adapt</option>
+                    <option value="2">Feel overwhelmed and need help</option>
+                    <option value="1">Feel paralyzed and unable to cope</option>
                 </select>
             </div>
-
-            <!-- Question 8 -->
             <div class="question">
-                <label>8. How important is personal growth to you?</label>
-                <select name="q8">
-                    <option value="6">Extremely important, I actively seek it</option>
-                    <option value="5">Very important, I focus on it often</option>
-                    <option value="4">Moderately important, I work on it occasionally</option>
-                    <option value="3">Somewhat important, I think about it sometimes</option>
-                    <option value="2">Not very important, I rarely focus on it</option>
-                    <option value="1">Not important at all, I do not think about it</option>
+                <label>22. How do you respond to new ideas and perspectives?</label>
+                <select name="q22">
+                    <option value="6">Very open and eager to learn</option>
+                    <option value="5">Open but need time to understand</option>
+                    <option value="4">Slightly resistant but willing to consider</option>
+                    <option value="3">Resistant and prefer familiar ideas</option>
+                    <option value="2">Very resistant and avoid new perspectives</option>
+                    <option value="1">Completely dismiss new ideas</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>23. How do you feel about working in a team with diverse viewpoints?</label>
+                <select name="q23">
+                    <option value="6">Very comfortable and enjoy the diversity</option>
+                    <option value="5">Comfortable but need time to adjust</option>
+                    <option value="4">Slightly anxious but willing to try</option>
+                    <option value="3">Anxious and prefer similar viewpoints</option>
+                    <option value="2">Try to avoid working with others I don’t agree with</option>
+                    <option value="1">I refuse to work with others who have opposing viewpoints</option>
                 </select>
             </div>
 
-    <!-- Question 9 -->
-    <div>
-        <label>9. How do you respond to constructive criticism?</label><br>
-        <input type="radio" name="q9" value="6"> a) I take it positively and use it to improve. (6 points)<br>
-        <input type="radio" name="q9" value="5"> b) I accept it and consider how to use it. (5 points)<br>
-        <input type="radio" name="q9" value="4"> c) I feel slightly defensive but try to apply it. (4 points)<br>
-        <input type="radio" name="q9" value="3"> d) I feel defensive and struggle to accept it. (3 points)<br>
-        <input type="radio" name="q9" value="2"> e) I feel hurt and tend to ignore it. (2 points)<br>
-        <input type="radio" name="q9" value="1"> f) I feel very upset and avoid receiving feedback. (1 point)<br>
-    </div>
-    <!-- Add all other questions in similar structure -->
-    <div>
-        <label>10. You encounter a major setback in a project. How do you react?</label><br>
-        <input type="radio" name="q10" value="6"> a) I feel determined to overcome it and move forward. (6 points)<br>
-        <input type="radio" name="q10" value="5"> b) I feel upset but try to find a way through. (5 points)<br>
-        <input type="radio" name="q10" value="4"> c) I feel discouraged and struggle to continue. (4 points)<br>
-        <input type="radio" name="q10" value="3"> d) I feel defeated and consider giving up. (3 points)<br>
-        <input type="radio" name="q10" value="2"> e) I try to find away out of the project. (2 points)<br>
-        <input type="radio" name="q10" value="1"> f) I ignore it and hope it resolves itself. (1 point)<br>
-    </div>
-    <div>
-        <label>11. How hopeful are you about achieving your long-term goals?</label><br>
-        <input type="radio" name="q11" value="6"> a) I am very hopeful and optimistic. (6 points)<br>
-        <input type="radio" name="q11" value="5"> b) I am hopeful but sometimes worry. (5 points)<br>
-        <input type="radio" name="q11" value="4"> c) I have doubts about my chances. (4 points)<br>
-        <input type="radio" name="q11" value="3"> d) I feel pessimistic and lack hope. (3 points)<br>
-        <input type="radio" name="q11" value="2"> e) I rely on external validation to feel hopeful. (2 points)<br>
-        <input type="radio" name="q11" value="1"> f) I often give up my goals. (1 point)<br>
-    </div>
-    <div>
-        <label>12. You are given a new challenging project at work. How confident are you that you will succeed?</label><br>
-        <input type="radio" name="q12" value="6"> a) I am very confident and eager to start. (6 points)<br>
-        <input type="radio" name="q12" value="5"> b) I am confident but have some concerns. (5 points)<br>
-        <input type="radio" name="q12" value="4"> c) I have significant doubts about my success. (4 points)<br>
-        <input type="radio" name="q12" value="3"> d) I feel I will likely fail and feel anxious. (3 points)<br>
-        <input type="radio" name="q12" value="2"> e) I seek constant reassurance from others. (2 points)<br>
-        <input type="radio" name="q12" value="1"> f) I avoid taking on challenging projects. (1 point)<br>
-    </div>
-    <div>
-        <label>13. How do you feel about trying new and difficult activities?</label><br>
-        <input type="radio" name="q13" value="6"> a) Very excited and motivated. (6 points)<br>
-        <input type="radio" name="q13" value="5"> b) Motivated but slightly apprehensive. (5 points)<br>
-        <input type="radio" name="q13" value="4"> c) Willing but nervous. (4 points)<br>
-        <input type="radio" name="q13" value="3"> d) Reluctant and anxious. (3 points)<br>
-        <input type="radio" name="q13" value="2"> e) Very hesitant and often avoid them. (2 points)<br>
-        <input type="radio" name="q13" value="1"> f) Completely avoid trying new activities. (1 point)<br>
-    </div>
-    <div>
-        <label>14. When you experience a personal failure, how do you handle it?</label><br>
-        <input type="radio" name="q14" value="6"> a) I use it as motivation for the future. (6 points)<br>
-        <input type="radio" name="q14" value="5"> b) I feel upset but look for lessons. (5 points)<br>
-        <input type="radio" name="q14" value="4"> c) I feel discouraged but try to move on. (4 points)<br>
-        <input type="radio" name="q14" value="3"> d) I feel very down and dwell on it. (3 points)<br>
-        <input type="radio" name="q14" value="2"> e) I feel it confirms my fears about myself. (2 points)<br>
-        <input type="radio" name="q14" value="1"> f) I avoid thinking about it and distract myself. (1 points)<br>
-    </div>
-    <div>
-        <label>15. How do you cope with unexpected changes in your plans?</label><br>
-        <input type="radio" name="q15" value="6"> a) Adapt quickly and find new solutions. (6 points)<br>
-        <input type="radio" name="q15" value="5"> b) Feel slightly stressed but manage to adapt. (5 points)<br>
-        <input type="radio" name="q15" value="4"> c) Feel stressed but eventually find a way. (4 points)<br>
-        <input type="radio" name="q15" value="3"> d) Feel very stressed and struggle to adapt. (3 points)<br>
-        <input type="radio" name="q15" value="2"> e) Feel overwhelmed and need significant help. (2 points)<br>
-        <input type="radio" name="q15" value="1"> f) Feel paralyzed and unable to cope. (1 point)<br>
-    </div>
-    <div>
-        <label>16. How do you feel about taking risks?</label><br>
-        <input type="radio" name="q16" value="6"> a) Very comfortable and excited. (6 points)<br>
-        <input type="radio" name="q16" value="5"> b) Comfortable but slightly cautious. (5 points)<br>
-        <input type="radio" name="q16" value="4"> c) Nervous but willing to try. (4 points)<br>
-        <input type="radio" name="q16" value="3"> d) Anxious and hesitant. (3 points)<br>
-        <input type="radio" name="q16" value="2"> e) Very anxious and prefer to avoid risks. (2 points)<br>
-        <input type="radio" name="q16" value="1"> f) Completely avoid taking risks. (1 point)<br>
-    </div>
-    <div>
-        <label>17. How do you handle criticism and setbacks from others?</label><br>
-        <input type="radio" name="q17" value="6"> a) Take it in stride and use it constructively. (6 points)<br>
-        <input type="radio" name="q17" value="5"> b) Accept it but feel slightly hurt. (5 points)<br>
-        <input type="radio" name="q17" value="4"> c) Feel discouraged but try to learn. (4 points)<br>
-        <input type="radio" name="q17" value="3"> d) Feel very hurt and struggle to move on. (3 points)<br>
-        <input type="radio" name="q17" value="2"> e) Feel demoralized and question my abilities. (2 points)<br>
-                <input type="radio" name="q17" value="1"> f) Feel deeply affected and avoid further attempts. (1 point)<br>
-    </div>
-    <div>
-        <label>18. How do you react when a major change occurs in your life?</label><br>
-        <input type="radio" name="q18" value="6"> a) I embrace it and adapt quickly. (6 points)<br>
-        <input type="radio" name="q18" value="5"> b) I accept it but take time to adjust. (5 points)<br>
-        <input type="radio" name="q18" value="4"> c) I feel stressed and resistant to the change. (4 points)<br>
-        <input type="radio" name="q18" value="3"> d) I feel overwhelmed and struggle to cope. (3 points)<br>
-        <input type="radio" name="q18" value="2"> e) I fear change and dwell on the negative possibilities. (2 points)<br>
-        <input type="radio" name="q18" value="1"> f) I avoid dealing with the change altogether. (1 point)<br>
-    </div>
-    <div>
-        <label>19. How do you feel in competitive situations, such as sports or work performance?</label><br>
-        <input type="radio" name="q19" value="6"> a) I thrive and enjoy the competition. (6 points)<br>
-        <input type="radio" name="q19" value="5"> b) I participate but feel moderate pressure. (5 points)<br>
-        <input type="radio" name="q19" value="4"> c) I feel anxious and prefer to avoid competition. (4 points)<br>
-        <input type="radio" name="q19" value="3"> d) I feel indifferent about competition. (3 points)<br>
-        <input type="radio" name="q19" value="2"> e) I feel stressed and avoid competitive situations. (2 points)<br>
-        <input type="radio" name="q19" value="1"> f) I strongly dislike and fear competition. (1 point)<br>
-    </div>
-    <div>
-        <label>20. How do you handle changes in your routine?</label><br>
-        <input type="radio" name="q20" value="6"> a) Embrace them and adjust easily. (6 points)<br>
-        <input type="radio" name="q20" value="5"> b) Accept them but need some time. (5 points)<br>
-        <input type="radio" name="q20" value="4"> c) Feel stressed but manage to adapt. (4 points)<br>
-        <input type="radio" name="q20" value="3"> d) Feel very stressed and struggle to adapt. (3 points)<br>
-        <input type="radio" name="q20" value="2"> e) Feel overwhelmed and need help to adjust. (2 points)<br>
-        <input type="radio" name="q20" value="1"> f) Avoid changes as much as possible. (1 point)<br>
-    </div>
-    <div>
-        <label>21. How do you feel about moving to a new place?</label><br>
-        <input type="radio" name="q21" value="6"> a) Excited and eager for the change. (6 points)<br>
-        <input type="radio" name="q21" value="5"> b) Comfortable but slightly nervous. (5 points)<br>
-        <input type="radio" name="q21" value="4"> c) Nervous but willing to adapt. (4 points)<br>
-        <input type="radio" name="q21" value="3"> d) Anxious and hesitant. (3 points)<br>
-        <input type="radio" name="q21" value="2"> e) Very anxious and prefer to avoid it. (2 points)<br>
-        <input type="radio" name="q21" value="1"> f) Completely avoid moving if possible. (1 point)<br>
-    </div>
-    <div>
-        <label>22. How do you handle unexpected disruptions at work?</label><br>
-        <input type="radio" name="q22" value="6"> a) Adapt quickly and find solutions. (6 points)<br>
-        <input type="radio" name="q22" value="5"> b) Feel slightly stressed but manage to adapt. (5 points)<br>
-        <input type="radio" name="q22" value="4"> c) Feel stressed but eventually cope. (4 points)<br>
-        <input type="radio" name="q22" value="3"> d) Feel very stressed and struggle to adapt. (3 points)<br>
-        <input type="radio" name="q22" value="2"> e) Feel overwhelmed and need help. (2 points)<br>
-        <input type="radio" name="q22" value="1"> f) Feel paralyzed and unable to cope. (1 point)<br>
-    </div>
-    <div>
-        <label>23. How do you respond to new ideas and perspectives?</label><br>
-        <input type="radio" name="q23" value="6"> a) Very open and eager to learn. (6 points)<br>
-        <input type="radio" name="q23" value="5"> b) Open but need time to understand. (5 points)<br>
-        <input type="radio" name="q23" value="4"> c) Slightly resistant but willing to consider. (4 points)<br>
-        <input type="radio" name="q23" value="3"> d) Resistant and prefer familiar ideas. (3 points)<br>
-        <input type="radio" name="q23" value="2"> e) Very resistant and avoid new perspectives. (2 points)<br>
-        <input type="radio" name="q23" value="1"> f) Completely dismiss new ideas. (1 point)<br>
-    </div>
-    <div>
-        <label>24. How do you feel about working in a team with diverse viewpoints?</label><br>
-        <input type="radio" name="q24" value="6"> a) Very comfortable and enjoy the diversity. (6 points)<br>
-        <input type="radio" name="q24" value="5"> b) Comfortable but need time to adjust. (5 points)<br>
-        <input type="radio" name="q24" value="4"> c) Slightly anxious but willing to try. (4 points)<br>
-        <input type="radio" name="q24" value="3"> d) Anxious and prefer similar viewpoints. (3 points)<br>
-        <input type="radio" name="q24" value="2"> e) Try to avoid working with others I don’t agree with. (2 points)<br>
-        <input type="radio" name="q24" value="1"> f) I refuse to work with others who have opposing viewpoints. (1 point)<br>
-    </div>
-    <div>
-        <label>25. How do you react when someone cuts you off in traffic?</label><br>
-        <input type="radio" name="q25" value="6"> a) I stay calm and let it go. (6 points)<br>
-        <input type="radio" name="q25" value="5"> b) I feel slightly annoyed but quickly move on. (5 points)<br>
-        <input type="radio" name="q25" value="4"> c) I feel irritated and think about it for a while. (4 points)<br>
-        <input type="radio" name="q25" value="3"> d) I curse under my breath and beep my horn at them. (3 points)<br>
-        <input type="radio" name="q25" value="2"> e) I become aggressive and want try to follow them. (2 points)<br>
-        <input type="radio" name="q25" value="1"> f) I try to run them off the road. (1 point)<br>
-    </div>
-    <div>
-        <label>26. How do you react when someone unfairly criticizes you?</label><br>
-        <input type="radio" name="q26" value="6"> a) I stay calm and consider their perspective. (6 points)<br>
-        <input type="radio" name="q26" value="5"> b) I feel upset but try to respond calmly. (5 points)<br>
-        <input type="radio" name="q26" value="4"> c) I feel the need to defend myself immediately. (4 points)<br>
-        <input type="radio" name="q26" value="3"> d) I feel hurt and withdraw. (3 points)<br>
-        <input type="radio" name="q26" value="2"> e) I feel angry and hurt and I criticize them. (2 points)<br>
-                <input type="radio" name="q26" value="1"> f) I try to hurt them and continue to hold a grudge long after. (1 point)<br>
-    </div>
-    <div>
-        <label>27. How do you feel when you make a mistake at work?</label><br>
-        <input type="radio" name="q27" value="6"> a) I accept it and learn from it. (6 points)<br>
-        <input type="radio" name="q27" value="5"> b) I feel bad but try to correct it. (5 points)<br>
-        <input type="radio" name="q27" value="4"> c) I feel upset and worry about it. (4 points)<br>
-        <input type="radio" name="q27" value="3"> d) I feel very distressed and fear repercussions. (3 points)<br>
-        <input type="radio" name="q27" value="2"> e) I feel embarrassed and avoid discussing it. (2 points)<br>
-        <input type="radio" name="q27" value="1"> f) I feel nothing. Who cares if I get fired. (1 point)<br>
-    </div>
-    <div>
-        <label>28. How do you handle unexpected stressful situations?</label><br>
-        <input type="radio" name="q28" value="6"> a) I stay calm and assess the situation. (6 points)<br>
-        <input type="radio" name="q28" value="5"> b) I feel slightly stressed but manage to stay composed. (5 points)<br>
-        <input type="radio" name="q28" value="4"> c) I get somewhat anxious but deal with it. (4 points)<br>
-        <input type="radio" name="q28" value="3"> d) I feel very anxious and struggle to cope. (3 points)<br>
-        <input type="radio" name="q28" value="2"> e) I feel overwhelmed and need support. (2 points)<br>
-        <input type="radio" name="q28" value="1"> f) I avoid dealing with it and hope it resolves itself. (1 point)<br>
-    </div>
-    <div>
-        <label>29. How do you feel when you have a disagreement with a close friend?</label><br>
-        <input type="radio" name="q29" value="6"> a) I stay calm and try to understand their perspective. (6 points)<br>
-        <input type="radio" name="q29" value="5"> b) I feel upset but try to resolve it calmly. (5 points)<br>
-        <input type="radio" name="q29" value="4"> c) I feel angry and argue my point. (4 points)<br>
-        <input type="radio" name="q29" value="3"> d) I feel very angry and it impacts our relationship. (3 points)<br>
-        <input type="radio" name="q29" value="2"> e) I feel hurt and avoid the person. (2 points)<br>
-        <input type="radio" name="q29" value="1"> f) I feel indifferent and don’t care how it impacts our relationship. (1 point)<br>
-    </div>
-    <div>
-        <label>30. How do you handle approaching deadlines at work?</label><br>
-        <input type="radio" name="q30" value="6"> a) I stay calm and manage my time efficiently. (6 points)<br>
-        <input type="radio" name="q30" value="5"> b) I feel slightly stressed but meet the deadline. (5 points)<br>
-        <input type="radio" name="q30" value="4"> c) I feel stressed and rush to complete the work. (4 points)<br>
-        <input type="radio" name="q30" value="3"> d) I feel very anxious and struggle to meet the deadline. (3 points)<br>
-        <input type="radio" name="q30" value="2"> e) I feel overwhelmed but feel foolish asking for help. (2 points)<br>
-        <input type="radio" name="q30" value="1"> f) I avoid thinking about it and don’t really care. (1 point)<br>
-    </div>
-    <div>
-        <label>31. How do you feel in social gatherings with unfamiliar people?</label><br>
-        <input type="radio" name="q31" value="6"> a) I feel very confident and enjoy meeting new people. (6 points)<br>
-        <input type="radio" name="q31" value="5"> b) I feel comfortable but slightly nervous. (5 points)<br>
-        <input type="radio" name="q31" value="4"> c) I feel anxious and try to avoid interaction. (4 points)<br>
-        <input type="radio" name="q31" value="3"> d) I feel very uncomfortable and avoid such gatherings. (3 points)<br>
-        <input type="radio" name="q31" value="2"> e) I cause myself extreme anxiety and feel embarrassed. (2 points)<br>
-        <input type="radio" name="q31" value="1"> f) I feel indifferent and detached. (1 point)<br>
-    </div>
-    <div>
-        <label>32. How do you feel about discussing your goals and dreams with a stranger?</label><br>
-        <input type="radio" name="q32" value="6"> a) I feel excited and enjoy sharing my aspirations. (6 points)<br>
-        <input type="radio" name="q32" value="5"> b) I feel comfortable but somewhat reserved. (5 points)<br>
-        <input type="radio" name="q32" value="4"> c) I feel nervous and prefer not to share much. (4 points)<br>
-        <input type="radio" name="q32" value="3"> d) I feel uncomfortable and avoid discussing personal goals. (3 points)<br>
-        <input type="radio" name="q32" value="2"> e) I feel extremely anxious and don’t share anything. (2 points)<br>
-        <input type="radio" name="q32" value="1"> f) I feel terrified and I am unable to say a word. (1 point)<br>
-    </div>
-    <div>
-        <label>33. How do you feel about speaking in front of a large audience?</label><br>
-        <input type="radio" name="q33" value="6"> a) I feel very confident and enjoy it. (6 points)<br>
-        <input type="radio" name="q33" value="5"> b) I feel comfortable but slightly nervous. (5 points)<br>
-        <input type="radio" name="q33" value="4"> c) I feel anxious but manage to do it. (4 points)<br>
-        <input type="radio" name="q33" value="3"> d) I feel really nervous and try to avoid it if possible. (3 points)<br>
-        <input type="radio" name="q33" value="2"> e) I feel extremely anxious and have a panic attack. (2 points)<br>
-        <input type="radio" name="q33" value="1"> f) I am terrified and would not be able to under any circumstances. (1 point)<br>
-    </div>
-    <div>
-        <label>34. How do you feel when meeting new people for the first time?</label><br>
-        <input type="radio" name="q34" value="6"> a) I feel very confident and initiate conversations. (6 points)<br>
-        <input type="radio" name="q34" value="5"> b) I feel comfortable and engage easily. (5 points)<br>
-        <input type="radio" name="q34" value="4"> c) I feel nervous but try to engage. (4 points)<br>
-        <input type="radio" name="q34" value="3"> d) I feel indifferent but prefer not to. (3 points)<br>
-        <input type="radio" name="q34" value="2"> e) I feel very anxious and try to avoid interaction. (2 points)<br>
-        <input type="radio" name="q34" value="1"> f) I feel extremely anxious and go to great lengths to never have to. (1 point)<br>
-    </div>
-    <div>
-        <label>35. How do you feel about participating in group discussions?</label><br>
-        <input type="radio" name="q35" value="6"> a) I feel very confident and contribute actively. (6 points)<br>
-        <input type="radio" name="q35" value="5"> b) I feel comfortable and share my views. (5 points)<br>
-        <input type="radio" name="q35" value="4"> c) I feel nervous but participate. (4 points)<br>
-        <input type="radio" name="q35" value="3"> d) I feel indifferent and prefer not to. (3 points)<br>
-                <input type="radio" name="q35" value="3"> d) I feel indifferent and prefer not to. (3 points)<br>
-        <input type="radio" name="q35" value="2"> e) I feel very anxious and stay quiet. (2 points)<br>
-        <input type="radio" name="q35" value="1"> f) I feel extremely anxious and avoid participating altogether. (1 point)<br>
-    </div>
-    <div>
-        <label>36. You have plans to attend a concert with a friend, but at the last minute they cancel and you have decided to go alone. How do you feel?</label><br>
-        <input type="radio" name="q36" value="6"> a) I feel very confident and enjoy the event. (6 points)<br>
-        <input type="radio" name="q36" value="5"> b) I feel comfortable but slightly nervous. (5 points)<br>
-        <input type="radio" name="q36" value="4"> c) I feel anxious but attend anyway. (4 points)<br>
-        <input type="radio" name="q36" value="3"> d) I feel indifferent but might not go. (3 points)<br>
-        <input type="radio" name="q36" value="2"> e) I feel very anxious and avoid attending alone. (2 points)<br>
-        <input type="radio" name="q36" value="1"> f) I feel terrified at the thought and stay home. (1 point)<br>
-    <div>
-            <label>37. How often do you engage in spiritual practices (e.g., meditation, prayer, etc.)?</label><br>
-            <input type="radio" name="q37" value="6"> a) Daily. (6 points)<br>
-            <input type="radio" name="q37" value="5"> b) Several times a week. (5 points)<br>
-            <input type="radio" name="q37" value="4"> c) Once a week. (4 points)<br>
-            <input type="radio" name="q37" value="3"> d) Occasionally. (3 points)<br>
-            <input type="radio" name="q37" value="2"> e) Rarely. (2 points)<br>
-            <input type="radio" name="q37" value="1"> f) Never. (1 point)<br>
-        </div>
-        <div>
-            <label>38. How connected do you feel to a higher power or greater force?</label><br>
-            <input type="radio" name="q38" value="6"> a) Very connected. (6 points)<br>
-            <input type="radio" name="q38" value="5"> b) Moderately connected. (5 points)<br>
-            <input type="radio" name="q38" value="4"> c) Somewhat connected. (4 points)<br>
-            <input type="radio" name="q38" value="3"> d) Slightly connected. (3 points)<br>
-            <input type="radio" name="q38" value="2"> e) Not connected. (2 points)<br>
-            <input type="radio" name="q38" value="1"> f) Disconnected. (1 point)<br>
-        </div>
-        <div>
-            <label>39. How important is spirituality in your daily life?</label><br>
-            <input type="radio" name="q39" value="6"> a) Extremely important. (6 points)<br>
-            <input type="radio" name="q39" value="5"> b) Very important. (5 points)<br>
-            <input type="radio" name="q39" value="4"> c) Moderately important. (4 points)<br>
-            <input type="radio" name="q39" value="3"> d) Slightly important. (3 points)<br>
-            <input type="radio" name="q39" value="2"> e) Not important. (2 points)<br>
-            <input type="radio" name="q39" value="1"> f) Unimportant. (1 point)<br>
-        </div>
-        <div>
-            <label>40. How often do you seek spiritual guidance in decision-making?</label><br>
-            <input type="radio" name="q40" value="6"> a) Always. (6 points)<br>
-            <input type="radio" name="q40" value="5"> b) Often. (5 points)<br>
-            <input type="radio" name="q40" value="4"> c) Sometimes. (4 points)<br>
-            <input type="radio" name="q40" value="3"> d) Rarely. (3 points)<br>
-            <input type="radio" name="q40" value="2"> e) Almost never. (2 points)<br>
-            <input type="radio" name="q40" value="1"> f) Never. (1 point)<br>
-        </div>
-        <div>
-            <label>41. How do you feel after engaging in spiritual practices?</label><br>
-            <input type="radio" name="q41" value="6"> a) Deeply fulfilled and peaceful. (6 points)<br>
-            <input type="radio" name="q41" value="5"> b) Fulfilled and content. (5 points)<br>
-            <input type="radio" name="q41" value="4"> c) Somewhat fulfilled. (4 points)<br>
-            <input type="radio" name="q41" value="3"> d) Neutral. (3 points)<br>
-            <input type="radio" name="q41" value="2"> e) Slightly unfulfilled. (2 points)<br>
-            <input type="radio" name="q41" value="1"> f) Unfulfilled and restless. (1 point)<br>
-        </div>
-        <div>
-            <label>42. How do you integrate spiritual practices into your daily routine?</label><br>
-            <input type="radio" name="q42" value="6"> a) They are a core part of my routine. (6 points)<br>
-            <input type="radio" name="q42" value="5"> b) They are an important part. (5 points)<br>
-            <input type="radio" name="q42" value="4"> c) They are a regular part. (4 points)<br>
-            <input type="radio" name="q42" value="3"> d) They are an occasional part. (3 points)<br>
-            <input type="radio" name="q42" value="2"> e) They are a rare part. (2 points)<br>
-            <input type="radio" name="q42" value="1"> f) They are not part of my routine. (1 point)<br>
-        </div>
-    <!-- Add more questions as necessary following the same structure -->
-    <button type="submit">Submit</button>
-</form>
-<div id="results"></div>
+            <!-- Emotional Stability (6 questions) -->
+            <div class="question">
+                <label>24. How do you react when someone cuts you off in traffic?</label>
+                <select name="q24">
+                    <option value="6">I stay calm and let it go</option>
+                    <option value="5">I feel slightly annoyed but quickly move on</option>
+                    <option value="4">I feel irritated and think about it for a while</option>
+                    <option value="3">I curse under my breath and beep my horn at them</option>
+                    <option value="2">I become aggressive and want try to follow them</option>
+                    <option value="1">I try to run them off the road</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>25. How do you react when someone unfairly criticizes you?</label>
+                <select name="q25">
+                    <option value="6">I stay calm and consider their perspective</option>
+                    <option value="5">I feel upset but try to respond calmly</option>
+                    <option value="4">I feel the need to defend myself immediately</option>
+                    <option value="3">I feel hurt and withdraw</option>
+                    <option value="2">I feel angry and hurt and I criticize them</option>
+                    <option value="1">I try to hurt them and continue to hold a grudge long after</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>26. How do you feel when you make a mistake at work?</label>
+                <select name="q26">
+                    <option value="6">I accept it and learn from it</option>
+                    <option value="5">I feel bad but try to correct it</option>
+                    <option value="4">I feel upset and worry about it</option>
+                    <option value="3">I feel very distressed and fear repercussions</option>
+                    <option value="2">I feel embarrassed and avoid discussing it</option>
+                    <option value="1">I feel nothing. Who cares if I get fired</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>27. How do you handle unexpected stressful situations?</label>
+                <select name="q27">
+                    <option value="6">I stay calm and assess the situation</option>
+                    <option value="5">I feel slightly stressed but manage to stay composed</option>
+                                        <option value="4">I get somewhat anxious but deal with it</option>
+                    <option value="3">I feel very anxious and struggle to cope</option>
+                    <option value="2">I feel overwhelmed and need support</option>
+                    <option value="1">I avoid dealing with it and hope it resolves itself</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>28. How do you feel when you have a disagreement with a close friend?</label>
+                <select name="q28">
+                    <option value="6">I stay calm and try to understand their perspective</option>
+                    <option value="5">I feel upset but try to resolve it calmly</option>
+                    <option value="4">I feel angry and argue my point</option>
+                    <option value="3">I feel very angry and it impacts our relationship</option>
+                    <option value="2">I feel hurt and avoid the person</option>
+                    <option value="1">I feel indifferent and don’t care how it impacts our relationship</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>29. How do you handle approaching deadlines at work?</label>
+                <select name="q29">
+                    <option value="6">I stay calm and manage my time efficiently</option>
+                    <option value="5">I feel slightly stressed but meet the deadline</option>
+                    <option value="4">I feel stressed and rush to complete the work</option>
+                    <option value="3">I feel very anxious and struggle to meet the deadline</option>
+                    <option value="2">I feel overwhelmed but feel foolish asking for help</option>
+                    <option value="1">I avoid thinking about it and don’t really care</option>
+                </select>
+            </div>
 
-<script src="script.js"></script>
+            <!-- Social Confidence (7 questions) -->
+            <div class="question">
+                <label>30. How do you feel in social gatherings with unfamiliar people?</label>
+                <select name="q30">
+                    <option value="6">I feel very confident and enjoy meeting new people</option>
+                    <option value="5">I feel comfortable but slightly nervous</option>
+                    <option value="4">I feel anxious and try to avoid interaction</option>
+                    <option value="3">I feel very uncomfortable and avoid such gatherings</option>
+                    <option value="2">I cause myself extreme anxiety and feel embarrassed</option>
+                    <option value="1">I feel indifferent and detached</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>31. How do you feel about discussing your goals and dreams with a stranger?</label>
+                <select name="q31">
+                    <option value="6">I feel excited and enjoy sharing my aspirations</option>
+                    <option value="5">I feel comfortable but somewhat reserved</option>
+                    <option value="4">I feel nervous and prefer not to share much</option>
+                    <option value="3">I feel uncomfortable and avoid discussing personal goals</option>
+                    <option value="2">I feel extremely anxious and don’t share anything</option>
+                    <option value="1">I feel terrified and I am unable to say a word</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>32. How do you feel about speaking in front of a large audience?</label>
+                <select name="q32">
+                    <option value="6">I feel very confident and enjoy it</option>
+                    <option value="5">I feel comfortable but slightly nervous</option>
+                    <option value="4">I feel anxious but manage to do it</option>
+                    <option value="3">I feel really nervous and try to avoid it if possible</option>
+                    <option value="2">I feel extremely anxious and have a panic attack</option>
+                    <option value="1">I am terrified and would not be able to under any circumstances</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>33. How do you feel when meeting new people for the first time?</label>
+                <select name="q33">
+                    <option value="6">I feel very confident and initiate conversations</option>
+                    <option value="5">I feel comfortable and engage easily</option>
+                    <option value="4">I feel nervous but try to engage</option>
+                    <option value="3">I feel indifferent but prefer not to</option>
+                    <option value="2">I feel very anxious and try to avoid interaction</option>
+                    <option value="1">I feel extremely anxious and go to great lengths to never have to</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>34. How do you feel about participating in group discussions?</label>
+                <select name="q34">
+                    <option value="6">I feel very confident and contribute actively</option>
+                    <option value="5">I feel comfortable and share my views</option>
+                    <option value="4">I feel nervous but participate</option>
+                    <option value="3">I feel indifferent and prefer not to</option>
+                    <option value="2">I feel very anxious and stay quiet</option>
+                    <option value="1">I feel extremely anxious and avoid participating altogether</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>35. You have plans to attend a concert with a friend, but at the last minute they cancel and you have decided to go alone. How do you feel?</label>
+                <select name="q35">
+                    <option value="6">I feel very confident and enjoy the event</option>
+                    <option value="5">I feel comfortable but slightly nervous</option>
+                    <option value="4">I feel anxious but attend anyway</option>
+                    <option value="3">I feel indifferent but might not go</option>
+                    <option value="2">I feel very anxious and avoid attending alone</option>
+                    <option value="1">I feel terrified at the thought and stay home</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>36. How do you feel about expressing your opinions in a group?</label>
+                <select name="q36">
+                    <option value="6">I feel very confident and articulate my views well</option>
+                    <option value="5">I feel comfortable and share my thoughts</option>
+                    <option value="4">I feel nervous but try to speak up</option>
+                    <option value="3">I feel indifferent and prefer not to</option>
+                    <option value="2">I feel very anxious and stay quiet</option>
+                    <option value="1">I feel extremely anxious and stare at the floor without speaking</option>
+                </select>
+            </div>
 
+            <!-- Interpersonal Relationships (7 questions) -->
+            <div class="question">
+                <label>37. How do you feel when you have to resolve a conflict with a close friend?</label>
+                <select name="q37">
+                    <option value="6">Confident and empathetic</option>
+                    <option value="5">Confident but assertive</option>
+                    <option value="4">Nervous but willing</option>
+                    <option value="3">Indifferent and detached</option>
+                    <option value="2">Anxious and avoidant</option>
+                    <option value="1">Fearful and confrontational</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>38. How do you feel about asking for help when you need it?</label>
+                <select name="q38">
+                    <option value="6">Comfortable and confident</option>
+                    <option value="5">Slightly hesitant but willing</option>
+                    <option value="4">Nervous and reluctant</option>
+                    <option value="3">Indifferent and detached</option>
+                    <option value="2">Anxious and avoidant</option>
+                    <option value="1">Fearful and confrontational</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>39. How do you feel about offering support to others in need?</label>
+                <select name="q39">
+                    <option value="6">Very confident and willing</option>
+                    <option value="5">Comfortable and helpful</option>
+                    <option value="4">Slightly hesitant but willing</option>
+                    <option value="3">Nervous and unsure</option>
+                    <option value="2">Indifferent and detached</option>
+                    <option value="1">Avoid offering support</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>40. How do you approach building trust in new relationships?</label>
+                <select name="q40">
+                    <option value="6">Very open and trusting</option>
+                    <option value="5">Open but cautious</option>
+                    <option value="4">Slightly reserved but willing</option>
+                    <option value="3">Anxious and skeptical</option>
+                    <option value="2">Indifferent and detached</option>
+                    <option value="1">Avoid building trust</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>41. How do you handle criticism from close friends or family?</label>
+                <select name="q41">
+                    <option value="6">Accept it calmly and consider it</option>
+                    <option value="5">Feel slightly hurt but try to use it constructively</option>
+                    <option value="4">Feel defensive but listen</option>
+                    <option value="3">Feel indifferent and ignore it</option>
+                    <option value="2">Feel very hurt and withdraw</option>
+                    <option value="1">React confrontationally and argue</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>42. How do you feel about setting boundaries in relationships?</label>
+                <select name="q42">
+                    <option value="6">Very confident and assertive</option>
+                    <option value="5">Comfortable and clear</option>
+                    <option value="4">Slightly hesitant but try</option>
+                    <option value="3">Nervous and avoidant</option>
+                    <option value="2">Indifferent and detached</option>
+                    <option value="1">Struggle and often fail</option>
+                </select>
+            </div>
 
-    </div>
+            <!-- Spiritual Questions (6 questions) -->
+            <div class="question">
+                <label>43. How often do you engage in spiritual practices (e.g., meditation, prayer, etc.)?</label>
+                <select name="q43">
+                    <option value="6">Daily</option>
+                    <option value="5">Several times a week</option>
+                    <option value="4">Once a week</option>
+                    <option value="3">Occasionally</option>
+                    <option value="2">Rarely</option>
+                    <option value="1">Never</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>44. How connected do you feel to a higher power or greater force?</label>
+                <select name="q44">
+                    <option value="6">Very connected</option>
+                    <option value="5">Moderately connected</option>
+                    <option value="4">Somewhat connected</option>
+                    <option value="3">Slightly connected</option>
+                    <option value="2">Not connected</option>
+                    <option value="1">Disconnected</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>45. How important is spirituality in your daily life?</label>
+                <select name="q45">
+                    <option value="6">Extremely important</option>
+                    <option value="5">Very important</option>
+                    <option value="4">Moderately important</option>
+                    <option value="3">Slightly important</option>
+                    <option value="2">Not important</option>
+                    <option value="1">Unimportant</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>46. How often do you seek spiritual guidance in decision-making?</label>
+                <select name="q46">
+                    <option value="6">Always</option>
+                    <option value="5">Often</option>
+                    <option value="4">Sometimes</option>
+                    <option value="3">Rarely</option>
+                    <option value="2">Almost never</option>
+                    <option value="1">Never</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>47. How do you feel after engaging in spiritual practices?</label>
+                <select name="q47">
+                    <option value="6">Deeply fulfilled and peaceful</option>
+                    <option value="5">Fulfilled and content</option>
+                    <option value="4">Somewhat fulfilled</option>
+                    <option value="3">Neutral</option>
+                    <option value="2">Slightly unfulfilled</option>
+                    <option value="1">Unfulfilled and restless</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>48. How do you integrate spiritual practices into your daily routine?</label>
+                <select name="q48">
+                    <option value="6">They are a core part of my routine</option>
+                    <option value="5">They are an important part</option>
+                    <option value="4">They are a regular part</option>
+                    <option value="3">They are an occasional part</option>
+                    <option value="2">They are a rare part</option>
+                    <option value="1">They are not part of my routine</option>
+                </select>
+            </div>
+
             <!-- Submit Button -->
-<button type="submit">Submit</button>
-</form>
-
-<!-- Placeholder for Results -->
-<div id="result" style="display:none;"></div>
-</div>
-<script src="script.js"></script>
+            <button type="submit">Submit</button>
+        </form>
+        <!-- Placeholder for Results -->
+        <div id="result" style="display:none;"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
