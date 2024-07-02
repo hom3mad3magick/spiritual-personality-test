@@ -82,7 +82,7 @@ document.getElementById("personality-test").addEventListener("submit", function(
         **Obstacles:** Overcoming social anxiety and building confidence.
         **Spiritual Life:** Your spirituality provides you with comfort and guidance in your introspective journey.`,
 
-        '1b': `**Type 1b: Anxious Introvert (Balanced)**\n
+                '1b': `**Type 1b: Anxious Introvert (Balanced)**\n
         **Description:** You are introverted and often feel anxious in social situations, but you maintain a balance between solitude and social interaction. You understand the importance of social connections and make an effort to engage with others despite your anxieties. Your balanced approach helps you navigate life's challenges more effectively.
         **Behavior in Social Settings:** You may feel anxious but try to engage in conversations and activities.
         **Employment:** You may excel in roles that allow for independent work with occasional collaboration.
@@ -130,7 +130,7 @@ document.getElementById("personality-test").addEventListener("submit", function(
         **Obstacles:** Finding a balance between helping others and taking care of yourself.
         **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
 
-                '2c': `**Type 2c: Sensitive Helper (Rational)**\n
+        '2c': `**Type 2c: Sensitive Helper (Rational)**\n
         **Description:** You are compassionate and empathetic, often putting others' needs before your own. You rely on logic and reason to navigate your caregiving efforts, ensuring that your support is practical and effective. Your rational approach helps you provide support without becoming overwhelmed by emotions.
         **Behavior in Social Settings:** You are warm and approachable, often providing support and comfort to others.
         **Employment:** You may excel in roles that involve caregiving, counseling, or social work.
@@ -178,7 +178,7 @@ document.getElementById("personality-test").addEventListener("submit", function(
         **Obstacles:** Balancing analysis with action and decision-making.
         **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`,
 
-        '4a': `**Type 4a: Practical Achiever (Spiritual)**\n
+                '4a': `**Type 4a: Practical Achiever (Spiritual)**\n
         **Description:** You are driven and goal-oriented, often focusing on practical achievements and success. You have a deep spiritual side that provides you with motivation and purpose in your pursuits. Your practical approach, combined with your spiritual insights, helps you achieve your goals with integrity.
         **Behavior in Social Settings:** You are confident and often take on leadership roles.
         **Employment:** You may excel in roles that require goal-setting, strategic planning, and execution.
@@ -226,7 +226,7 @@ document.getElementById("personality-test").addEventListener("submit", function(
         **Obstacles:** Balancing social interactions with self-care and spiritual growth.
         **Spiritual Life:** Your spirituality provides you with a sense of connection and purpose in your social interactions.`,
 
-                '5b': `**Type 5b: Social Butterfly (Balanced)**\n
+        '5b': `**Type 5b: Social Butterfly (Balanced)**\n
         **Description:** You are outgoing and enjoy social interactions, often thriving in social settings. You maintain a balance between your social life and personal well-being, ensuring that you engage with others without neglecting yourself. Your balanced approach helps you build meaningful relationships with ease.
         **Behavior in Social Settings:** You are enthusiastic and enjoy engaging with others.
         **Employment:** You may excel in roles that involve networking, public relations, or event planning.
@@ -274,7 +274,7 @@ document.getElementById("personality-test").addEventListener("submit", function(
         **Obstacles:** Maintaining balance without neglecting your own needs.
         **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
 
-        '6c': `**Type 6c: Balanced Connector (Rational)**\n
+                '6c': `**Type 6c: Balanced Connector (Rational)**\n
         **Description:** You are a balanced individual who values harmony and connection with others. You rely on logic and reason to maintain balance and build meaningful relationships. Your rational approach helps you navigate life's challenges with clarity and precision.
         **Behavior in Social Settings:** You are approachable and enjoy fostering connections.
         **Employment:** You may excel in roles that require teamwork, mediation, or counseling.
@@ -288,80 +288,80 @@ document.getElementById("personality-test").addEventListener("submit", function(
 
         '7a': `**Type 7a: Analytical Explorer (Spiritual)**\n
         **Description:** You are curious and analytical, always seeking to understand the world around you. You have a deep spiritual side that provides you with insight and guidance in your explorations. Your analytical approach, combined with your spiritual insights, helps you navigate life's mysteries with curiosity and clarity.
-        **Behavior in Social Settings:** You are thoughtful and enjoy deep conversations.
+        **Behavior in Social Settings:** You are thoughtful and enjoy deep, meaningful conversations.
         **Employment:** You may excel in roles that require research, analysis, or exploration.
-        **Leisure Activities:** You enjoy activities that stimulate your mind and spirit, such as studying spiritual texts or exploring nature.
-        **Things to Avoid:** Overanalyzing and becoming lost in details.
+        **Leisure Activities:** You enjoy activities that challenge your mind, such as puzzles, reading, or exploring new ideas.
+        **Things to Avoid:** Getting lost in analysis and neglecting practical aspects of life.
         **Self-Perception:** You see yourself as curious and insightful.
-        **Strengths:** Analytical thinking, curiosity, deep spirituality.
-        **Weaknesses:** Tendency to overanalyze, social reservation.
-        **Obstacles:** Balancing analysis with action and decision-making.
-        **Spiritual Life:** Your spirituality provides you with a sense of purpose and guidance in your explorations.`,
+        **Strengths:** Analytical thinking, curiosity, deep connection with spirituality.
+        **Weaknesses:** Tendency to overanalyze, difficulty staying grounded.
+        **Obstacles:** Balancing analysis with action and practical considerations.
+        **Spiritual Life:** Your spirituality provides you with insight and guidance in your explorations.`,
 
         '7b': `**Type 7b: Analytical Explorer (Balanced)**\n
-        **Description:** You are curious and analytical, always seeking to understand the world around you. You maintain a balance between your analytical mind and your intuition, allowing you to explore life's mysteries with confidence and clarity. Your balanced approach helps you navigate complex situations with ease.
-        **Behavior in Social Settings:** You are thoughtful and enjoy deep conversations.
+        **Description:** You are curious and analytical, always seeking to understand the world around you. You maintain a balance between your analytical pursuits and practical considerations, ensuring that your explorations are both insightful and grounded. Your balanced approach helps you navigate life's mysteries with confidence.
+        **Behavior in Social Settings:** You are thoughtful and enjoy deep, meaningful conversations.
         **Employment:** You may excel in roles that require research, analysis, or exploration.
-        **Leisure Activities:** You enjoy activities that stimulate your mind, such as reading, learning new skills, or strategic games.
-        **Things to Avoid:** Overanalyzing and becoming lost in details.
+        **Leisure Activities:** You enjoy activities that challenge your mind, such as puzzles, reading, or exploring new ideas.
+        **Things to Avoid:** Getting lost in analysis and neglecting practical aspects of life.
         **Self-Perception:** You see yourself as curious and balanced.
-        **Strengths:** Analytical thinking, balanced approach to exploration, curiosity.
-        **Weaknesses:** Tendency to overanalyze, social reservation.
-        **Obstacles:** Balancing analysis with action and decision-making.
+        **Strengths:** Analytical thinking, curiosity, balanced approach to exploration.
+        **Weaknesses:** Tendency to overanalyze, difficulty staying grounded at times.
+        **Obstacles:** Balancing analysis with action and practical considerations.
         **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
 
         '7c': `**Type 7c: Analytical Explorer (Rational)**\n
-        **Description:** You are curious and analytical, always seeking to understand the world around you. You rely heavily on logic and reason in your explorations, ensuring that your conclusions are well-informed and practical. Your rational approach helps you navigate life's mysteries with precision and clarity.
-        **Behavior in Social Settings:** You are thoughtful and enjoy deep conversations.
+        **Description:** You are curious and analytical, always seeking to understand the world around you. You rely on logic and reason to navigate your explorations, ensuring that your insights are grounded in evidence and practicality. Your rational approach helps you make well-informed decisions.
+        **Behavior in Social Settings:** You are thoughtful and enjoy deep, meaningful conversations.
         **Employment:** You may excel in roles that require research, analysis, or exploration.
-        **Leisure Activities:** You enjoy activities that stimulate your mind, such as reading, learning new skills, or strategic games.
-        **Things to Avoid:** Overanalyzing and becoming lost in details.
+        **Leisure Activities:** You enjoy activities that challenge your mind, such as puzzles, reading, or exploring new ideas.
+        **Things to Avoid:** Getting lost in analysis and neglecting practical aspects of life.
         **Self-Perception:** You see yourself as curious and rational.
-        **Strengths:** Analytical thinking, logical decision-making, curiosity.
-        **Weaknesses:** Tendency to overanalyze, social reservation.
-        **Obstacles:** Balancing analysis with action and decision-making.
+        **Strengths:** Analytical thinking, curiosity, logical decision-making.
+        **Weaknesses:** Tendency to overanalyze, difficulty staying grounded.
+        **Obstacles:** Balancing analysis with action and practical considerations.
         **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`,
 
-                '8a': `**Type 8a: Empathetic Healer (Spiritual)**\n
-        **Description:** You are empathetic and compassionate, often seeking to heal and support others. You have a deep spiritual side that guides you in your efforts to help and nurture those around you. Your empathetic nature, combined with your spiritual insights, allows you to connect deeply with others and provide meaningful support.
-        **Behavior in Social Settings:** You are warm and approachable, often providing comfort and support to others.
+        '8a': `**Type 8a: Empathetic Healer (Spiritual)**\n
+        **Description:** You are compassionate and empathetic, often seeking to help and heal others. You have a deep spiritual side that guides you in your efforts to support and nurture those around you. Your empathetic nature, combined with your spiritual insights, makes you a natural healer.
+        **Behavior in Social Settings:** You are warm and approachable, often providing support and comfort to others.
         **Employment:** You may excel in roles that involve caregiving, counseling, or healing.
-        **Leisure Activities:** You enjoy activities that promote healing and connection, such as meditation, spiritual practices, or volunteering.
+        **Leisure Activities:** You enjoy activities that allow you to help others and connect with your spiritual side.
         **Things to Avoid:** Neglecting your own needs in favor of others.
         **Self-Perception:** You see yourself as compassionate and nurturing.
         **Strengths:** Empathy, compassion, deep connection with spirituality.
         **Weaknesses:** Tendency to neglect self-care, sensitivity to others' emotions.
         **Obstacles:** Finding a balance between helping others and taking care of yourself.
-        **Spiritual Life:** Your spirituality provides you with a sense of purpose and guidance in your healing efforts.`,
+        **Spiritual Life:** Your spirituality provides you with a sense of purpose and guidance in your efforts to heal and support others.`,
 
         '8b': `**Type 8b: Empathetic Healer (Balanced)**\n
-        **Description:** You are empathetic and compassionate, often seeking to heal and support others. You maintain a balance between helping others and taking care of yourself, ensuring that your efforts are sustainable and effective. Your balanced approach allows you to provide meaningful support without becoming overwhelmed.
-        **Behavior in Social Settings:** You are warm and approachable, often providing comfort and support to others.
+        **Description:** You are compassionate and empathetic, often seeking to help and heal others. You maintain a balance between supporting others and taking care of yourself, ensuring that your efforts are sustainable and effective. Your balanced approach helps you provide support without becoming overwhelmed.
+        **Behavior in Social Settings:** You are warm and approachable, often providing support and comfort to others.
         **Employment:** You may excel in roles that involve caregiving, counseling, or healing.
-        **Leisure Activities:** You enjoy activities that promote healing and connection, such as meditation, yoga, or volunteering.
+        **Leisure Activities:** You enjoy activities that allow you to help others and relax.
         **Things to Avoid:** Neglecting your own needs in favor of others.
         **Self-Perception:** You see yourself as compassionate and balanced.
         **Strengths:** Empathy, compassion, balanced approach to caregiving.
-        **Weaknesses:** Sensitivity to others' emotions, tendency to neglect self-care.
+        **Weaknesses:** Sensitivity to others' emotions, tendency to neglect self-care at times.
         **Obstacles:** Finding a balance between helping others and taking care of yourself.
         **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
 
         '8c': `**Type 8c: Empathetic Healer (Rational)**\n
-        **Description:** You are empathetic and compassionate, often seeking to heal and support others. You rely on logic and reason to guide your caregiving efforts, ensuring that your support is practical and effective. Your rational approach helps you provide meaningful support without becoming overwhelmed by emotions.
-        **Behavior in Social Settings:** You are warm and approachable, often providing comfort and support to others.
+        **Description:** You are compassionate and empathetic, often seeking to help and heal others. You rely on logic and reason to ensure that your support is practical and effective. Your rational approach helps you provide support without becoming overwhelmed by emotions.
+        **Behavior in Social Settings:** You are warm and approachable, often providing support and comfort to others.
         **Employment:** You may excel in roles that involve caregiving, counseling, or healing.
-        **Leisure Activities:** You enjoy activities that promote healing and connection, such as reading about psychology, participating in support groups, or strategic volunteering.
+        **Leisure Activities:** You enjoy activities that allow you to help others and engage your mind.
         **Things to Avoid:** Neglecting your own needs in favor of others.
         **Self-Perception:** You see yourself as compassionate and rational.
-        **Strengths:** Empathy, compassion, logical decision-making.
+        **Strengths:** Empathy, compassion, logical thinking.
         **Weaknesses:** Sensitivity to others' emotions, tendency to neglect self-care.
         **Obstacles:** Finding a balance between helping others and taking care of yourself.
         **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`
     };
 
-    const resultType = `${personalityType}${subtype}`;
-    const resultDescription = personalityDescriptions[resultType];
+    const resultDescription = personalityDescriptions[`${personalityType}${subtype}`];
+    const resultDiv = document.getElementById("result");
 
-    document.getElementById("result").innerText = resultDescription;
-    document.getElementById("result").style.display = "block";
+    resultDiv.innerHTML = resultDescription;
+    resultDiv.style.display = "block";
 });
