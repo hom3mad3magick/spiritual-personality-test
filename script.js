@@ -1,601 +1,366 @@
-document.getElementById('personality-test').addEventListener('submit', function(event) {
+document.getElementById("personality-test").addEventListener("submit", function(event) {
     event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = {};
-    formData.forEach((value, key) => {
-        data[key] = value;
-    });
 
-    const score = Object.values(data).reduce((acc, val) => acc + parseInt(val), 0);
-    const result = getResult(score);
-    
-    document.body.innerHTML = `
-        <div class="container">
-            <h1>Your Personality Type: ${result.name}</h1>
-            <p><strong>Description:</strong> ${result.description}</p>
-            <p><strong>Personality Traits:</strong> ${result.traits}</p>
-            <p><strong>Behavior in Social Settings:</strong> ${result.social}</p>
-            <p><strong>Employment:</strong> ${result.employment}</p>
-            <p><strong>Leisure Activities:</strong> ${result.leisure}</p>
-            <p><strong>Things to Avoid:</strong> ${result.avoid}</p>
-            <p><strong>Self-Perception:</strong> ${result.perception}</p>
-            <p><strong>Strengths:</strong> ${result.strengths}</p>
-            <p><strong>Weaknesses:</strong> ${result.weaknesses}</p>
-            <p><strong>Obstacles:</strong> ${result.obstacles}</p>
-            <p><strong>Spiritual Life:</strong> ${result.spiritual}</p>
-        </div>
-    `;
-});
+    const form = event.target;
+    const formData = new FormData(form);
 
-function getResult(score) {
-    const personalityTypes = [
-        {
-            name: 'Adaptive Performer',
-            description: "You are known for your adaptability and growth-oriented mindset, combined with a balanced approach to spirituality and rationality. Your ability to navigate different situations with grace and flexibility makes you a natural leader and innovator. You inspire others with your resilience and positivity, often finding creative solutions to challenges. Your balanced perspective allows you to see the big picture while managing details effectively.",
-            traits: "Adaptable, growth-oriented, balanced, innovative.",
-            behavior: "You engage confidently and inspire others with your adaptable and positive nature.",
-            employment: "You may thrive in dynamic environments that require quick thinking and problem-solving, such as entrepreneurship, consulting, or creative industries.",
-            leisure: "You enjoy activities that challenge your adaptability and creativity, like travel, arts, and new hobbies.",
-            avoid: "Overcommitting and spreading yourself too thin.",
-            perception: "You see yourself as a resilient and innovative individual.",
-            strengths: "Adaptability, creativity, balanced perspective.",
-            weaknesses: "Risk of overcommitting and burnout.",
-            obstacles: "Managing stress and maintaining balance.",
-            spiritual: "You integrate spirituality and rationality, seeking practical benefits from your spiritual practices.",
-            howOthersSeeYou: "People admire your resilience and positive outlook, often looking to you for guidance and inspiration."
-        },
-        {
-            name: "Balanced Pragmatist",
-            description: "You have a pragmatic approach to life, focusing on tangible benefits and practical solutions. Your balanced nature allows you to weigh the pros and cons of situations effectively, making sound decisions. You value stability and consistency, often serving as a reliable anchor for others. Your grounded perspective is complemented by a willingness to explore new ideas when they offer clear advantages.",
-            traits: "Pragmatic, balanced, reliable, consistent.",
-            behavior: "You are seen as dependable and level-headed, often providing practical advice.",
-            employment: "You excel in roles that require analytical thinking and problem-solving, such as management, engineering, or finance.",
-            leisure: "You enjoy activities that offer tangible benefits or improvements, such as DIY projects, gardening, or fitness.",
-            avoid: "Getting stuck in routines and resisting necessary change.",
-            perception: "You see yourself as practical and dependable.",
-            strengths: "Reliability, practicality, balanced perspective.",
-            weaknesses: "Risk of becoming too rigid and resistant to change.",
-            obstacles: "Adapting to unexpected changes and staying open to new ideas.",
-            spiritual: "You may have a pragmatic approach, focusing on tangible benefits.",
-            howOthersSeeYou: "Others appreciate your practicality and reliability, often seeking your advice in challenging situations."
-        },
-        {
-            name: "Analytical Explorer",
-            description: "You have a keen analytical mind and a thirst for knowledge. Your curiosity drives you to explore new ideas and concepts, often delving deep into subjects that interest you. You value logic and evidence, applying your analytical skills to understand and solve complex problems. Your explorative nature is balanced by a methodical approach, ensuring thorough and well-reasoned conclusions.",
-            traits: "Analytical, curious, methodical, logical.",
-            behavior: "You engage in intellectual discussions and enjoy sharing your knowledge.",
-            employment: "You excel in roles that require deep analysis and research, such as science, academia, or technology.",
-            leisure: "You enjoy activities that stimulate your mind, like puzzles, reading, or learning new skills.",
-            avoid: "Overanalyzing and becoming detached from emotions.",
-            perception: "You see yourself as a thinker and problem-solver.",
-            strengths: "Analytical skills, curiosity, logical thinking.",
-            weaknesses: "Risk of overanalyzing and emotional detachment.",
-            obstacles: "Balancing logic with emotional understanding.",
-            spiritual: "You explore spiritual concepts with a critical and analytical approach.",
-            howOthersSeeYou: "People admire your intellect and curiosity, often seeking your insights on complex issues."
-        },
-        {
-            name: "Rational Introvert",
-            description: "Sensitive and introspective, you approach life with a rational mindset. You value logic and reason, often reflecting deeply on your experiences and emotions. Your introspective nature allows you to understand yourself and others on a profound level. While you may be reserved in social settings, your thoughtful and considered approach is appreciated by those who know you well.",
-            traits: "Sensitive, introspective, logical, emotionally stable.",
-            behavior: "You may be reserved but engage deeply in meaningful conversations.",
-            employment: "You thrive in roles that require introspection and careful analysis, such as writing, research, or counseling.",
-            leisure: "You enjoy solitary activities that allow for reflection, like reading, journaling, or meditating.",
-            avoid: "Overthinking and social isolation.",
-            perception: "You see yourself as thoughtful and rational.",
-            strengths: "Introspection, emotional stability, logical thinking.",
-            weaknesses: "Risk of overthinking and isolation.",
-            obstacles: "Balancing introspection with social engagement.",
-            spiritual: "You approach spirituality with a rational and reflective mindset.",
-            howOthersSeeYou: "Others appreciate your thoughtfulness and deep understanding, often seeking your perspective on personal matters."
-        },
-        {
-            name: "Balanced Connector",
-            description: "Empathetic with a balanced approach to spirituality and practicality, you connect deeply with others and provide balanced insights. Your ability to understand and empathize with different perspectives makes you a natural mediator and counselor. You value personal growth and strive to maintain harmony in your relationships, often guiding others towards a balanced and fulfilling life.",
-            traits: "Empathetic, connected, balanced, growth-oriented.",
-            behavior: "You engage in deep and meaningful conversations, often providing balanced insights.",
-            employment: "You may seek careers in research, counseling, or fields that allow you to explore new ideas and help others.",
-            leisure: "You enjoy intellectual discussions, exploring different philosophies, and engaging in activities that promote personal growth.",
-                        avoid: "Becoming overly skeptical and dismissing ideas too quickly.",
-            perception: "You see yourself as a thoughtful and inquisitive individual.",
-            strengths: "Empathy, connection, balanced perspective.",
-            weaknesses: "Risk of becoming overly analytical and emotionally detached.",
-            obstacles: "Balancing skepticism with emotional understanding.",
-            spiritual: "Regularly explores and questions different beliefs, seeking a deeper understanding.",
-            howOthersSeeYou: "People appreciate your empathetic and balanced approach, often turning to you for guidance and support."
-        },
-        {
-            name: "Ethereal Optimist",
-            description: "Your optimistic outlook and ethereal nature make you a source of inspiration for others. You view life through a spiritual lens, finding joy and meaning in everyday experiences. Your positivity and hopefulness are infectious, often lifting the spirits of those around you. While you may have your head in the clouds at times, your optimism helps you navigate challenges with grace and resilience.",
-            traits: "Optimistic, spiritual, inspiring, resilient.",
-            behavior: "You bring positivity and hope to social interactions, inspiring others with your outlook.",
-            employment: "You thrive in roles that allow you to inspire and uplift others, such as coaching, teaching, or creative arts.",
-            leisure: "You enjoy activities that nurture your spirit and spread positivity, like volunteering, art, or nature walks.",
-            avoid: "Ignoring practical concerns and becoming overly idealistic.",
-            perception: "You see yourself as a beacon of hope and positivity.",
-            strengths: "Optimism, resilience, inspirational.",
-            weaknesses: "Risk of ignoring practical concerns and becoming overly idealistic.",
-            obstacles: "Balancing idealism with practicality.",
-            spiritual: "Deeply connected to spiritual practices that bring joy and meaning to your life.",
-            howOthersSeeYou: "People admire your positivity and resilience, often looking to you for inspiration and hope."
-        },
-        {
-            name: "Grounded Visionary",
-            description: "You have a unique ability to blend visionary ideas with grounded practicality. Your creative mind and forward-thinking nature allow you to see possibilities that others might miss. At the same time, your practical approach ensures that your ideas are feasible and actionable. You inspire others with your vision while providing practical steps to achieve it. Your balanced perspective helps turn dreams into reality, making you a valuable asset in any team.",
-            traits: "Visionary, practical, creative, forward-thinking.",
-            behavior: "You engage others with your visionary ideas and practical plans, inspiring and motivating them.",
-            employment: "You thrive in roles that require both creativity and practicality, such as project management, innovation, or strategic planning.",
-            leisure: "You enjoy activities that stimulate your creativity and allow you to plan, such as designing, writing, or strategic games.",
-            avoid: "Getting lost in ideas without taking action.",
-            perception: "You see yourself as a creative and practical thinker.",
-            strengths: "Vision, practicality, creativity.",
-            weaknesses: "Risk of becoming overwhelmed by ideas and not following through.",
-            obstacles: "Balancing visionary ideas with practical steps.",
-            spiritual: "You incorporate visionary insights into your spiritual practices, grounding them in daily life.",
-            howOthersSeeYou: "People admire your ability to turn ideas into action, often seeking your guidance on projects and plans."
-        },
-        {
-            name: "Reflective Idealist",
-            description: "You are deeply introspective and idealistic, often contemplating the larger meaning of life and your place in it. Your reflective nature allows you to understand complex concepts and see the world from multiple perspectives. While you have high ideals, you also recognize the importance of practical steps to achieve them. Your thoughtful approach makes you a wise counselor and mentor.",
-            traits: "Introspective, idealistic, thoughtful, wise.",
-            behavior: "You engage in deep, meaningful conversations, often offering wise and thoughtful advice.",
-            employment: "You excel in roles that require deep thinking and reflection, such as academia, counseling, or writing.",
-            leisure: "You enjoy solitary and reflective activities, like reading, meditating, or journaling.",
-            avoid: "Becoming too absorbed in thoughts and losing touch with reality.",
-            perception: "You see yourself as a deep thinker and idealist.",
-            strengths: "Wisdom, introspection, idealism.",
-            weaknesses: "Risk of becoming too detached from practical concerns.",
-            obstacles: "Balancing idealism with practical action.",
-            spiritual: "You seek deeper understanding and meaning in your spiritual practices.",
-            howOthersSeeYou: "People value your wisdom and thoughtfulness, often turning to you for guidance and insight."
-        },
-        {
-            name: "Resilient Optimist",
-            description: "Your resilience and optimism are your defining traits, allowing you to bounce back from setbacks and inspire others with your positive outlook. You see challenges as opportunities for growth and remain hopeful even in difficult times. Your infectious positivity helps uplift those around you, making you a beacon of hope and encouragement.",
-            traits: "Resilient, optimistic, hopeful, inspiring.",
-            behavior: "You bring a positive and uplifting energy to social interactions, encouraging and supporting others.",
-            employment: "You thrive in roles that require resilience and positivity, such as coaching, teaching, or motivational speaking.",
-            leisure: "You enjoy activities that boost your mood and resilience, like exercise, socializing, or creative pursuits.",
-            avoid: "Ignoring difficult emotions and overly relying on positivity.",
-            perception: "You see yourself as a resilient and positive individual.",
-            strengths: "Resilience, positivity, inspiration.",
-            weaknesses: "Risk of ignoring difficult emotions and challenges.",
-            obstacles: "Balancing positivity with acknowledging challenges.",
-            spiritual: "You incorporate positivity and resilience into your spiritual practices, finding hope and strength in your beliefs.",
-            howOthersSeeYou: "People admire your resilience and positivity, often seeking your support and encouragement in tough times."
-        },
-        {
-            name: "Creative Dreamer",
-            description: "Your creativity and imagination set you apart, allowing you to dream big and see possibilities where others may not. You thrive on expressing yourself through various forms of art and creativity. While your head may often be in the clouds, your dreams and ideas inspire those around you. Balancing your creative pursuits with practical responsibilities can be a challenge, but your passion drives you forward.",
-            traits: "Creative, imaginative, passionate, inspirational.",
-            behavior: "You engage others with your creative ideas and inspire them with your passion.",
-            employment: "You excel in roles that allow for creative expression, such as the arts, design, or marketing.",
-            leisure: "You enjoy creative activities like painting, writing, or performing.",
-            avoid: "Neglecting practical responsibilities in pursuit of creative passions.",
-            perception: "You see yourself as a creative and passionate individual.",
-            strengths: "Creativity, imagination, passion.",
-            weaknesses: "Risk of becoming too absorbed in dreams and neglecting practical matters.",
-            obstacles: "Balancing creative pursuits with practical responsibilities.",
-            spiritual: "You integrate creativity and imagination into your spiritual practices, finding inspiration and meaning in your beliefs.",
-            howOthersSeeYou: "People admire your creativity and passion, often looking to you for inspiration and new ideas."
-        },
-        {
-            name: "Practical Realist",
-            description: "Grounded and realistic, you approach life with a no-nonsense attitude. You value practicality and efficiency, often finding the most straightforward solutions to problems. Your realistic perspective helps you navigate challenges with clarity and determination. While you may not be the most imaginative, your practical approach ensures that you get things done.",
-            traits: "Realistic, practical, efficient, determined.",
-            behavior: "You are seen as dependable and straightforward, often providing practical advice.",
-            employment: "You thrive in roles that require efficiency and problem-solving, such as management, operations, or engineering.",
-            leisure: "You enjoy activities that offer practical benefits, like DIY projects, fitness, or home improvement.",
-            avoid: "Becoming too rigid and resistant to new ideas.",
-            perception: "You see yourself as practical and dependable.",
-            strengths: "Realism, efficiency, determination.",
-            weaknesses: "Risk of becoming too rigid and resistant to change.",
-            obstacles: "Balancing practicality with openness to new ideas.",
-            spiritual: "You approach spirituality with a practical mindset, seeking tangible benefits from your practices.",
-            howOthersSeeYou: "People appreciate your practicality and efficiency, often seeking your advice on practical matters."
-        },
-        {
-            name: "Intuitive Healer",
-            description: "You possess a strong intuition and a natural ability to heal and support others. Your empathetic nature allows you to connect deeply with people, often sensing their needs and emotions. You are drawn to helping others find balance and well-being, whether through emotional support, physical healing, or spiritual guidance. Your intuition guides you in your interactions and decisions.",
-            traits: "Intuitive, empathetic, healing, supportive.",
-            behavior: "You connect deeply with others, offering support and understanding.",
-            employment: "You excel in roles that involve healing and support, such as counseling, healthcare, or spiritual guidance.",
-            leisure: "You enjoy activities that nurture your intuition and healing abilities, like meditation, energy work, or caring for others.",
-            avoid: "Ignoring your own needs while helping others.",
-            perception: "You see yourself as an intuitive and supportive healer.",
-            strengths: "Intuition, empathy, healing abilities.",
-            weaknesses: "Risk of neglecting self-care while helping others.",
-            obstacles: "Balancing self-care with caring for others.",
-            spiritual: "You integrate your intuition and healing abilities into your spiritual practices, often feeling guided by a higher power.",
-            howOthersSeeYou: "People admire your empathy and healing abilities, often turning to you for support and guidance."
-        },
-        {
-                        name: "Logical Thinker",
-            description: "You approach life with a logical and analytical mindset, valuing reason and evidence above all else. Your ability to think critically and solve complex problems makes you a valuable asset in any analytical or technical field. While you may struggle with emotional expression, your logical approach ensures that you make well-informed decisions.",
-            traits: "Logical, analytical, critical thinker, evidence-based.",
-            behavior: "You engage in intellectual discussions and provide logical insights.",
-            employment: "You thrive in roles that require critical thinking and analysis, such as science, technology, or finance.",
-            leisure: "You enjoy activities that stimulate your mind, like puzzles, strategy games, or research.",
-            avoid: "Neglecting emotional expression and connection.",
-            perception: "You see yourself as a rational and logical thinker.",
-            strengths: "Logical thinking, analytical skills, problem-solving.",
-            weaknesses: "Risk of neglecting emotions and interpersonal connections.",
-            obstacles: "Balancing logic with emotional understanding.",
-            spiritual: "You approach spirituality with a critical and analytical mindset, seeking logical explanations for spiritual experiences.",
-            howOthersSeeYou: "People admire your intellect and logical insights, often seeking your advice on complex issues."
-        },
-        {
-            name: "Empathetic Listener",
-            description: "Your empathy and ability to listen deeply make you a compassionate and understanding individual. You connect with others on an emotional level, often providing comfort and support. Your empathetic nature allows you to understand and validate others' feelings, making you a trusted confidant. While you may sometimes take on others' emotions, your compassion and understanding are invaluable in helping others feel heard and valued.",
-            traits: "Empathetic, compassionate, understanding, supportive.",
-            behavior: "You provide emotional support and understanding, often being the one people turn to for comfort.",
-            employment: "You excel in roles that involve listening and supporting others, such as counseling, social work, or healthcare.",
-            leisure: "You enjoy activities that nurture your empathetic nature, like volunteering, reading, or spending time with loved ones.",
-            avoid: "Taking on too much emotional burden from others.",
-            perception: "You see yourself as a compassionate and understanding person.",
-            strengths: "Empathy, compassion, listening skills.",
-            weaknesses: "Risk of emotional burnout and taking on others' burdens.",
-            obstacles: "Balancing empathy with self-care.",
-            spiritual: "You integrate your empathetic nature into your spiritual practices, often feeling connected to others on a deep level.",
-            howOthersSeeYou: "People appreciate your empathy and support, often seeking your understanding and comfort."
-        },
-        {
-            name: "Determined Achiever",
-            description: "You are driven and determined, always striving to achieve your goals. Your perseverance and strong work ethic enable you to overcome obstacles and achieve success. You set high standards for yourself and work diligently to meet them. While your determination is a strength, it's important to balance it with self-care and avoid burnout.",
-            traits: "Determined, goal-oriented, hardworking, persistent.",
-            behavior: "You inspire others with your determination and work ethic, often leading by example.",
-            employment: "You thrive in roles that require perseverance and goal-setting, such as business, project management, or athletics.",
-            leisure: "You enjoy activities that challenge you and help you achieve your goals, like fitness, competitive sports, or personal development.",
-            avoid: "Overworking and neglecting self-care.",
-            perception: "You see yourself as driven and goal-oriented.",
-            strengths: "Determination, work ethic, perseverance.",
-            weaknesses: "Risk of burnout and neglecting self-care.",
-            obstacles: "Balancing determination with relaxation and self-care.",
-            spiritual: "You approach spirituality with the same determination, seeking to achieve spiritual growth and enlightenment.",
-            howOthersSeeYou: "People admire your determination and drive, often looking to you for motivation and inspiration."
-        },
-        {
-            name: "Spiritual Seeker",
-            description: "You are deeply curious about spiritual matters and constantly seek deeper understanding and enlightenment. Your open-mindedness and willingness to explore different spiritual paths make you a lifelong learner. You value experiences and insights that broaden your spiritual perspective, often integrating various beliefs and practices into your life.",
-            traits: "Curious, open-minded, spiritual, lifelong learner.",
-            behavior: "You engage in discussions about spirituality and share your experiences and insights with others.",
-            employment: "You excel in roles that allow for exploration and learning, such as teaching, writing, or spiritual guidance.",
-            leisure: "You enjoy activities that expand your spiritual understanding, like reading, meditation, or attending spiritual retreats.",
-            avoid: "Becoming overwhelmed by too many spiritual practices.",
-            perception: "You see yourself as a seeker of spiritual knowledge and enlightenment.",
-            strengths: "Curiosity, open-mindedness, spiritual insight.",
-            weaknesses: "Risk of becoming overwhelmed and losing focus.",
-            obstacles: "Balancing exploration with integration of spiritual practices.",
-            spiritual: "You constantly seek deeper understanding and enlightenment, integrating various spiritual beliefs and practices.",
-            howOthersSeeYou: "People admire your curiosity and spiritual insight, often seeking your guidance on spiritual matters."
-        },
-        {
-            name: "Compassionate Guide",
-            description: "Your compassion and desire to help others make you a natural guide and mentor. You provide support and guidance to those in need, often helping them navigate their challenges and find their path. Your empathetic nature allows you to connect deeply with others and understand their struggles. While helping others is fulfilling, it's important to remember to take care of yourself as well.",
-            traits: "Compassionate, supportive, empathetic, guiding.",
-            behavior: "You provide guidance and support, often being the one people turn to for help and advice.",
-            employment: "You excel in roles that involve mentoring and guiding others, such as counseling, teaching, or coaching.",
-            leisure: "You enjoy activities that allow you to support and guide others, like volunteering, mentoring, or community involvement.",
-            avoid: "Neglecting your own needs while helping others.",
-            perception: "You see yourself as a compassionate and supportive guide.",
-            strengths: "Compassion, empathy, guidance.",
-            weaknesses: "Risk of neglecting self-care while helping others.",
-            obstacles: "Balancing self-care with helping others.",
-            spiritual: "You integrate your compassionate nature into your spiritual practices, often feeling called to help others on their spiritual journey.",
-            howOthersSeeYou: "People admire your compassion and guidance, often turning to you for support and advice."
-        },
-        {
-            name: "Innovative Thinker",
-            description: "Your innovative mind and creative thinking set you apart, allowing you to come up with unique solutions to problems. You thrive on exploring new ideas and pushing the boundaries of what is possible. Your ability to think outside the box makes you a valuable asset in any field that requires innovation and creativity.",
-            traits: "Innovative, creative, forward-thinking, problem-solver.",
-            behavior: "You engage others with your creative ideas and inspire them with your innovative thinking.",
-            employment: "You thrive in roles that require innovation and creativity, such as design, technology, or entrepreneurship.",
-            leisure: "You enjoy activities that challenge your creativity and allow you to explore new ideas, like inventing, designing, or brainstorming.",
-            avoid: "Becoming too focused on ideas without taking action.",
-            perception: "You see yourself as an innovative and creative thinker.",
-            strengths: "Creativity, innovation, problem-solving.",
-            weaknesses: "Risk of becoming too absorbed in ideas and neglecting practical matters.",
-            obstacles: "Balancing creativity with practical action.",
-            spiritual: "You integrate your innovative thinking into your spiritual practices, often exploring new and unique spiritual paths.",
-            howOthersSeeYou: "People admire your creativity and innovative thinking, often looking to you for new ideas and solutions."
-        },
-        {
-            name: "Grounded Leader",
-            description: "Your grounded nature and strong leadership skills make you a reliable and effective leader. You approach challenges with a calm and steady demeanor, providing stability and direction for those around you. Your practical approach ensures that goals are met and tasks are completed efficiently. While you value stability, you are also open to new ideas and improvements.",
-            traits: "Grounded, reliable, practical, leader.",
-            behavior: "You provide stability and direction, often taking on leadership roles and guiding others.",
-            employment: "You excel in roles that require strong leadership and practical problem-solving, such as management, operations, or project management.",
-            leisure: "You enjoy activities that allow you to lead and organize, like team sports, community projects, or planning events.",
-            avoid: "Becoming too rigid and resistant to change.",
-            perception: "You see yourself as a reliable and practical leader.",
-            strengths: "Leadership, reliability, practical thinking.",
-            weaknesses: "Risk of becoming too rigid and resistant to new ideas.",
-            obstacles: "Balancing stability with openness to change.",
-            spiritual: "You approach spirituality with a grounded and practical mindset, integrating spiritual practices into your daily life.",
-            howOthersSeeYou: "People admire your leadership and reliability, often looking to you for guidance and direction."
-        },
-        {
-            name: "Compassionate Advocate",
-            description: "You are driven by a deep sense of compassion and a desire to advocate for those in need. Your empathetic nature allows you to connect with others and understand their struggles. You are passionate about making a positive impact and often take on causes that align with your values. Your advocacy is rooted in a genuine desire to help others and create a better world.",
-            traits: "Compassionate, empathetic, advocate, passionate.",
-            behavior: "You engage others with your passion for advocacy and inspire them to take action.",
-                        employment: "You excel in roles that involve advocating for others, such as social work, activism, or nonprofit work.",
-            leisure: "You enjoy activities that align with your advocacy, like volunteering, organizing events, or raising awareness.",
-            avoid: "Becoming overwhelmed by the weight of advocacy work.",
-            perception: "You see yourself as a compassionate advocate for change.",
-            strengths: "Compassion, empathy, advocacy.",
-            weaknesses: "Risk of burnout and emotional exhaustion.",
-            obstacles: "Balancing advocacy with self-care.",
-            spiritual: "You integrate your advocacy into your spiritual practices, often feeling called to create positive change.",
-            howOthersSeeYou: "People admire your compassion and dedication, often joining you in your advocacy efforts."
-        },
-        {
-            name: "Visionary Leader",
-            description: "Your visionary ideas and strong leadership skills make you a dynamic and inspiring leader. You have the ability to see the big picture and create a compelling vision for the future. Your charisma and passion inspire others to follow your lead and work towards common goals. While you are focused on the future, you also ensure that practical steps are taken to achieve your vision.",
-            traits: "Visionary, charismatic, leader, inspiring.",
-            behavior: "You engage others with your vision and inspire them to take action.",
-            employment: "You thrive in roles that require both creativity and practicality, such as project management, innovation, or strategic planning.",
-            leisure: "You enjoy activities that stimulate your creativity and allow you to plan, such as designing, writing, or strategic games.",
-            avoid: "Getting lost in ideas without taking action.",
-            perception: "You see yourself as a creative and practical thinker.",
-            strengths: "Vision, practicality, creativity.",
-            weaknesses: "Risk of becoming overwhelmed by ideas and not following through.",
-            obstacles: "Balancing visionary ideas with practical steps.",
-            spiritual: "You incorporate visionary insights into your spiritual practices, grounding them in daily life.",
-            howOthersSeeYou: "People admire your ability to turn ideas into action, often seeking your guidance on projects and plans."
-        },
-        {
-            name: "Practical Visionary",
-            description: "You have the ability to balance visionary thinking with practical execution. Your innovative ideas are grounded in reality, making them both inspiring and feasible. You often find yourself leading projects where your unique blend of creativity and practicality is valued. Your vision for the future is complemented by your ability to devise actionable steps to achieve it.",
-            traits: "Visionary, practical, innovative, action-oriented.",
-            behavior: "You inspire others with your visionary ideas while providing practical steps to achieve them.",
-            employment: "You excel in roles that require both creativity and practical execution, such as project management, innovation, or strategic planning.",
-            leisure: "You enjoy activities that stimulate your creativity and allow you to plan, such as designing, writing, or strategic games.",
-            avoid: "Getting lost in ideas without taking action.",
-            perception: "You see yourself as a creative and practical thinker.",
-            strengths: "Vision, practicality, creativity.",
-            weaknesses: "Risk of becoming overwhelmed by ideas and not following through.",
-            obstacles: "Balancing visionary ideas with practical steps.",
-            spiritual: "You incorporate visionary insights into your spiritual practices, grounding them in daily life.",
-            howOthersSeeYou: "People admire your ability to turn ideas into action, often seeking your guidance on projects and plans."
-        },
-        {
-            name: "Empathetic Leader",
-            description: "You lead with empathy and understanding, making you a compassionate and effective leader. Your ability to connect with others on an emotional level allows you to inspire and motivate your team. You value collaboration and strive to create an inclusive and supportive environment. Your leadership style is marked by your ability to listen and respond to the needs of those you lead.",
-            traits: "Empathetic, understanding, collaborative, supportive.",
-            behavior: "You inspire and motivate others with your empathetic leadership style.",
-            employment: "You excel in leadership roles that require empathy and collaboration, such as team management, counseling, or community organizing.",
-            leisure: "You enjoy activities that allow you to connect with others and build supportive relationships, like team sports, volunteering, or social events.",
-            avoid: "Taking on too much emotional burden from others.",
-            perception: "You see yourself as a compassionate and effective leader.",
-            strengths: "Empathy, collaboration, leadership.",
-            weaknesses: "Risk of emotional burnout and taking on others' burdens.",
-            obstacles: "Balancing empathy with self-care.",
-            spiritual: "You integrate your empathetic nature into your spiritual practices, often feeling called to lead and support others.",
-            howOthersSeeYou: "People admire your empathy and leadership, often turning to you for guidance and support."
-        },
-        {
-            name: "Introspective Thinker",
-            description: "You have a deep and reflective nature, often contemplating the complexities of life and your place in it. Your introspective approach allows you to understand yourself and others on a profound level. You value thoughtful analysis and seek to understand the underlying causes of situations. While you may be reserved, your insights and reflections are highly valued by those who know you.",
-            traits: "Introspective, thoughtful, analytical, reflective.",
-            behavior: "You engage deeply in meaningful conversations, often offering thoughtful and considered insights.",
-            employment: "You excel in roles that require deep thinking and reflection, such as research, writing, or counseling.",
-            leisure: "You enjoy solitary and reflective activities, like reading, journaling, or meditating.",
-            avoid: "Becoming too absorbed in thoughts and losing touch with reality.",
-            perception: "You see yourself as a deep thinker and reflective individual.",
-            strengths: "Wisdom, introspection, analytical thinking.",
-            weaknesses: "Risk of becoming too detached from practical concerns.",
-            obstacles: "Balancing introspection with practical action.",
-            spiritual: "You seek deeper understanding and meaning in your spiritual practices.",
-            howOthersSeeYou: "People value your wisdom and thoughtfulness, often turning to you for guidance and insight."
-        },
-        {
-            name: "Visionary Optimist",
-            description: "You are a visionary with a positive outlook, often seeing the potential for greatness in any situation. Your optimism and forward-thinking nature inspire those around you to strive for their best. You combine your big-picture thinking with a hopeful attitude, making you a motivating force in any team. While your head may often be in the clouds, your optimism helps you navigate challenges with grace and resilience.",
-            traits: "Visionary, optimistic, inspiring, resilient.",
-            behavior: "You bring positivity and hope to social interactions, inspiring others with your outlook.",
-            employment: "You thrive in roles that allow you to inspire and uplift others, such as coaching, teaching, or creative arts.",
-            leisure: "You enjoy activities that nurture your spirit and spread positivity, like volunteering, art, or nature walks.",
-            avoid: "Ignoring practical concerns and becoming overly idealistic.",
-            perception: "You see yourself as a beacon of hope and positivity.",
-            strengths: "Optimism, resilience, inspirational.",
-            weaknesses: "Risk of ignoring practical concerns and becoming overly idealistic.",
-            obstacles: "Balancing idealism with practicality.",
-            spiritual: "Deeply connected to spiritual practices that bring joy and meaning to your life.",
-            howOthersSeeYou: "People admire your positivity and resilience, often looking to you for inspiration and hope."
-        },
-        {
-            name: "Creative Visionary",
-            description: "Your creativity and visionary thinking set you apart, allowing you to dream big and see possibilities where others may not. You thrive on expressing yourself through various forms of art and creativity. While your head may often be in the clouds, your dreams and ideas inspire those around you. Balancing your creative pursuits with practical responsibilities can be a challenge, but your passion drives you forward.",
-            traits: "Creative, imaginative, passionate, inspirational.",
-            behavior: "You engage others with your creative ideas and inspire them with your passion.",
-            employment: "You excel in roles that allow for creative expression, such as the arts, design, or marketing.",
-            leisure: "You enjoy creative activities like painting, writing, or performing.",
-            avoid: "Neglecting practical responsibilities in pursuit of creative passions.",
-            perception: "You see yourself as a creative and passionate individual.",
-            strengths: "Creativity, imagination, passion.",
-            weaknesses: "Risk of becoming too absorbed in dreams and neglecting practical matters.",
-            obstacles: "Balancing creative pursuits with practical responsibilities.",
-            spiritual: "You integrate creativity and imagination into your spiritual practices, finding inspiration and meaning in your beliefs.",
-            howOthersSeeYou: "People admire your creativity and passion, often looking to you for inspiration and new ideas."
-        },
-        {
-            name: "Practical Innovator",
-            description: "You have a unique ability to blend innovative ideas with practical execution. Your creative mind and forward-thinking nature allow you to see possibilities that others might miss. At the same time, your practical approach ensures that your ideas are feasible and actionable. You inspire others with your vision while providing practical steps to achieve it. Your balanced perspective helps turn dreams into reality, making you a valuable asset in any team.",
-            traits: "Innovative, practical, creative, forward-thinking.",
-            behavior: "You engage others with your visionary ideas and practical plans, inspiring and motivating them.",
-            employment: "You thrive in roles that require both creativity and practicality, such as project management, innovation, or strategic planning.",
-            leisure: "You enjoy activities that stimulate your creativity and allow you to plan, such as designing, writing, or strategic games.",
-            avoid: "Getting lost in ideas without taking action.",
-            perception: "You see yourself as a creative and practical thinker.",
-            strengths: "Vision, practicality, creativity.",
-                        weaknesses: "Risk of becoming overwhelmed by ideas and not following through.",
-            obstacles: "Balancing visionary ideas with practical steps.",
-            spiritual: "You incorporate visionary insights into your spiritual practices, grounding them in daily life.",
-            howOthersSeeYou: "People admire your ability to turn ideas into action, often seeking your guidance on projects and plans."
-        },
-        {
-            name: "Resilient Leader",
-            description: "Your resilience and strong leadership skills make you a reliable and effective leader. You approach challenges with a calm and steady demeanor, providing stability and direction for those around you. Your practical approach ensures that goals are met and tasks are completed efficiently. While you value stability, you are also open to new ideas and improvements.",
-            traits: "Resilient, reliable, practical, leader.",
-            behavior: "You provide stability and direction, often taking on leadership roles and guiding others.",
-            employment: "You excel in roles that require strong leadership and practical problem-solving, such as management, operations, or project management.",
-            leisure: "You enjoy activities that allow you to lead and organize, like team sports, community projects, or planning events.",
-            avoid: "Becoming too rigid and resistant to change.",
-            perception: "You see yourself as a reliable and practical leader.",
-            strengths: "Leadership, reliability, practical thinking.",
-            weaknesses: "Risk of becoming too rigid and resistant to new ideas.",
-            obstacles: "Balancing stability with openness to change.",
-            spiritual: "You approach spirituality with a grounded and practical mindset, integrating spiritual practices into your daily life.",
-            howOthersSeeYou: "People admire your leadership and reliability, often looking to you for guidance and direction."
-        },
-        {
-            name: "Compassionate Innovator",
-            description: "Your compassion and innovative thinking allow you to create solutions that help others. You are driven by a desire to make a positive impact and often come up with creative ways to address challenges. Your empathetic nature enables you to understand the needs of others, and your innovative mindset helps you devise practical solutions. While you strive to help others, it's important to ensure your ideas are actionable and not just idealistic.",
-            traits: "Compassionate, innovative, empathetic, practical.",
-            behavior: "You engage others with your creative ideas and inspire them with your compassion.",
-            employment: "You excel in roles that combine innovation with helping others, such as social entrepreneurship, counseling, or community projects.",
-            leisure: "You enjoy activities that allow you to help others and innovate, like volunteering, designing, or brainstorming solutions to social issues.",
-            avoid: "Becoming too idealistic without taking practical steps.",
-            perception: "You see yourself as a compassionate and innovative thinker.",
-            strengths: "Compassion, creativity, empathy.",
-            weaknesses: "Risk of becoming too idealistic and not taking action.",
-            obstacles: "Balancing innovative ideas with practical execution.",
-            spiritual: "You integrate your compassionate nature and innovative thinking into your spiritual practices, often seeking to create positive change.",
-            howOthersSeeYou: "People admire your compassion and creativity, often looking to you for innovative solutions and support."
-        },
-        {
-            name: "Grounded Innovator",
-            description: "You have a unique ability to blend innovative ideas with grounded practicality. Your creative mind and forward-thinking nature allow you to see possibilities that others might miss. At the same time, your practical approach ensures that your ideas are feasible and actionable. You inspire others with your vision while providing practical steps to achieve it. Your balanced perspective helps turn dreams into reality, making you a valuable asset in any team.",
-            traits: "Innovative, practical, creative, forward-thinking.",
-            behavior: "You engage others with your visionary ideas and practical plans, inspiring and motivating them.",
-            employment: "You thrive in roles that require both creativity and practicality, such as project management, innovation, or strategic planning.",
-            leisure: "You enjoy activities that stimulate your creativity and allow you to plan, such as designing, writing, or strategic games.",
-            avoid: "Getting lost in ideas without taking action.",
-            perception: "You see yourself as a creative and practical thinker.",
-            strengths: "Vision, practicality, creativity.",
-            weaknesses: "Risk of becoming overwhelmed by ideas and not following through.",
-            obstacles: "Balancing visionary ideas with practical steps.",
-            spiritual: "You incorporate visionary insights into your spiritual practices, grounding them in daily life.",
-            howOthersSeeYou: "People admire your ability to turn ideas into action, often seeking your guidance on projects and plans."
-        },
-        {
-            name: "Resilient Advocate",
-            description: "Your resilience and strong sense of advocacy make you a powerful voice for change. You approach challenges with a calm and steady demeanor, providing stability and direction for those around you. Your practical approach ensures that goals are met and tasks are completed efficiently. While you value stability, you are also open to new ideas and improvements.",
-            traits: "Resilient, reliable, practical, advocate.",
-            behavior: "You provide stability and direction, often taking on advocacy roles and guiding others.",
-            employment: "You excel in roles that require strong advocacy and practical problem-solving, such as social work, activism, or nonprofit management.",
-            leisure: "You enjoy activities that allow you to advocate and organize, like community projects, volunteering, or planning events.",
-            avoid: "Becoming too rigid and resistant to change.",
-            perception: "You see yourself as a reliable and practical advocate.",
-            strengths: "Leadership, reliability, practical thinking.",
-            weaknesses: "Risk of becoming too rigid and resistant to new ideas.",
-            obstacles: "Balancing stability with openness to change.",
-            spiritual: "You approach spirituality with a grounded and practical mindset, integrating spiritual practices into your daily life.",
-            howOthersSeeYou: "People admire your leadership and advocacy, often looking to you for guidance and direction."
-        },
-        {
-            name: "Visionary Advocate",
-            description: "Your visionary ideas and strong sense of advocacy make you a dynamic and inspiring advocate for change. You have the ability to see the big picture and create a compelling vision for the future. Your charisma and passion inspire others to follow your lead and work towards common goals. While you are focused on the future, you also ensure that practical steps are taken to achieve your vision.",
-            traits: "Visionary, charismatic, advocate, inspiring.",
-            behavior: "You engage others with your vision and inspire them to take action.",
-            employment: "You thrive in roles that require both creativity and advocacy, such as social entrepreneurship, activism, or nonprofit management.",
-            leisure: "You enjoy activities that stimulate your creativity and allow you to advocate, such as designing campaigns, writing, or community organizing.",
-            avoid: "Getting lost in ideas without taking action.",
-            perception: "You see yourself as a creative and practical advocate.",
-            strengths: "Vision, practicality, creativity.",
-            weaknesses: "Risk of becoming overwhelmed by ideas and not following through.",
-            obstacles: "Balancing visionary ideas with practical steps.",
-            spiritual: "You incorporate visionary insights into your spiritual practices, grounding them in daily life.",
-            howOthersSeeYou: "People admire your ability to turn ideas into action, often seeking your guidance on advocacy projects and plans."
-        },
-        {
-            name: "Compassionate Visionary",
-            description: "Your compassion and visionary thinking allow you to create solutions that help others. You are driven by a desire to make a positive impact and often come up with creative ways to address challenges. Your empathetic nature enables you to understand the needs of others, and your innovative mindset helps you devise practical solutions. While you strive to help others, it's important to ensure your ideas are actionable and not just idealistic.",
-            traits: "Compassionate, innovative, empathetic, practical.",
-            behavior: "You engage others with your creative ideas and inspire them with your compassion.",
-            employment: "You excel in roles that combine innovation with helping others, such as social entrepreneurship, counseling, or community projects.",
-            leisure: "You enjoy activities that allow you to help others and innovate, like volunteering, designing, or brainstorming solutions to social issues.",
-            avoid: "Becoming too idealistic without taking practical steps.",
-            perception: "You see yourself as a compassionate and innovative thinker.",
-            strengths: "Compassion, creativity, empathy.",
-            weaknesses: "Risk of becoming too idealistic and not taking action.",
-            obstacles: "Balancing innovative ideas with practical execution.",
-            spiritual: "You integrate your compassionate nature and innovative thinking into your spiritual practices, often seeking to create positive change.",
-            howOthersSeeYou: "People admire your compassion and creativity, often looking to you for innovative solutions and support."
+    let selfWorthScore = 0;
+    let resilienceScore = 0;
+    let flexibilityScore = 0;
+    let emotionalStabilityScore = 0;
+    let socialConfidenceScore = 0;
+    let interpersonalRelationshipsScore = 0;
+    let personalGrowthScore = 0;
+    let stressManagementScore = 0;
+    let spiritualScore = 0;
+
+    for (let [name, value] of formData.entries()) {
+        let questionNumber = parseInt(name.substring(1));
+        let score = parseInt(value);
+
+        if (questionNumber <= 8) {
+            selfWorthScore += score;
+        } else if (questionNumber <= 16) {
+            resilienceScore += score;
+        } else if (questionNumber <= 23) {
+            flexibilityScore += score;
+        } else if (questionNumber <= 29) {
+            emotionalStabilityScore += score;
+        } else if (questionNumber <= 36) {
+            socialConfidenceScore += score;
+        } else if (questionNumber <= 43) {
+            interpersonalRelationshipsScore += score;
+        } else if (questionNumber <= 49) {
+            personalGrowthScore += score;
+        } else if (questionNumber <= 55) {
+            stressManagementScore += score;
+        } else {
+            spiritualScore += score;
         }
-    ];
-
-    let result;
-    if (score < 40) {
-        result = personalityTypes[0];
-    } else if (score < 80) {
-        result = personalityTypes[1];
-    } else if (score < 120) {
-        result = personalityTypes[2];
-    } else if (score < 160) {
-        result = personalityTypes[3];
-    } else if (score < 200) {
-        result = personalityTypes[4];
-    } else if (score < 240) {
-        result = personalityTypes[5];
-    } else if (score < 280) {
-        result = personalityTypes[6];
-    } else if (score < 320) {
-        result = personalityTypes[7];
-    } else if (score < 360) {
-        result = personalityTypes[8];
-    } else if (score < 400) {
-        result = personalityTypes[9];
-    } else if (score < 440) {
-        result = personalityTypes[10];
-    } else if (score < 480) {
-        result = personalityTypes[11];
-        } else if (score < 520) {
-        result = personalityTypes[12];
-    } else if (score < 560) {
-        result = personalityTypes[13];
-    } else if (score < 600) {
-        result = personalityTypes[14];
-    } else if (score < 640) {
-        result = personalityTypes[15];
-    } else if (score < 680) {
-        result = personalityTypes[16];
-    } else if (score < 720) {
-        result = personalityTypes[17];
-    } else if (score < 760) {
-        result = personalityTypes[18];
-    } else if (score < 800) {
-        result = personalityTypes[19];
-    } else if (score < 840) {
-        result = personalityTypes[20];
-    } else if (score < 880) {
-        result = personalityTypes[21];
-    } else if (score < 920) {
-        result = personalityTypes[22];
-    } else if (score < 960) {
-        result = personalityTypes[23];
-    } else if (score < 1000) {
-        result = personalityTypes[24];
-    } else if (score < 1040) {
-        result = personalityTypes[25];
-    } else if (score < 1080) {
-        result = personalityTypes[26];
-    } else if (score < 1120) {
-        result = personalityTypes[27];
-    } else if (score < 1160) {
-        result = personalityTypes[28];
-    } else if (score < 1200) {
-        result = personalityTypes[29];
-    } else if (score < 1240) {
-        result = personalityTypes[30];
-    } else if (score < 1280) {
-        result = personalityTypes[31];
-    } else if (score < 1320) {
-        result = personalityTypes[32];
-    } else if (score < 1360) {
-        result = personalityTypes[33];
     }
 
-    return result;
-}
+    const totalScore = selfWorthScore + resilienceScore + flexibilityScore + emotionalStabilityScore + socialConfidenceScore + interpersonalRelationshipsScore + personalGrowthScore + stressManagementScore;
+
+    let personalityType;
+    if (totalScore <= 168) {
+        personalityType = 1; // Anxious Introvert
+    } else if (totalScore <= 216) {
+        personalityType = 2; // Sensitive Helper
+    } else if (totalScore <= 264) {
+        personalityType = 3; // Cautious Thinker
+    } else if (totalScore <= 312) {
+        personalityType = 4; // Practical Achiever
+    } else if (totalScore <= 360) {
+        personalityType = 5; // Social Butterfly
+    } else if (totalScore <= 408) {
+        personalityType = 6; // Balanced Connector
+    } else if (totalScore <= 456) {
+        personalityType = 7; // Analytical Explorer
+    } else {
+        personalityType = 8; // Empathetic Healer
+    }
+
+    let subtype;
+    if (spiritualScore >= 25) {
+        subtype = 'a'; // Spiritual
+    } else if (spiritualScore >= 13) {
+        subtype = 'b'; // Balanced
+    } else {
+        subtype = 'c'; // Rational
+    }
+
+    const personalityDescriptions = {
+        '1a': `**Type 1a: Anxious Introvert (Spiritual)**\n
+        **Description:** You tend to be introverted and prefer solitude over social gatherings. You often feel anxious in new or unfamiliar situations. Despite this, you have a deep spiritual side that guides you through life's challenges. Your introspective nature allows you to connect with your inner self and find peace in solitude.
+        **Behavior in Social Settings:** You may feel uncomfortable and prefer to observe rather than participate actively.
+        **Employment:** You may excel in roles that allow for independent work and deep focus.
+        **Leisure Activities:** You enjoy quiet activities such as reading, writing, or meditating.
+        **Things to Avoid:** Overcommitting to social obligations that cause stress.
+        **Self-Perception:** You see yourself as thoughtful and introspective.
+        **Strengths:** Self-awareness, introspection, deep connection with spirituality.
+        **Weaknesses:** Social anxiety, tendency to avoid social interactions.
+        **Obstacles:** Overcoming social anxiety and building confidence.
+        **Spiritual Life:** Your spirituality provides you with comfort and guidance in your introspective journey.`,
+
+        '1b': `**Type 1b: Anxious Introvert (Balanced)**\n
+        **Description:** You are introverted and often feel anxious in social situations, but you maintain a balance between solitude and social interaction. You understand the importance of social connections and make an effort to engage with others despite your anxieties. Your balanced approach helps you navigate life's challenges more effectively.
+        **Behavior in Social Settings:** You may feel anxious but try to engage in conversations and activities.
+        **Employment:** You may excel in roles that allow for independent work with occasional collaboration.
+        **Leisure Activities:** You enjoy a mix of quiet activities and occasional social events.
+        **Things to Avoid:** Isolating yourself completely from social interactions.
+        **Self-Perception:** You see yourself as thoughtful and striving for balance.
+        **Strengths:** Self-awareness, balanced approach to social interactions, introspection.
+        **Weaknesses:** Social anxiety, tendency to avoid social interactions at times.
+        **Obstacles:** Overcoming social anxiety and building confidence.
+        **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
+
+        '1c': `**Type 1c: Anxious Introvert (Rational)**\n
+        **Description:** You are introverted and prefer solitude over social gatherings. You often feel anxious in new or unfamiliar situations and rely on logic and reason to navigate life's challenges. Your rational approach helps you analyze and understand your anxieties, allowing you to manage them more effectively.
+        **Behavior in Social Settings:** You may feel uncomfortable and prefer to observe rather than participate actively.
+        **Employment:** You may excel in roles that allow for independent work and deep focus.
+        **Leisure Activities:** You enjoy quiet activities such as reading, writing, or solving puzzles.
+        **Things to Avoid:** Overcommitting to social obligations that cause stress.
+        **Self-Perception:** You see yourself as thoughtful and rational.
+        **Strengths:** Self-awareness, logical thinking, introspection.
+        **Weaknesses:** Social anxiety, tendency to avoid social interactions.
+        **Obstacles:** Overcoming social anxiety and building confidence.
+        **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`,
+
+        '2a': `**Type 2a: Sensitive Helper (Spiritual)**\n
+        **Description:** You are compassionate and empathetic, often putting others' needs before your own. You have a deep spiritual side that guides you in your efforts to help and support others. Your sensitivity allows you to connect with people on a profound level, making you a natural caregiver.
+        **Behavior in Social Settings:** You are warm and approachable, often providing support and comfort to others.
+        **Employment:** You may excel in roles that involve caregiving, counseling, or social work.
+        **Leisure Activities:** You enjoy activities that allow you to help others and connect with your spiritual side.
+        **Things to Avoid:** Neglecting your own needs in favor of others.
+        **Self-Perception:** You see yourself as compassionate and nurturing.
+        **Strengths:** Empathy, compassion, deep connection with spirituality.
+        **Weaknesses:** Tendency to neglect self-care, sensitivity to others' emotions.
+        **Obstacles:** Finding a balance between helping others and taking care of yourself.
+        **Spiritual Life:** Your spirituality provides you with a sense of purpose and guidance in your efforts to help others.`,
+
+        '2b': `**Type 2b: Sensitive Helper (Balanced)**\n
+        **Description:** You are compassionate and empathetic, often putting others' needs before your own. You maintain a balance between helping others and taking care of yourself. Your balanced approach allows you to provide support without neglecting your own well-being.
+        **Behavior in Social Settings:** You are warm and approachable, often providing support and comfort to others.
+        **Employment:** You may excel in roles that involve caregiving, counseling, or social work.
+        **Leisure Activities:** You enjoy activities that allow you to help others and relax.
+        **Things to Avoid:** Neglecting your own needs in favor of others.
+        **Self-Perception:** You see yourself as compassionate and balanced.
+        **Strengths:** Empathy, compassion, balanced approach to caregiving.
+        **Weaknesses:** Sensitivity to others' emotions, tendency to neglect self-care at times.
+        **Obstacles:** Finding a balance between helping others and taking care of yourself.
+        **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
+
+        '2c': `**Type 2c: Sensitive Helper (Rational)**\n
+        **Description:** You are compassionate and empathetic, often putting others' needs before your own. You rely on logic and reason to navigate your caregiving efforts, ensuring that your support is practical and effective. Your rational approach helps you provide support without becoming overwhelmed by emotions.
+        **Behavior in Social Settings:** You are warm and approachable, often providing support and comfort to others.
+        **Employment:** You may excel in roles that involve caregiving, counseling, or social work.
+        **Leisure Activities:** You enjoy activities that allow you to help others and engage your mind.
+        **Things to Avoid:** Neglecting your own needs in favor of others.
+        **Self-Perception:** You see yourself as compassionate and rational.
+        **Strengths:** Empathy, compassion, logical thinking.
+                **Weaknesses:** Sensitivity to others' emotions, tendency to neglect self-care.
+        **Obstacles:** Finding a balance between helping others and taking care of yourself.
+        **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`,
+
+        '3a': `**Type 3a: Cautious Thinker (Spiritual)**\n
+        **Description:** You are thoughtful and analytical, often approaching situations with caution and careful consideration. You have a deep spiritual side that provides you with insight and guidance. Your introspective nature allows you to connect with your inner self and make well-informed decisions.
+        **Behavior in Social Settings:** You are reserved and prefer meaningful conversations over small talk.
+        **Employment:** You may excel in roles that require analysis, research, or strategic planning.
+        **Leisure Activities:** You enjoy quiet activities such as reading, meditating, or exploring spiritual concepts.
+        **Things to Avoid:** Overthinking and becoming paralyzed by analysis.
+        **Self-Perception:** You see yourself as thoughtful and introspective.
+        **Strengths:** Analytical thinking, introspection, deep connection with spirituality.
+        **Weaknesses:** Tendency to overthink, social reservation.
+        **Obstacles:** Balancing analysis with action and decision-making.
+        **Spiritual Life:** Your spirituality provides you with comfort and guidance in your analytical journey.`,
+
+        '3b': `**Type 3b: Cautious Thinker (Balanced)**\n
+        **Description:** You are thoughtful and analytical, often approaching situations with caution and careful consideration. You maintain a balance between logic and intuition, allowing you to make well-rounded decisions. Your balanced approach helps you navigate complex situations with confidence.
+        **Behavior in Social Settings:** You are reserved but open to engaging in meaningful conversations.
+        **Employment:** You may excel in roles that require analysis, research, or strategic planning.
+        **Leisure Activities:** You enjoy activities that stimulate your mind and provide relaxation.
+        **Things to Avoid:** Overthinking and becoming paralyzed by analysis.
+        **Self-Perception:** You see yourself as thoughtful and balanced.
+        **Strengths:** Analytical thinking, balanced approach to decision-making, introspection.
+        **Weaknesses:** Tendency to overthink, social reservation.
+        **Obstacles:** Balancing analysis with action and decision-making.
+        **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
+
+        '3c': `**Type 3c: Cautious Thinker (Rational)**\n
+        **Description:** You are thoughtful and analytical, often approaching situations with caution and careful consideration. You rely heavily on logic and reason to navigate life's challenges, ensuring that your decisions are well-informed and practical. Your rational approach helps you manage uncertainties with confidence.
+        **Behavior in Social Settings:** You are reserved and prefer meaningful conversations over small talk.
+        **Employment:** You may excel in roles that require analysis, research, or strategic planning.
+        **Leisure Activities:** You enjoy activities that stimulate your mind, such as reading, puzzles, or learning new skills.
+        **Things to Avoid:** Overthinking and becoming paralyzed by analysis.
+        **Self-Perception:** You see yourself as thoughtful and rational.
+        **Strengths:** Analytical thinking, logical decision-making, introspection.
+        **Weaknesses:** Tendency to overthink, social reservation.
+        **Obstacles:** Balancing analysis with action and decision-making.
+        **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`,
+
+        '4a': `**Type 4a: Practical Achiever (Spiritual)**\n
+        **Description:** You are driven and goal-oriented, often focusing on practical achievements and success. You have a deep spiritual side that provides you with motivation and purpose in your pursuits. Your practical approach, combined with your spiritual insights, helps you achieve your goals with integrity.
+        **Behavior in Social Settings:** You are confident and often take on leadership roles.
+        **Employment:** You may excel in roles that require goal-setting, strategic planning, and execution.
+        **Leisure Activities:** You enjoy activities that help you grow personally and professionally, such as workshops or spiritual retreats.
+        **Things to Avoid:** Overworking and neglecting your spiritual needs.
+        **Self-Perception:** You see yourself as ambitious and purpose-driven.
+        **Strengths:** Goal-oriented, practical, deep connection with spirituality.
+        **Weaknesses:** Tendency to overwork, difficulty relaxing.
+        **Obstacles:** Balancing ambition with self-care and spiritual growth.
+        **Spiritual Life:** Your spirituality provides you with motivation and a sense of purpose in your achievements.`,
+
+        '4b': `**Type 4b: Practical Achiever (Balanced)**\n
+        **Description:** You are driven and goal-oriented, often focusing on practical achievements and success. You maintain a balance between your professional and personal life, ensuring that you achieve your goals without neglecting your well-being. Your balanced approach helps you navigate challenges with resilience.
+        **Behavior in Social Settings:** You are confident and often take on leadership roles.
+        **Employment:** You may excel in roles that require goal-setting, strategic planning, and execution.
+        **Leisure Activities:** You enjoy activities that help you grow personally and professionally, as well as relaxing hobbies.
+        **Things to Avoid:** Overworking and neglecting your well-being.
+        **Self-Perception:** You see yourself as ambitious and balanced.
+        **Strengths:** Goal-oriented, practical, balanced approach to life.
+        **Weaknesses:** Tendency to overwork, difficulty relaxing at times.
+        **Obstacles:** Balancing ambition with self-care and personal growth.
+        **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
+
+        '4c': `**Type 4c: Practical Achiever (Rational)**\n
+        **Description:** You are driven and goal-oriented, often focusing on practical achievements and success. You rely on logic and reason to navigate your pursuits, ensuring that your efforts are efficient and effective. Your rational approach helps you achieve your goals with precision and clarity.
+        **Behavior in Social Settings:** You are confident and often take on leadership roles.
+        **Employment:** You may excel in roles that require goal-setting, strategic planning, and execution.
+        **Leisure Activities:** You enjoy activities that help you grow personally and professionally, such as reading, learning new skills, or strategic games.
+        **Things to Avoid:** Overworking and neglecting your well-being.
+        **Self-Perception:** You see yourself as ambitious and rational.
+        **Strengths:** Goal-oriented, practical, logical decision-making.
+        **Weaknesses:** Tendency to overwork, difficulty relaxing at times.
+        **Obstacles:** Balancing ambition with self-care and personal growth.
+        **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`,
+
+        '5a': `**Type 5a: Social Butterfly (Spiritual)**\n
+        **Description:** You are outgoing and enjoy social interactions, often thriving in social settings. You have a deep spiritual side that provides you with a sense of connection and purpose in your interactions. Your sociable nature, combined with your spiritual insights, helps you build meaningful relationships.
+        **Behavior in Social Settings:** You are enthusiastic and enjoy engaging with others.
+        **Employment:** You may excel in roles that involve networking, public relations, or event planning.
+        **Leisure Activities:** You enjoy social activities, such as gatherings, parties, and spiritual events.
+        **Things to Avoid:** Overcommitting to social obligations and neglecting self-care.
+        **Self-Perception:** You see yourself as sociable and connected.
+        **Strengths:** Outgoing, sociable, deep connection with spirituality.
+        **Weaknesses:** Tendency to overcommit, difficulty finding alone time.
+        **Obstacles:** Balancing social interactions with self-care and spiritual growth.
+        **Spiritual Life:** Your spirituality provides you with a sense of connection and purpose in your social interactions.`,
+
+        '5b': `**Type 5b: Social Butterfly (Balanced)**\n
+        **Description:** You are outgoing and enjoy social interactions, often thriving in social settings. You maintain a balance between your social life and personal well-being, ensuring that you engage with others without neglecting yourself. Your balanced approach helps you build meaningful relationships with ease.
+        **Behavior in Social Settings:** You are enthusiastic and enjoy engaging with others.
+        **Employment:** You may excel in roles that involve networking, public relations, or event planning.
+        **Leisure Activities:** You enjoy social activities, such as gatherings, parties, and hobbies that involve others.
+        **Things to Avoid:** Overcommitting to social obligations and neglecting self-care.
+        **Self-Perception:** You see yourself as sociable and balanced.
+        **Strengths:** Outgoing, sociable, balanced approach to social interactions.
+        **Weaknesses:** Tendency to overcommit, difficulty finding alone time at times.
+        **Obstacles:** Balancing social interactions with self-care and personal growth.
+        **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
+
+        '5c': `**Type 5c: Social Butterfly (Rational)**\n
+        **Description:** You are outgoing and enjoy social interactions, often thriving in social settings. You rely on logic and reason to navigate your social interactions, ensuring that your engagements are meaningful and effective. Your rational approach helps you build strong, practical relationships.
+        **Behavior in Social Settings:** You are enthusiastic and enjoy engaging with others.
+        **Employment:** You may excel in roles that involve networking, public relations, or event planning.
+                **Leisure Activities:** You enjoy social activities, such as gatherings, parties, and strategic games.
+        **Things to Avoid:** Overcommitting to social obligations and neglecting self-care.
+        **Self-Perception:** You see yourself as sociable and rational.
+        **Strengths:** Outgoing, sociable, logical approach to social interactions.
+        **Weaknesses:** Tendency to overcommit, difficulty finding alone time.
+        **Obstacles:** Balancing social interactions with self-care and personal growth.
+        **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`,
+
+        '6a': `**Type 6a: Balanced Connector (Spiritual)**\n
+        **Description:** You are a balanced individual who values harmony and connection with others. You have a deep spiritual side that guides you in maintaining balance and building meaningful relationships. Your balanced approach, combined with your spiritual insights, helps you navigate life's challenges with grace.
+        **Behavior in Social Settings:** You are approachable and enjoy fostering connections.
+        **Employment:** You may excel in roles that require teamwork, mediation, or counseling.
+        **Leisure Activities:** You enjoy activities that promote balance and well-being, such as yoga or meditation.
+        **Things to Avoid:** Overextending yourself in trying to maintain balance.
+        **Self-Perception:** You see yourself as harmonious and connected.
+        **Strengths:** Balanced approach to life, strong connections, deep spirituality.
+        **Weaknesses:** Tendency to overextend in maintaining harmony.
+        **Obstacles:** Maintaining balance without neglecting your own needs.
+        **Spiritual Life:** Your spirituality provides you with a sense of harmony and purpose in your connections.`,
+
+        '6b': `**Type 6b: Balanced Connector (Balanced)**\n
+        **Description:** You are a balanced individual who values harmony and connection with others. You maintain a balance between your personal needs and your social connections, ensuring that you build meaningful relationships without neglecting yourself. Your balanced approach helps you navigate life's challenges with ease.
+        **Behavior in Social Settings:** You are approachable and enjoy fostering connections.
+        **Employment:** You may excel in roles that require teamwork, mediation, or counseling.
+        **Leisure Activities:** You enjoy activities that promote balance and well-being, such as yoga, group activities, or hobbies.
+        **Things to Avoid:** Overextending yourself in trying to maintain balance.
+        **Self-Perception:** You see yourself as harmonious and balanced.
+        **Strengths:** Balanced approach to life, strong connections.
+        **Weaknesses:** Tendency to overextend in maintaining harmony.
+        **Obstacles:** Maintaining balance without neglecting your own needs.
+        **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
+
+        '6c': `**Type 6c: Balanced Connector (Rational)**\n
+        **Description:** You are a balanced individual who values harmony and connection with others. You rely on logic and reason to maintain balance and build meaningful relationships. Your rational approach helps you navigate life's challenges with clarity and precision.
+        **Behavior in Social Settings:** You are approachable and enjoy fostering connections.
+        **Employment:** You may excel in roles that require teamwork, mediation, or counseling.
+        **Leisure Activities:** You enjoy activities that promote balance and well-being, such as strategic games, discussions, or learning.
+        **Things to Avoid:** Overextending yourself in trying to maintain balance.
+        **Self-Perception:** You see yourself as harmonious and rational.
+        **Strengths:** Balanced approach to life, strong connections, logical thinking.
+        **Weaknesses:** Tendency to overextend in maintaining harmony.
+        **Obstacles:** Maintaining balance without neglecting your own needs.
+        **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`,
+
+        '7a': `**Type 7a: Analytical Explorer (Spiritual)**\n
+        **Description:** You are curious and analytical, always seeking to understand the world around you. You have a deep spiritual side that provides you with insight and guidance in your explorations. Your analytical approach, combined with your spiritual insights, helps you navigate life's mysteries with curiosity and clarity.
+        **Behavior in Social Settings:** You are thoughtful and enjoy deep conversations.
+        **Employment:** You may excel in roles that require research, analysis, or exploration.
+        **Leisure Activities:** You enjoy activities that stimulate your mind and spirit, such as studying spiritual texts or exploring nature.
+        **Things to Avoid:** Overanalyzing and becoming lost in details.
+        **Self-Perception:** You see yourself as curious and insightful.
+        **Strengths:** Analytical thinking, curiosity, deep spirituality.
+        **Weaknesses:** Tendency to overanalyze, social reservation.
+        **Obstacles:** Balancing analysis with action and decision-making.
+        **Spiritual Life:** Your spirituality provides you with a sense of purpose and guidance in your explorations.`,
+
+        '7b': `**Type 7b: Analytical Explorer (Balanced)**\n
+        **Description:** You are curious and analytical, always seeking to understand the world around you. You maintain a balance between your analytical mind and your intuition, allowing you to explore life's mysteries with confidence and clarity. Your balanced approach helps you navigate complex situations with ease.
+        **Behavior in Social Settings:** You are thoughtful and enjoy deep conversations.
+        **Employment:** You may excel in roles that require research, analysis, or exploration.
+        **Leisure Activities:** You enjoy activities that stimulate your mind, such as reading, learning new skills, or strategic games.
+        **Things to Avoid:** Overanalyzing and becoming lost in details.
+        **Self-Perception:** You see yourself as curious and balanced.
+        **Strengths:** Analytical thinking, balanced approach to exploration, curiosity.
+        **Weaknesses:** Tendency to overanalyze, social reservation.
+        **Obstacles:** Balancing analysis with action and decision-making.
+        **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
+
+        '7c': `**Type 7c: Analytical Explorer (Rational)**\n
+        **Description:** You are curious and analytical, always seeking to understand the world around you. You rely heavily on logic and reason in your explorations, ensuring that your conclusions are well-informed and practical. Your rational approach helps you navigate life's mysteries with precision and clarity.
+        **Behavior in Social Settings:** You are thoughtful and enjoy deep conversations.
+        **Employment:** You may excel in roles that require research, analysis, or exploration.
+        **Leisure Activities:** You enjoy activities that stimulate your mind, such as reading, learning new skills, or strategic games.
+        **Things to Avoid:** Overanalyzing and becoming lost in details.
+        **Self-Perception:** You see yourself as curious and rational.
+        **Strengths:** Analytical thinking, logical decision-making, curiosity.
+        **Weaknesses:** Tendency to overanalyze, social reservation.
+        **Obstacles:** Balancing analysis with action and decision-making.
+        **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`,
+
+        '8a': `**Type 8a: Empathetic Healer (Spiritual)**\n
+        **Description:** You are empathetic and compassionate, often seeking to heal and support others. You have a deep spiritual side that guides you in your efforts to help and nurture those around you. Your empathetic nature, combined with your spiritual insights, allows you to connect deeply with others and provide meaningful support.
+        **Behavior in Social Settings:** You are warm and approachable, often providing comfort and support to others.
+        **Employment:** You may excel in roles that involve caregiving, counseling, or healing.
+        **Leisure Activities:** You enjoy activities that promote healing and connection, such as meditation, spiritual practices, or volunteering.
+        **Things to Avoid:** Neglecting your own needs in favor of others.
+        **Self-Perception:** You see yourself as compassionate and nurturing.
+        **Strengths:** Empathy, compassion, deep connection with spirituality.
+        **Weaknesses:** Tendency to neglect self-care, sensitivity to others' emotions.
+        **Obstacles:** Finding a balance between helping others and taking care of yourself.
+        **Spiritual Life:** Your spirituality provides you with a sense of purpose and guidance in your healing efforts.`,
+
+        '8b': `**Type 8b: Empathetic Healer (Balanced)**\n
+        **Description:** You are empathetic and compassionate, often seeking to heal and support others. You maintain a balance between helping others and taking care of yourself, ensuring that your efforts are sustainable and effective. Your balanced approach allows you to provide meaningful support without becoming overwhelmed.
+        **Behavior in Social Settings:** You are warm and approachable, often providing comfort and support to others.
+        **Employment:** You may excel in roles that involve caregiving, counseling, or healing.
+        **Leisure Activities:** You enjoy activities that promote healing and connection, such as meditation, yoga, or volunteering.
+        **Things to Avoid:** Neglecting your own needs in favor of others.
+        **Self-Perception:** You see yourself as compassionate and balanced.
+        **Strengths:** Empathy, compassion, balanced approach to caregiving.
+        **Weaknesses:** Sensitivity to others' emotions, tendency to neglect self-care.
+        **Obstacles:** Finding a balance between helping others and taking care of yourself.
+        **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
+
+                '8c': `**Type 8c: Empathetic Healer (Rational)**\n
+        **Description:** You are empathetic and compassionate, often seeking to heal and support others. You rely on logic and reason to guide your caregiving efforts, ensuring that your support is practical and effective. Your rational approach helps you provide meaningful support without becoming overwhelmed by emotions.
+        **Behavior in Social Settings:** You are warm and approachable, often providing comfort and support to others.
+        **Employment:** You may excel in roles that involve caregiving, counseling, or healing.
+        **Leisure Activities:** You enjoy activities that promote healing and connection, such as reading about psychology, participating in support groups, or strategic volunteering.
+        **Things to Avoid:** Neglecting your own needs in favor of others.
+        **Self-Perception:** You see yourself as compassionate and rational.
+        **Strengths:** Empathy, compassion, logical decision-making.
+        **Weaknesses:** Sensitivity to others' emotions, tendency to neglect self-care.
+        **Obstacles:** Finding a balance between helping others and taking care of yourself.
+        **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`
+    };
+
+    const resultType = `${personalityType}${subtype}`;
+    const resultDescription = personalityDescriptions[resultType];
+
+    document.getElementById("result").innerText = resultDescription;
+});
