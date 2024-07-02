@@ -130,7 +130,7 @@ document.getElementById("personality-test").addEventListener("submit", function(
         **Obstacles:** Finding a balance between helping others and taking care of yourself.
         **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
 
-        '2c': `**Type 2c: Sensitive Helper (Rational)**\n
+                '2c': `**Type 2c: Sensitive Helper (Rational)**\n
         **Description:** You are compassionate and empathetic, often putting others' needs before your own. You rely on logic and reason to navigate your caregiving efforts, ensuring that your support is practical and effective. Your rational approach helps you provide support without becoming overwhelmed by emotions.
         **Behavior in Social Settings:** You are warm and approachable, often providing support and comfort to others.
         **Employment:** You may excel in roles that involve caregiving, counseling, or social work.
@@ -138,7 +138,7 @@ document.getElementById("personality-test").addEventListener("submit", function(
         **Things to Avoid:** Neglecting your own needs in favor of others.
         **Self-Perception:** You see yourself as compassionate and rational.
         **Strengths:** Empathy, compassion, logical thinking.
-                **Weaknesses:** Sensitivity to others' emotions, tendency to neglect self-care.
+        **Weaknesses:** Sensitivity to others' emotions, tendency to neglect self-care.
         **Obstacles:** Finding a balance between helping others and taking care of yourself.
         **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`,
 
@@ -226,7 +226,7 @@ document.getElementById("personality-test").addEventListener("submit", function(
         **Obstacles:** Balancing social interactions with self-care and spiritual growth.
         **Spiritual Life:** Your spirituality provides you with a sense of connection and purpose in your social interactions.`,
 
-        '5b': `**Type 5b: Social Butterfly (Balanced)**\n
+                '5b': `**Type 5b: Social Butterfly (Balanced)**\n
         **Description:** You are outgoing and enjoy social interactions, often thriving in social settings. You maintain a balance between your social life and personal well-being, ensuring that you engage with others without neglecting yourself. Your balanced approach helps you build meaningful relationships with ease.
         **Behavior in Social Settings:** You are enthusiastic and enjoy engaging with others.
         **Employment:** You may excel in roles that involve networking, public relations, or event planning.
@@ -242,7 +242,7 @@ document.getElementById("personality-test").addEventListener("submit", function(
         **Description:** You are outgoing and enjoy social interactions, often thriving in social settings. You rely on logic and reason to navigate your social interactions, ensuring that your engagements are meaningful and effective. Your rational approach helps you build strong, practical relationships.
         **Behavior in Social Settings:** You are enthusiastic and enjoy engaging with others.
         **Employment:** You may excel in roles that involve networking, public relations, or event planning.
-                **Leisure Activities:** You enjoy social activities, such as gatherings, parties, and strategic games.
+        **Leisure Activities:** You enjoy social activities, such as gatherings, parties, and strategic games.
         **Things to Avoid:** Overcommitting to social obligations and neglecting self-care.
         **Self-Perception:** You see yourself as sociable and rational.
         **Strengths:** Outgoing, sociable, logical approach to social interactions.
@@ -322,7 +322,7 @@ document.getElementById("personality-test").addEventListener("submit", function(
         **Obstacles:** Balancing analysis with action and decision-making.
         **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`,
 
-        '8a': `**Type 8a: Empathetic Healer (Spiritual)**\n
+                '8a': `**Type 8a: Empathetic Healer (Spiritual)**\n
         **Description:** You are empathetic and compassionate, often seeking to heal and support others. You have a deep spiritual side that guides you in your efforts to help and nurture those around you. Your empathetic nature, combined with your spiritual insights, allows you to connect deeply with others and provide meaningful support.
         **Behavior in Social Settings:** You are warm and approachable, often providing comfort and support to others.
         **Employment:** You may excel in roles that involve caregiving, counseling, or healing.
@@ -346,7 +346,7 @@ document.getElementById("personality-test").addEventListener("submit", function(
         **Obstacles:** Finding a balance between helping others and taking care of yourself.
         **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
 
-                '8c': `**Type 8c: Empathetic Healer (Rational)**\n
+        '8c': `**Type 8c: Empathetic Healer (Rational)**\n
         **Description:** You are empathetic and compassionate, often seeking to heal and support others. You rely on logic and reason to guide your caregiving efforts, ensuring that your support is practical and effective. Your rational approach helps you provide meaningful support without becoming overwhelmed by emotions.
         **Behavior in Social Settings:** You are warm and approachable, often providing comfort and support to others.
         **Employment:** You may excel in roles that involve caregiving, counseling, or healing.
@@ -363,4 +363,5 @@ document.getElementById("personality-test").addEventListener("submit", function(
     const resultDescription = personalityDescriptions[resultType];
 
     document.getElementById("result").innerText = resultDescription;
+    document.getElementById("result").style.display = "block";
 });
