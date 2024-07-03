@@ -93,6 +93,66 @@ document.getElementById("personality-test").addEventListener("submit", function(
         personalityType = "Type 24: Reclusive Skeptic";
     }
 
+    const totalSelfWorthResilienceFlexibilityScore = selfWorthScore + resilienceScore + flexibilityScore;
+    const totalSocialConfidenceInterpersonalRelationshipsScore = socialConfidenceScore + interpersonalRelationshipsScore;
+    const highConfidence = totalSelfWorthResilienceFlexibilityScore > 54;
+    const highStability = emotionalStabilityScore > 21;
+    const extroverted = totalSocialConfidenceInterpersonalRelationshipsScore > 49;
+    const highSpirituality = spiritualScore > 28;
+    const moderateSpirituality = spiritualScore > 18 && spiritualScore <= 28;
+
+    let personalityType;
+
+    if (highConfidence && highStability && extroverted && highSpirituality) {
+        personalityType = "Type 1: Empowered Visionary";
+    } else if (highConfidence && highStability && extroverted && moderateSpirituality) {
+        personalityType = "Type 2: Dynamic Leader";
+    } else if (highConfidence && highStability && extroverted && !highSpirituality && !moderateSpirituality) {
+        personalityType = "Type 3: Assertive Realist";
+    } else if (highConfidence && highStability && !extroverted && highSpirituality) {
+        personalityType = "Type 4: Spiritual Sage";
+    } else if (highConfidence && highStability && !extroverted && moderateSpirituality) {
+        personalityType = "Type 5: Reflective Seeker";
+    } else if (highConfidence && highStability && !extroverted && !highSpirituality && !moderateSpirituality) {
+        personalityType = "Type 6: Rational Guardian";
+    } else if (highConfidence && !highStability && extroverted && highSpirituality) {
+        personalityType = "Type 7: Spirited Visionary";
+    } else if (highConfidence && !highStability && extroverted && moderateSpirituality) {
+        personalityType = "Type 8: Charismatic Explorer";
+    } else if (highConfidence && !highStability && extroverted && !highSpirituality && !moderateSpirituality) {
+        personalityType = "Type 9: Dynamic Innovator";
+    } else if (highConfidence && !highStability && !extroverted && highSpirituality) {
+        personalityType = "Type 10: Reflective Seeker";
+    } else if (highConfidence && !highStability && !extroverted && moderateSpirituality) {
+        personalityType = "Type 11: Introspective Navigator";
+    } else if (highConfidence && !highStability && !extroverted && !highSpirituality && !moderateSpirituality) {
+        personalityType = "Type 12: Analytical Introvert";
+    } else if (!highConfidence && highStability && extroverted && highSpirituality) {
+        personalityType = "Type 13: Harmonious Guide";
+    } else if (!highConfidence && highStability && extroverted && moderateSpirituality) {
+        personalityType = "Type 14: Social Shapeshifter";
+    } else if (!highConfidence && highStability && extroverted && !highSpirituality && !moderateSpirituality) {
+        personalityType = "Type 15: Social Opportunist";
+    } else if (!highConfidence && highStability && !extroverted && highSpirituality) {
+        personalityType = "Type 16: Contemplative Sage";
+    } else if (!highConfidence && highStability && !extroverted && moderateSpirituality) {
+        personalityType = "Type 17: Reflective Thinker";
+    } else if (!highConfidence && highStability && !extroverted && !highSpirituality && !moderateSpirituality) {
+        personalityType = "Type 18: Resilient Loner";
+    } else if (!highConfidence && !highStability && extroverted && highSpirituality) {
+        personalityType = "Type 19: Spiritual Seeker";
+    } else if (!highConfidence && !highStability && extroverted && moderateSpirituality) {
+        personalityType = "Type 20: Uncertain Socialite";
+    } else if (!highConfidence && !highStability && extroverted && !highSpirituality && !moderateSpirituality) {
+        personalityType = "Type 21: Social Wanderer";
+    } else if (!highConfidence && !highStability && !extroverted && highSpirituality) {
+        personalityType = "Type 22: Turbulent Hermit";
+    } else if (!highConfidence && !highStability && !extroverted && moderateSpirituality) {
+        personalityType = "Type 23: Uncertain Loner";
+    } else if (!highConfidence && !highStability && !extroverted && !highSpirituality && !moderateSpirituality) {
+        personalityType = "Type 24: Reclusive Skeptic";
+    }
+
     const personalityDescriptions = {
         "Type 1: Empowered Visionary": `**Type 1: Empowered Visionary (High Confidence, High Stability, Extroverted, High Spirituality)**\n
         **Description:** You are a confident and stable individual who thrives in social settings and possesses a strong spiritual connection. Your high self-worth and resilience enable you to face challenges head-on and adapt to change with ease. As an extrovert, you draw energy from interactions with others and often take on leadership roles. Your deep spirituality provides you with a sense of purpose and guides your actions, making you a visionary who inspires and motivates others.\n
