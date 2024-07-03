@@ -558,5 +558,5 @@ document.getElementById("personality-test").addEventListener("submit", function(
     // Display the result
     const resultContainer = document.getElementById("result");
     resultContainer.style.display = 'block'; // Make the result container visible
-    resultContainer.innerHTML = personalityDescriptions[personalityType];
+    resultContainer.innerHTML = personalityDescriptions[personalityType].replace(/\n/g, "<br>");
 });
