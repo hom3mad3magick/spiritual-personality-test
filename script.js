@@ -265,7 +265,6 @@
     `
 };
 
-
 document.getElementById("personality-test").addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -303,11 +302,11 @@ document.getElementById("personality-test").addEventListener("submit", function(
 
     const totalSelfWorthResilienceFlexibilityScore = selfWorthScore + resilienceScore + flexibilityScore;
     const totalSocialConfidenceInterpersonalRelationshipsScore = socialConfidenceScore + interpersonalRelationshipsScore;
-    const highConfidence = totalSelfWorthResilienceFlexibilityScore > 54;
-    const highStability = emotionalStabilityScore > 21;
-    const extroverted = totalSocialConfidenceInterpersonalRelationshipsScore > 49;
-    const highSpirituality = spiritualScore > 28;
-    const moderateSpirituality = spiritualScore > 18 && spiritualScore <= 28;
+    const highConfidence = totalSelfWorthResilienceFlexibilityScore > 54; // Should be above 54 (6 * 9)
+    const highStability = emotionalStabilityScore > 21; // Should be above 21 (7 * 3)
+    const extroverted = totalSocialConfidenceInterpersonalRelationshipsScore > 49; // Should be above 49 (14 * 3.5)
+    const highSpirituality = spiritualScore > 28; // Should be above 28 (7 * 4)
+    const moderateSpirituality = spiritualScore > 18 && spiritualScore <= 28; // Moderate between 18 and 28
 
     let personalityType;
 
