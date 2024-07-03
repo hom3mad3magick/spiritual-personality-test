@@ -336,8 +336,9 @@ document.getElementById("personality-test").addEventListener("submit", function(
     **Obstacles:** Building self-confidence and emotional stability while maintaining your introverted and skeptical nature. Balancing your need for solitude with occasional social interactions to prevent isolation.
     **Spiritual Life:** Spirituality is not a significant part of your life. You may be skeptical of spiritual concepts and prefer evidence-based beliefs. Your focus is on practical and logical approaches to life's challenges.`
 };
-
+    
 // Display the result
 const resultContainer = document.getElementById("result");
+resultContainer.style.display = 'block'; // Make the result container visible
 resultContainer.innerHTML = `<h2>${personalityType}</h2><p>${personalityDescriptions[personalityType]}</p>`;
-});
+
