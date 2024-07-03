@@ -28,340 +28,316 @@ document.getElementById("personality-test").addEventListener("submit", function(
             emotionalStabilityScore += score;
         } else if (questionNumber <= 36) {
             socialConfidenceScore += score;
-        } else if (questionNumber <= 43) {
+        } else if (questionNumber <= 42) {
             interpersonalRelationshipsScore += score;
-        } else if (questionNumber <= 49) {
-            personalGrowthScore += score;
-        } else if (questionNumber <= 55) {
-            stressManagementScore += score;
-        } else {
+        } else if (questionNumber <= 48) {
             spiritualScore += score;
         }
     }
 
-    const totalScore = selfWorthScore + resilienceScore + flexibilityScore + emotionalStabilityScore + socialConfidenceScore + interpersonalRelationshipsScore + personalGrowthScore + stressManagementScore;
+    const totalSelfWorthResilienceFlexibilityScore = selfWorthScore + resilienceScore + flexibilityScore;
+    const totalSocialConfidenceInterpersonalRelationshipsScore = socialConfidenceScore + interpersonalRelationshipsScore;
+    const highConfidence = totalSelfWorthResilienceFlexibilityScore > 54;
+    const highStability = emotionalStabilityScore > 21;
+    const extroverted = totalSocialConfidenceInterpersonalRelationshipsScore > 49;
+    const highSpirituality = spiritualScore > 28;
+    const moderateSpirituality = spiritualScore > 18 && spiritualScore <= 28;
 
     let personalityType;
-    if (totalScore <= 168) {
-        personalityType = 1; // Anxious Introvert
-    } else if (totalScore <= 216) {
-        personalityType = 2; // Sensitive Helper
-    } else if (totalScore <= 264) {
-        personalityType = 3; // Cautious Thinker
-    } else if (totalScore <= 312) {
-        personalityType = 4; // Practical Achiever
-    } else if (totalScore <= 360) {
-        personalityType = 5; // Social Butterfly
-    } else if (totalScore <= 408) {
-        personalityType = 6; // Balanced Connector
-    } else if (totalScore <= 456) {
-        personalityType = 7; // Analytical Explorer
-    } else {
-        personalityType = 8; // Empathetic Healer
-    }
 
-    let subtype;
-    if (spiritualScore >= 25) {
-        subtype = 'a'; // Spiritual
-    } else if (spiritualScore >= 13) {
-        subtype = 'b'; // Balanced
-    } else {
-        subtype = 'c'; // Rational
+    if (highConfidence && highStability && extroverted && highSpirituality) {
+        personalityType = "Type 1: Empowered Visionary";
+    } else if (highConfidence && highStability && extroverted && moderateSpirituality) {
+        personalityType = "Type 2: Dynamic Leader";
+    } else if (highConfidence && highStability && extroverted && !highSpirituality && !moderateSpirituality) {
+        personalityType = "Type 3: Assertive Realist";
+    } else if (highConfidence && highStability && !extroverted && highSpirituality) {
+        personalityType = "Type 4: Spiritual Sage";
+    } else if (highConfidence && highStability && !extroverted && moderateSpirituality) {
+        personalityType = "Type 5: Reflective Seeker";
+    } else if (highConfidence && highStability && !extroverted && !highSpirituality && !moderateSpirituality) {
+        personalityType = "Type 6: Rational Guardian";
+    } else if (highConfidence && !highStability && extroverted && highSpirituality) {
+        personalityType = "Type 7: Spirited Visionary";
+    } else if (highConfidence && !highStability && extroverted && moderateSpirituality) {
+        personalityType = "Type 8: Charismatic Explorer";
+    } else if (highConfidence && !highStability && extroverted && !highSpirituality && !moderateSpirituality) {
+        personalityType = "Type 9: Dynamic Innovator";
+    } else if (highConfidence && !highStability && !extroverted && highSpirituality) {
+        personalityType = "Type 10: Reflective Seeker";
+    } else if (highConfidence && !highStability && !extroverted && moderateSpirituality) {
+        personalityType = "Type 11: Introspective Navigator";
+    } else if (highConfidence && !highStability && !extroverted && !highSpirituality && !moderateSpirituality) {
+        personalityType = "Type 12: Analytical Introvert";
+    } else if (!highConfidence && highStability && extroverted && highSpirituality) {
+        personalityType = "Type 13: Harmonious Guide";
+    } else if (!highConfidence && highStability && extroverted && moderateSpirituality) {
+        personalityType = "Type 14: Social Shapeshifter";
+    } else if (!highConfidence && highStability && extroverted && !highSpirituality && !moderateSpirituality) {
+        personalityType = "Type 15: Social Opportunist";
+    } else if (!highConfidence && highStability && !extroverted && highSpirituality) {
+        personalityType = "Type 16: Contemplative Sage";
+    } else if (!highConfidence && highStability && !extroverted && moderateSpirituality) {
+        personalityType = "Type 17: Reflective Thinker";
+    } else if (!highConfidence && highStability && !extroverted && !highSpirituality && !moderateSpirituality) {
+        personalityType = "Type 18: Resilient Loner";
+    } else if (!highConfidence && !highStability && extroverted && highSpirituality) {
+        personalityType = "Type 19: Spiritual Seeker";
+    } else if (!highConfidence && !highStability && extroverted && moderateSpirituality) {
+        personalityType = "Type 20: Uncertain Socialite";
+    } else if (!highConfidence && !highStability && extroverted && !highSpirituality && !moderateSpirituality) {
+        personalityType = "Type 21: Social Wanderer";
+    } else if (!highConfidence && !highStability && !extroverted && highSpirituality) {
+        personalityType = "Type 22: Turbulent Hermit";
+    } else if (!highConfidence && !highStability && !extroverted && moderateSpirituality) {
+        personalityType = "Type 23: Uncertain Loner";
+    } else if (!highConfidence && !highStability && !extroverted && !highSpirituality && !moderateSpirituality) {
+        personalityType = "Type 24: Reclusive Skeptic";
     }
 
     const personalityDescriptions = {
-        '1a': `**Type 1a: Anxious Introvert (Spiritual)**\n
-        **Description:** You tend to be introverted and prefer solitude over social gatherings. You often feel anxious in new or unfamiliar situations. Despite this, you have a deep spiritual side that guides you through life's challenges. Your introspective nature allows you to connect with your inner self and find peace in solitude.
-        **Behavior in Social Settings:** You may feel uncomfortable and prefer to observe rather than participate actively.
-        **Employment:** You may excel in roles that allow for independent work and deep focus.
-        **Leisure Activities:** You enjoy quiet activities such as reading, writing, or meditating.
-        **Things to Avoid:** Overcommitting to social obligations that cause stress.
-        **Self-Perception:** You see yourself as thoughtful and introspective.
-        **Strengths:** Self-awareness, introspection, deep connection with spirituality.
-        **Weaknesses:** Social anxiety, tendency to avoid social interactions.
-        **Obstacles:** Overcoming social anxiety and building confidence.
-        **Spiritual Life:** Your spirituality provides you with comfort and guidance in your introspective journey.`,
+    "Type 1: Empowered Visionary": `**Type 1: Empowered Visionary (High Confidence, High Stability, Extroverted, High Spirituality)**\n
+    **Description:** You are a confident and stable individual who thrives in social settings and possesses a strong spiritual connection. Your high self-worth and resilience enable you to face challenges head-on and adapt to change with ease. As an extrovert, you draw energy from interactions with others and often take on leadership roles. Your deep spirituality provides you with a sense of purpose and guides your actions, making you a visionary who inspires and motivates others.
+    **Behavior in Social Settings:** You are enthusiastic, outgoing, and often the center of attention. You enjoy engaging with others and are skilled at making meaningful connections.
+    **Employment:** You excel in roles that require leadership, creativity, and the ability to inspire others. Fields such as management, public relations, and motivational speaking are ideal for you.
+    **Leisure Activities:** You enjoy activities that combine social interaction with personal growth, such as attending workshops, participating in group sports, or engaging in spiritual retreats.
+    **Strengths:** Confidence, resilience, adaptability, leadership, strong social skills, deep spiritual connection.
+    **Weaknesses:** Can sometimes be perceived as overbearing or overly assertive.
+    **Obstacles:** Balancing your desire for social interaction with the need for introspection and self-care.
+    **Spiritual Life:** Your spirituality is a core part of your identity, providing you with direction and a sense of higher purpose. You regularly engage in spiritual practices and seek to integrate your spiritual beliefs into all aspects of your life.`,
 
-                '1b': `**Type 1b: Anxious Introvert (Balanced)**\n
-        **Description:** You are introverted and often feel anxious in social situations, but you maintain a balance between solitude and social interaction. You understand the importance of social connections and make an effort to engage with others despite your anxieties. Your balanced approach helps you navigate life's challenges more effectively.
-        **Behavior in Social Settings:** You may feel anxious but try to engage in conversations and activities.
-        **Employment:** You may excel in roles that allow for independent work with occasional collaboration.
-        **Leisure Activities:** You enjoy a mix of quiet activities and occasional social events.
-        **Things to Avoid:** Isolating yourself completely from social interactions.
-        **Self-Perception:** You see yourself as thoughtful and striving for balance.
-        **Strengths:** Self-awareness, balanced approach to social interactions, introspection.
-        **Weaknesses:** Social anxiety, tendency to avoid social interactions at times.
-        **Obstacles:** Overcoming social anxiety and building confidence.
-        **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
+    "Type 2: Dynamic Leader": `**Type 2: Dynamic Leader (High Confidence, High Stability, Extroverted, Moderate Spirituality)**\n
+    **Description:** You are a confident and stable individual who thrives in social settings and possesses a balanced spiritual perspective. Your high self-worth and resilience enable you to face challenges head-on and adapt to change with ease. As an extrovert, you draw energy from interactions with others and often take on leadership roles. Your moderate spirituality provides you with a grounded sense of purpose and guides your actions, making you a dynamic leader who inspires and motivates others while remaining practical and down-to-earth.
+    **Behavior in Social Settings:** You are enthusiastic, outgoing, and often the center of attention. You enjoy engaging with others and are skilled at making meaningful connections.
+    **Employment:** You excel in roles that require leadership, creativity, and the ability to inspire others. Fields such as management, public relations, and motivational speaking are ideal for you.
+    **Leisure Activities:** You enjoy activities that combine social interaction with personal growth, such as attending workshops, participating in group sports, or engaging in community service.
+    **Strengths:** Confidence, resilience, adaptability, leadership, strong social skills, balanced spiritual perspective.
+    **Weaknesses:** Can sometimes be perceived as overbearing or overly assertive.
+    **Obstacles:** Balancing your desire for social interaction with the need for introspection and self-care.
+    **Spiritual Life:** Your spirituality is important to you, but you approach it with a balanced and practical mindset. You engage in spiritual practices regularly, but also value other aspects of personal growth and development.`,
 
-        '1c': `**Type 1c: Anxious Introvert (Rational)**\n
-        **Description:** You are introverted and prefer solitude over social gatherings. You often feel anxious in new or unfamiliar situations and rely on logic and reason to navigate life's challenges. Your rational approach helps you analyze and understand your anxieties, allowing you to manage them more effectively.
-        **Behavior in Social Settings:** You may feel uncomfortable and prefer to observe rather than participate actively.
-        **Employment:** You may excel in roles that allow for independent work and deep focus.
-        **Leisure Activities:** You enjoy quiet activities such as reading, writing, or solving puzzles.
-        **Things to Avoid:** Overcommitting to social obligations that cause stress.
-        **Self-Perception:** You see yourself as thoughtful and rational.
-        **Strengths:** Self-awareness, logical thinking, introspection.
-        **Weaknesses:** Social anxiety, tendency to avoid social interactions.
-        **Obstacles:** Overcoming social anxiety and building confidence.
-        **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`,
+    "Type 3: Assertive Realist": `**Type 3: Assertive Realist (High Confidence, High Stability, Extroverted, Low Spirituality)**\n
+    **Description:** You are a confident and emotionally stable individual who excels in social settings and prefers a practical, evidence-based approach to life. Your high self-worth and resilience empower you to tackle challenges head-on and adapt to changes effortlessly. As an extrovert, you gain energy from social interactions and often take the lead in group activities. Your low spirituality suggests that you rely more on logic and tangible evidence rather than spiritual beliefs, making you a pragmatic and assertive realist.
+    **Behavior in Social Settings:** You are outgoing, assertive, and enjoy being in the spotlight. You thrive in group settings and are skilled at networking and making connections.
+    **Employment:** You excel in roles that require leadership, strategic thinking, and effective communication. Fields such as business management, sales, and engineering are ideal for you.
+    **Leisure Activities:** You enjoy activities that involve social interaction and intellectual stimulation, such as attending networking events, playing team sports, or engaging in debates.
+    **Strengths:** Confidence, resilience, adaptability, leadership, strong social skills, pragmatic thinking.
+    **Weaknesses:** Can sometimes be perceived as overly critical or dismissive of others' beliefs.
+    **Obstacles:** Finding ways to respect and understand differing perspectives, especially those related to spirituality.
+    **Spiritual Life:** You may be skeptical of spiritual concepts and prefer to focus on practical and evidence-based approaches to life's challenges. You find fulfillment in personal achievements and tangible outcomes rather than spiritual practices.`,
 
-        '2a': `**Type 2a: Sensitive Helper (Spiritual)**\n
-        **Description:** You are compassionate and empathetic, often putting others' needs before your own. You have a deep spiritual side that guides you in your efforts to help and support others. Your sensitivity allows you to connect with people on a profound level, making you a natural caregiver.
-        **Behavior in Social Settings:** You are warm and approachable, often providing support and comfort to others.
-        **Employment:** You may excel in roles that involve caregiving, counseling, or social work.
-        **Leisure Activities:** You enjoy activities that allow you to help others and connect with your spiritual side.
-        **Things to Avoid:** Neglecting your own needs in favor of others.
-        **Self-Perception:** You see yourself as compassionate and nurturing.
-        **Strengths:** Empathy, compassion, deep connection with spirituality.
-        **Weaknesses:** Tendency to neglect self-care, sensitivity to others' emotions.
-        **Obstacles:** Finding a balance between helping others and taking care of yourself.
-        **Spiritual Life:** Your spirituality provides you with a sense of purpose and guidance in your efforts to help others.`,
+    "Type 4: Spiritual Sage": `**Type 4: Spiritual Sage (High Confidence, High Stability, Introverted, High Spirituality)**\n
+    **Description:** You possess high confidence and emotional stability, combined with an introverted nature and a deep sense of spirituality. You are self-assured and resilient, handling life's challenges with grace and introspection. Your spirituality plays a significant role in your life, guiding your actions and decisions. As an introvert, you find peace and strength in solitude and personal reflection.
+    **Behavior in Social Settings:** You prefer intimate gatherings or one-on-one interactions over large social events. You are thoughtful and reflective, often providing deep insights and support to those close to you.
+    **Employment:** You excel in roles that require independent work, deep thinking, and a strong ethical foundation. Ideal fields include counseling, research, writing, and spiritual leadership.
+    **Leisure Activities:** You enjoy activities that allow for introspection and spiritual growth, such as meditation, reading, nature walks, and attending spiritual retreats.
+    **Strengths:** Confidence, resilience, deep introspection, strong spiritual connection, ability to provide thoughtful insights.
+    **Weaknesses:** May sometimes struggle with social interactions in large groups or high-energy environments.
+    **Obstacles:** Balancing the need for solitude with the occasional necessity for social engagement.
+    **Spiritual Life:** Spirituality is a core aspect of your life, providing you with a sense of purpose and direction. You engage in regular spiritual practices and seek continuous growth and understanding.`,
 
-        '2b': `**Type 2b: Sensitive Helper (Balanced)**\n
-        **Description:** You are compassionate and empathetic, often putting others' needs before your own. You maintain a balance between helping others and taking care of yourself. Your balanced approach allows you to provide support without neglecting your own well-being.
-        **Behavior in Social Settings:** You are warm and approachable, often providing support and comfort to others.
-        **Employment:** You may excel in roles that involve caregiving, counseling, or social work.
-        **Leisure Activities:** You enjoy activities that allow you to help others and relax.
-        **Things to Avoid:** Neglecting your own needs in favor of others.
-        **Self-Perception:** You see yourself as compassionate and balanced.
-        **Strengths:** Empathy, compassion, balanced approach to caregiving.
-        **Weaknesses:** Sensitivity to others' emotions, tendency to neglect self-care at times.
-        **Obstacles:** Finding a balance between helping others and taking care of yourself.
-        **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
+    "Type 5: Reflective Seeker": `**Type 5: Reflective Seeker (High Confidence, High Stability, Introverted, Moderate Spirituality)**\n
+    **Description:** You exhibit high confidence and emotional stability, paired with an introverted nature and a moderate sense of spirituality. You are self-assured and resilient, navigating life's challenges with calm and composure. Your spirituality, while not the central focus of your life, plays an important role in providing you with balance and perspective. As an introvert, you value solitude and personal reflection.
+    **Behavior in Social Settings:** You prefer small gatherings or one-on-one interactions, where you can engage in meaningful conversations. You are thoughtful and attentive, often providing support and understanding to those around you.
+    **Employment:** You thrive in roles that allow for independent work and deep thinking, while also offering occasional collaborative opportunities. Suitable fields include research, writing, counseling, and strategic planning.
+    **Leisure Activities:** You enjoy activities that foster introspection and personal growth, such as reading, writing, hiking, and engaging in hobbies that allow for quiet contemplation.
+    **Strengths:** Confidence, resilience, introspection, balanced spiritual perspective, ability to provide thoughtful support.
+    **Weaknesses:** May sometimes find large social gatherings overwhelming or draining.
+    **Obstacles:** Balancing the need for solitude with maintaining meaningful social connections.
+    **Spiritual Life:** Spirituality is an important aspect of your life, offering balance and perspective. You engage in spiritual practices occasionally, finding comfort and guidance in your beliefs.`,
 
-        '2c': `**Type 2c: Sensitive Helper (Rational)**\n
-        **Description:** You are compassionate and empathetic, often putting others' needs before your own. You rely on logic and reason to navigate your caregiving efforts, ensuring that your support is practical and effective. Your rational approach helps you provide support without becoming overwhelmed by emotions.
-        **Behavior in Social Settings:** You are warm and approachable, often providing support and comfort to others.
-        **Employment:** You may excel in roles that involve caregiving, counseling, or social work.
-        **Leisure Activities:** You enjoy activities that allow you to help others and engage your mind.
-        **Things to Avoid:** Neglecting your own needs in favor of others.
-        **Self-Perception:** You see yourself as compassionate and rational.
-        **Strengths:** Empathy, compassion, logical thinking.
-        **Weaknesses:** Sensitivity to others' emotions, tendency to neglect self-care.
-        **Obstacles:** Finding a balance between helping others and taking care of yourself.
-        **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`,
+    "Type 6: Rational Guardian": `**Type 6: Rational Guardian (High Confidence, High Stability, Introverted, Low Spirituality)**\n
+    **Description:** You possess high confidence and emotional stability, coupled with an introverted nature and a low emphasis on spirituality. Your self-assurance and resilience allow you to handle life's challenges with a practical and grounded approach. As an introvert, you value solitude and personal reflection, and you rely on logic and reason to navigate your world.
+    **Behavior in Social Settings:** You prefer small, intimate gatherings or one-on-one interactions, where you can engage in thoughtful and meaningful conversations. You tend to observe and analyze before speaking, offering well-considered insights and support to those around you.
+    **Employment:** You excel in roles that require independent work and deep thinking, such as research, data analysis, strategic planning, and technical writing. You thrive in environments that value precision and thoughtful problem-solving.
+    **Leisure Activities:** You enjoy activities that foster introspection and personal growth, such as reading, writing, solving puzzles, hiking, and engaging in hobbies that allow for quiet contemplation.
+    **Strengths:** Confidence, resilience, logical thinking, introspection, ability to provide well-considered support.
+    **Weaknesses:** May sometimes struggle with connecting on an emotional level in social situations.
+    **Obstacles:** Balancing the need for solitude with maintaining meaningful social connections and occasionally stepping out of your comfort zone to engage more emotionally.
+    **Spiritual Life:** You may not place much emphasis on spirituality, preferring to rely on logic and reason. You might find comfort and guidance in evidence-based beliefs and practical approaches to life's challenges.`,
 
-        '3a': `**Type 3a: Cautious Thinker (Spiritual)**\n
-        **Description:** You are thoughtful and analytical, often approaching situations with caution and careful consideration. You have a deep spiritual side that provides you with insight and guidance. Your introspective nature allows you to connect with your inner self and make well-informed decisions.
-        **Behavior in Social Settings:** You are reserved and prefer meaningful conversations over small talk.
-        **Employment:** You may excel in roles that require analysis, research, or strategic planning.
-        **Leisure Activities:** You enjoy quiet activities such as reading, meditating, or exploring spiritual concepts.
-        **Things to Avoid:** Overthinking and becoming paralyzed by analysis.
-        **Self-Perception:** You see yourself as thoughtful and introspective.
-        **Strengths:** Analytical thinking, introspection, deep connection with spirituality.
-        **Weaknesses:** Tendency to overthink, social reservation.
-        **Obstacles:** Balancing analysis with action and decision-making.
-        **Spiritual Life:** Your spirituality provides you with comfort and guidance in your analytical journey.`,
+        "Type 7: Spirited Visionary": `**Type 7: Spirited Visionary (High Confidence, Low Stability, Extroverted, High Spirituality)**\n
+    **Description:** You possess high confidence and an extroverted nature, coupled with a low level of emotional stability and a deep connection to spirituality. Your self-assurance and outgoing personality make you a natural leader and communicator. Despite facing emotional turbulence, your spiritual beliefs provide you with guidance and strength.
+    **Behavior in Social Settings:** You thrive in social environments, easily engaging with others and inspiring those around you. Your enthusiasm and confidence make you the center of attention, and you often find yourself in leadership roles within social groups.
+    **Employment:** You excel in roles that require public speaking, leadership, and creative expression, such as motivational speaking, teaching, sales, and event planning. Your confidence and charisma make you an effective communicator and leader.
+    **Leisure Activities:** You enjoy activities that allow you to connect with others and express your spirituality, such as attending spiritual retreats, participating in group meditations, volunteering, and engaging in community events.
+    **Strengths:** Confidence, charisma, leadership, strong spiritual connection, ability to inspire others.
+    **Weaknesses:** Emotional instability, which can lead to mood swings and difficulty managing stress.
+    **Obstacles:** Finding ways to manage emotional turbulence and maintain stability while leveraging your confidence and spiritual beliefs to inspire and lead others.
+    **Spiritual Life:** Your spirituality is a core part of your identity, providing you with guidance and strength. You find comfort and purpose in your spiritual practices and use them to navigate life's challenges.`,
 
-        '3b': `**Type 3b: Cautious Thinker (Balanced)**\n
-        **Description:** You are thoughtful and analytical, often approaching situations with caution and careful consideration. You maintain a balance between logic and intuition, allowing you to make well-rounded decisions. Your balanced approach helps you navigate complex situations with confidence.
-        **Behavior in Social Settings:** You are reserved but open to engaging in meaningful conversations.
-        **Employment:** You may excel in roles that require analysis, research, or strategic planning.
-        **Leisure Activities:** You enjoy activities that stimulate your mind and provide relaxation.
-        **Things to Avoid:** Overthinking and becoming paralyzed by analysis.
-        **Self-Perception:** You see yourself as thoughtful and balanced.
-        **Strengths:** Analytical thinking, balanced approach to decision-making, introspection.
-        **Weaknesses:** Tendency to overthink, social reservation.
-        **Obstacles:** Balancing analysis with action and decision-making.
-        **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
+    "Type 8: Charismatic Explorer": `**Type 8: Charismatic Explorer (High Confidence, Low Stability, Extroverted, Moderate Spirituality)**\n
+    **Description:** You possess high confidence and an extroverted nature, coupled with a low level of emotional stability and a moderate connection to spirituality. Your self-assurance and outgoing personality make you adventurous and enthusiastic about exploring new opportunities. Despite facing emotional turbulence, your moderate spiritual beliefs provide you with a sense of balance and perspective.
+    **Behavior in Social Settings:** You are highly sociable and thrive in dynamic environments, easily engaging with others and making new connections. Your charisma and enthusiasm make you a natural at networking and forming relationships.
+    **Employment:** You excel in roles that require interaction, leadership, and creativity, such as sales, marketing, entertainment, and public relations. Your confidence and charisma make you an effective communicator and motivator.
+    **Leisure Activities:** You enjoy activities that allow you to socialize and explore new experiences, such as travel, attending social events, engaging in group sports, and participating in spiritual but balanced activities like yoga classes or mindfulness workshops.
+    **Strengths:** Confidence, charisma, adventurous spirit, ability to connect with others, moderate spiritual balance.
+    **Weaknesses:** Emotional instability, which can lead to difficulty managing stress and mood swings.
+    **Obstacles:** Finding ways to manage emotional turbulence and maintain stability while leveraging your confidence and social skills to explore new opportunities and experiences.
+    **Spiritual Life:** Your spirituality plays a supportive role in your life, providing you with a sense of balance and perspective. You incorporate spiritual practices moderately, helping you navigate challenges and maintain a sense of purpose.`,
 
-        '3c': `**Type 3c: Cautious Thinker (Rational)**\n
-        **Description:** You are thoughtful and analytical, often approaching situations with caution and careful consideration. You rely heavily on logic and reason to navigate life's challenges, ensuring that your decisions are well-informed and practical. Your rational approach helps you manage uncertainties with confidence.
-        **Behavior in Social Settings:** You are reserved and prefer meaningful conversations over small talk.
-        **Employment:** You may excel in roles that require analysis, research, or strategic planning.
-        **Leisure Activities:** You enjoy activities that stimulate your mind, such as reading, puzzles, or learning new skills.
-        **Things to Avoid:** Overthinking and becoming paralyzed by analysis.
-        **Self-Perception:** You see yourself as thoughtful and rational.
-        **Strengths:** Analytical thinking, logical decision-making, introspection.
-        **Weaknesses:** Tendency to overthink, social reservation.
-        **Obstacles:** Balancing analysis with action and decision-making.
-        **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`,
+    "Type 9: Dynamic Innovator": `**Type 9: Dynamic Innovator (High Confidence, Low Stability, Extroverted, Low Spirituality)**\n
+    **Description:** You possess high confidence and an extroverted nature, paired with low emotional stability and minimal connection to spirituality. Your self-assurance and outgoing personality drive you to innovate and seek new experiences. Despite facing emotional challenges, you rely on your confidence and social skills to navigate through life.
+    **Behavior in Social Settings:** You are highly sociable, thriving in dynamic environments, and enjoy engaging with others. Your charisma and enthusiasm make you a natural leader and influencer in social and professional circles.
+    **Employment:** You excel in roles that require interaction, leadership, and creativity, such as entrepreneurship, sales, marketing, and public relations. Your confidence and charisma make you an effective communicator and motivator, driving innovation and change.
+    **Leisure Activities:** You enjoy activities that allow you to socialize and explore new experiences, such as travel, attending social events, engaging in group sports, and participating in exciting and adventurous activities.
+    **Strengths:** Confidence, charisma, adventurous spirit, ability to connect with others, innovative thinking.
+    **Weaknesses:** Emotional instability, which can lead to difficulty managing stress and mood swings. Lack of spiritual grounding may sometimes leave you feeling unfulfilled.
+    **Obstacles:** Finding ways to manage emotional turbulence and maintain stability while leveraging your confidence and social skills to drive innovation and explore new opportunities and experiences.
+    **Spiritual Life:** Spirituality is not a significant aspect of your life. You focus more on tangible and practical experiences to find fulfillment and purpose.`,
 
-                '4a': `**Type 4a: Practical Achiever (Spiritual)**\n
-        **Description:** You are driven and goal-oriented, often focusing on practical achievements and success. You have a deep spiritual side that provides you with motivation and purpose in your pursuits. Your practical approach, combined with your spiritual insights, helps you achieve your goals with integrity.
-        **Behavior in Social Settings:** You are confident and often take on leadership roles.
-        **Employment:** You may excel in roles that require goal-setting, strategic planning, and execution.
-        **Leisure Activities:** You enjoy activities that help you grow personally and professionally, such as workshops or spiritual retreats.
-        **Things to Avoid:** Overworking and neglecting your spiritual needs.
-        **Self-Perception:** You see yourself as ambitious and purpose-driven.
-        **Strengths:** Goal-oriented, practical, deep connection with spirituality.
-        **Weaknesses:** Tendency to overwork, difficulty relaxing.
-        **Obstacles:** Balancing ambition with self-care and spiritual growth.
-        **Spiritual Life:** Your spirituality provides you with motivation and a sense of purpose in your achievements.`,
+    "Type 10: Reflective Seeker": `**Type 10: Reflective Seeker (High Confidence, Low Stability, Introverted, High Spirituality)**\n
+    **Description:** You exhibit high confidence and a strong connection to spirituality, combined with an introverted nature and low emotional stability. Your inner strength and belief system guide you through life's challenges, providing a sense of purpose and direction despite emotional fluctuations.
+    **Behavior in Social Settings:** You prefer solitude or small, intimate gatherings over large social events. Your spiritual beliefs often lead you to seek deep, meaningful connections rather than superficial interactions.
+    **Employment:** You excel in roles that allow for introspection, independent work, and spiritual alignment, such as counseling, writing, research, and roles within spiritual or holistic practices. Your confidence and deep understanding of spiritual matters enable you to provide valuable insights and guidance to others.
+    **Leisure Activities:** You enjoy activities that allow for reflection and spiritual growth, such as meditation, yoga, reading spiritual texts, and spending time in nature. These activities help you find balance and inner peace.
+    **Strengths:** Confidence, deep spiritual connection, introspective nature, ability to find meaning in life’s challenges.
+    **Weaknesses:** Emotional instability, which can lead to difficulty managing stress and mood swings. Introversion may sometimes limit social interactions and networking opportunities.
+    **Obstacles:** Balancing emotional stability while nurturing your spiritual practices and maintaining confidence in your path.
+    **Spiritual Life:** Spirituality plays a central role in your life, providing guidance, comfort, and a sense of purpose. You seek to align your actions and decisions with your spiritual beliefs, finding strength and direction from within.`,
 
-        '4b': `**Type 4b: Practical Achiever (Balanced)**\n
-        **Description:** You are driven and goal-oriented, often focusing on practical achievements and success. You maintain a balance between your professional and personal life, ensuring that you achieve your goals without neglecting your well-being. Your balanced approach helps you navigate challenges with resilience.
-        **Behavior in Social Settings:** You are confident and often take on leadership roles.
-        **Employment:** You may excel in roles that require goal-setting, strategic planning, and execution.
-        **Leisure Activities:** You enjoy activities that help you grow personally and professionally, as well as relaxing hobbies.
-        **Things to Avoid:** Overworking and neglecting your well-being.
-        **Self-Perception:** You see yourself as ambitious and balanced.
-        **Strengths:** Goal-oriented, practical, balanced approach to life.
-        **Weaknesses:** Tendency to overwork, difficulty relaxing at times.
-        **Obstacles:** Balancing ambition with self-care and personal growth.
-        **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
+    "Type 11: Introspective Navigator": `**Type 11: Introspective Navigator (High Confidence, Low Stability, Introverted, Moderate Spirituality)**\n
+    **Description:** You possess high confidence and an introspective nature, paired with low emotional stability and a moderate connection to spirituality. You navigate life with self-assuredness and a reflective approach, often seeking balance between your internal and external worlds.
+    **Behavior in Social Settings:** You prefer smaller, more intimate social settings where you can engage in meaningful conversations. Large crowds or superficial interactions may feel overwhelming due to your introverted nature and emotional instability.
+    **Employment:** You thrive in roles that allow for independent work and introspection, such as research, writing, analysis, or artistic endeavors. Your confidence and ability to reflect deeply on issues make you a valuable asset in roles requiring thoughtful consideration and problem-solving.
+    **Leisure Activities:** You enjoy activities that promote introspection and personal growth, such as journaling, reading, solitary walks, or engaging in creative hobbies. These activities help you manage stress and find clarity amidst emotional fluctuations.
+    **Strengths:** Confidence, introspection, thoughtful decision-making, ability to balance practical and spiritual considerations.
+    **Weaknesses:** Emotional instability, which can lead to difficulties in managing stress and maintaining consistent emotional well-being. Introversion may limit social interactions and networking opportunities.
+    **Obstacles:** Managing emotional fluctuations while maintaining confidence and finding balance between your inner reflections and external engagements.
+    **Spiritual Life:** You have a moderate connection to spirituality, seeking meaning and guidance but not relying on it as your sole source of strength. You explore various spiritual practices to find what resonates with you, integrating them into your life as needed.`,
 
-        '4c': `**Type 4c: Practical Achiever (Rational)**\n
-        **Description:** You are driven and goal-oriented, often focusing on practical achievements and success. You rely on logic and reason to navigate your pursuits, ensuring that your efforts are efficient and effective. Your rational approach helps you achieve your goals with precision and clarity.
-        **Behavior in Social Settings:** You are confident and often take on leadership roles.
-        **Employment:** You may excel in roles that require goal-setting, strategic planning, and execution.
-        **Leisure Activities:** You enjoy activities that help you grow personally and professionally, such as reading, learning new skills, or strategic games.
-        **Things to Avoid:** Overworking and neglecting your well-being.
-        **Self-Perception:** You see yourself as ambitious and rational.
-        **Strengths:** Goal-oriented, practical, logical decision-making.
-        **Weaknesses:** Tendency to overwork, difficulty relaxing at times.
-        **Obstacles:** Balancing ambition with self-care and personal growth.
-        **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`,
+        "Type 12: Analytical Introvert": `**Type 12: Analytical Introvert (High Confidence, Low Stability, Introverted, Low Spirituality)**\n
+    **Description:** You have high confidence and an analytical mind, paired with low emotional stability and a low connection to spirituality. You approach life with self-assuredness and a rational perspective, often relying on logic and reason to navigate challenges.
+    **Behavior in Social Settings:** You prefer solitary activities or small gatherings where deep, meaningful discussions can take place. Large social settings may feel overwhelming due to your introverted nature and emotional instability.
+    **Employment:** You excel in roles that require independent thinking and analytical skills, such as data analysis, scientific research, technical writing, or strategic planning. Your confidence and rational approach make you effective in problem-solving and decision-making.
+    **Leisure Activities:** You enjoy activities that stimulate your mind and allow for solitary reflection, such as reading, solving puzzles, engaging in strategic games, or pursuing hobbies that require focus and concentration.
+    **Strengths:** Confidence, analytical thinking, problem-solving skills, independent work ethic.
+    **Weaknesses:** Emotional instability, which can lead to difficulties in managing stress and maintaining consistent emotional well-being. Introversion may limit social interactions and networking opportunities.
+    **Obstacles:** Balancing emotional fluctuations with your rational approach and finding ways to manage stress effectively.
+    **Spiritual Life:** You have a low connection to spirituality, preferring evidence-based beliefs and logical reasoning. Spiritual practices may not play a significant role in your life, and you tend to rely on practical solutions to navigate challenges.`,
 
-        '5a': `**Type 5a: Social Butterfly (Spiritual)**\n
-        **Description:** You are outgoing and enjoy social interactions, often thriving in social settings. You have a deep spiritual side that provides you with a sense of connection and purpose in your interactions. Your sociable nature, combined with your spiritual insights, helps you build meaningful relationships.
-        **Behavior in Social Settings:** You are enthusiastic and enjoy engaging with others.
-        **Employment:** You may excel in roles that involve networking, public relations, or event planning.
-        **Leisure Activities:** You enjoy social activities, such as gatherings, parties, and spiritual events.
-        **Things to Avoid:** Overcommitting to social obligations and neglecting self-care.
-        **Self-Perception:** You see yourself as sociable and connected.
-        **Strengths:** Outgoing, sociable, deep connection with spirituality.
-        **Weaknesses:** Tendency to overcommit, difficulty finding alone time.
-        **Obstacles:** Balancing social interactions with self-care and spiritual growth.
-        **Spiritual Life:** Your spirituality provides you with a sense of connection and purpose in your social interactions.`,
+    "Type 13: Harmonious Guide": `**Type 13: Harmonious Guide (Low Confidence, High Stability, Extroverted, High Spirituality)**\n
+    **Description:** You possess a strong sense of emotional stability and are highly social, but you may struggle with self-confidence. Your deep connection to spirituality provides you with a sense of purpose and guides your interactions. You are often seen as a calming and supportive presence in social settings.
+    **Behavior in Social Settings:** You thrive in social environments and enjoy being around others. Your emotional stability allows you to handle social interactions gracefully, and your spiritual beliefs help you connect with others on a deeper level. Despite your low confidence, you find strength in your spiritual practices and the support of your social circle.
+    **Employment:** You excel in roles that involve collaboration, counseling, or community support, such as social work, teaching, spiritual counseling, or customer service. Your ability to remain calm and composed under pressure makes you a reliable team member and leader.
+    **Leisure Activities:** You enjoy activities that combine social interaction with spiritual growth, such as attending spiritual retreats, participating in community events, or engaging in group meditation sessions. You also find fulfillment in helping others and volunteering.
+    **Strengths:** Emotional stability, strong social skills, deep spiritual connection, supportive and calming presence.
+    **Weaknesses:** Low self-confidence can hinder your ability to assert yourself and pursue personal goals. You may rely heavily on external validation and the support of others.
+    **Obstacles:** Building self-confidence and learning to assert yourself while maintaining your supportive nature.
+    **Spiritual Life:** Your spirituality is a central part of your life, providing you with a sense of purpose and direction. You engage in regular spiritual practices and seek guidance from a higher power in your daily life.`,
 
-        '5b': `**Type 5b: Social Butterfly (Balanced)**\n
-        **Description:** You are outgoing and enjoy social interactions, often thriving in social settings. You maintain a balance between your social life and personal well-being, ensuring that you engage with others without neglecting yourself. Your balanced approach helps you build meaningful relationships with ease.
-        **Behavior in Social Settings:** You are enthusiastic and enjoy engaging with others.
-        **Employment:** You may excel in roles that involve networking, public relations, or event planning.
-        **Leisure Activities:** You enjoy social activities, such as gatherings, parties, and hobbies that involve others.
-        **Things to Avoid:** Overcommitting to social obligations and neglecting self-care.
-        **Self-Perception:** You see yourself as sociable and balanced.
-        **Strengths:** Outgoing, sociable, balanced approach to social interactions.
-        **Weaknesses:** Tendency to overcommit, difficulty finding alone time at times.
-        **Obstacles:** Balancing social interactions with self-care and personal growth.
-        **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
+    "Type 14: Social Shapeshifter": `**Type 14: Social Shapeshifter (Low Confidence, High Stability, Extroverted, Moderate Spirituality)**\n
+    **Description:** You possess a high degree of emotional stability and a natural inclination towards extroversion, enjoying the company of others and engaging in social activities. Despite your social nature, you struggle with self-confidence and may often seek reassurance from others. Your spirituality does not play a significant role in your life, and you tend to focus on practical, everyday experiences.
+    **Behavior in Social Settings:** You are comfortable in social situations and enjoy interacting with a variety of people. Your emotional stability helps you remain calm and composed, even in challenging social scenarios. However, your low self-confidence may lead you to seek validation and approval from those around you.
+    **Employment:** You do well in roles that involve social interaction and teamwork, such as sales, hospitality, customer service, or public relations. Your steady demeanor and ability to handle stress make you a reliable team member, although you may need encouragement to take on leadership roles.
+    **Leisure Activities:** You enjoy social activities that allow you to connect with others, such as attending events, participating in group sports, or joining clubs. You prefer activities that are more practical and grounded rather than those with a spiritual focus.
+    **Strengths:** Emotional stability, strong social skills, ability to maintain composure in social settings.
+    **Weaknesses:** Low self-confidence can hinder your ability to assert yourself and pursue your goals. You may rely too much on others for validation and struggle with self-doubt.
+    **Obstacles:** Building self-confidence and learning to trust your abilities while maintaining your social and steady nature.
+    **Spiritual Life:** Spirituality is not a significant part of your life. You focus more on practical and tangible aspects of life and may engage in spiritual activities only occasionally, if at all.`,
 
-        '5c': `**Type 5c: Social Butterfly (Rational)**\n
-        **Description:** You are outgoing and enjoy social interactions, often thriving in social settings. You rely on logic and reason to navigate your social interactions, ensuring that your engagements are meaningful and effective. Your rational approach helps you build strong, practical relationships.
-        **Behavior in Social Settings:** You are enthusiastic and enjoy engaging with others.
-        **Employment:** You may excel in roles that involve networking, public relations, or event planning.
-        **Leisure Activities:** You enjoy social activities, such as gatherings, parties, and strategic games.
-        **Things to Avoid:** Overcommitting to social obligations and neglecting self-care.
-        **Self-Perception:** You see yourself as sociable and rational.
-        **Strengths:** Outgoing, sociable, logical approach to social interactions.
-        **Weaknesses:** Tendency to overcommit, difficulty finding alone time.
-        **Obstacles:** Balancing social interactions with self-care and personal growth.
-        **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`,
+    "Type 15: Social Opportunist": `**Type 15: Social Opportunist (Low Confidence, High Stability, Extroverted, Low Spirituality)**\n
+    **Description:** You possess a high degree of emotional stability and a natural inclination towards extroversion, enjoying the company of others and engaging in social activities. Despite your social nature, you struggle with self-confidence and may often seek reassurance from others. Your spirituality does not play a significant role in your life, and you tend to focus on practical, everyday experiences.
+    **Behavior in Social Settings:** You are comfortable in social situations and enjoy interacting with a variety of people. Your emotional stability helps you remain calm and composed, even in challenging social scenarios. However, your low self-confidence may lead you to seek validation and approval from those around you.
+    **Employment:** You do well in roles that involve social interaction and teamwork, such as sales, hospitality, customer service, or public relations. Your steady demeanor and ability to handle stress make you a reliable team member, although you may need encouragement to take on leadership roles.
+    **Leisure Activities:** You enjoy social activities that allow you to connect with others, such as attending events, participating in group sports, or joining clubs. You prefer activities that are more practical and grounded rather than those with a spiritual focus.
+    **Strengths:** Emotional stability, strong social skills, ability to maintain composure in social settings.
+    **Weaknesses:** Low self-confidence can hinder your ability to assert yourself and pursue your goals. You may rely too much on others for validation and struggle with self-doubt.
+    **Obstacles:** Building self-confidence and learning to trust your abilities while maintaining your social and steady nature.
+    **Spiritual Life:** Spirituality is not a significant part of your life. You focus more on practical and tangible aspects of life and may engage in spiritual activities only occasionally, if at all.`,
 
-        '6a': `**Type 6a: Balanced Connector (Spiritual)**\n
-        **Description:** You are a balanced individual who values harmony and connection with others. You have a deep spiritual side that guides you in maintaining balance and building meaningful relationships. Your balanced approach, combined with your spiritual insights, helps you navigate life's challenges with grace.
-        **Behavior in Social Settings:** You are approachable and enjoy fostering connections.
-        **Employment:** You may excel in roles that require teamwork, mediation, or counseling.
-        **Leisure Activities:** You enjoy activities that promote balance and well-being, such as yoga or meditation.
-        **Things to Avoid:** Overextending yourself in trying to maintain balance.
-        **Self-Perception:** You see yourself as harmonious and connected.
-        **Strengths:** Balanced approach to life, strong connections, deep spirituality.
-        **Weaknesses:** Tendency to overextend in maintaining harmony.
-        **Obstacles:** Maintaining balance without neglecting your own needs.
-        **Spiritual Life:** Your spirituality provides you with a sense of harmony and purpose in your connections.`,
+    "Type 16: Contemplative Sage": `**Type 16: Contemplative Sage (Low Confidence, High Stability, Introverted, High Spirituality)**\n
+    **Description:** You exhibit a high level of emotional stability and a strong connection to spirituality. Despite your introverted nature and low self-confidence, your inner peace and spiritual depth guide you through life's challenges. You prefer solitude and introspection, often seeking solace and answers through spiritual practices.
+    **Behavior in Social Settings:** You are reserved and prefer smaller, more intimate gatherings or solitary activities over large social events. Your emotional stability helps you stay calm in social situations, but your low self-confidence may make you hesitant to engage actively.
+    **Employment:** You thrive in roles that allow for independent work and deep thinking, such as research, writing, or counseling. Your spiritual insight and emotional steadiness can make you a valuable mentor or guide, especially in settings that appreciate a contemplative and introspective approach.
+    **Leisure Activities:** You enjoy activities that promote inner peace and spiritual growth, such as meditation, reading, or spending time in nature. You prefer solitary or low-key activities that allow for introspection and personal growth.
+    **Strengths:** Emotional stability, deep spiritual connection, strong introspective abilities.
+    **Weaknesses:** Low self-confidence can limit your willingness to take risks or assert yourself. You may struggle with self-doubt and find it challenging to express your thoughts and ideas openly.
+    **Obstacles:** Building self-confidence and learning to trust your abilities while maintaining your spiritual and introspective nature.
+    **Spiritual Life:** Spirituality plays a significant role in your life. You engage in regular spiritual practices and seek guidance from higher powers, finding comfort and purpose in your spiritual journey.`,
 
-        '6b': `**Type 6b: Balanced Connector (Balanced)**\n
-        **Description:** You are a balanced individual who values harmony and connection with others. You maintain a balance between your personal needs and your social connections, ensuring that you build meaningful relationships without neglecting yourself. Your balanced approach helps you navigate life's challenges with ease.
-        **Behavior in Social Settings:** You are approachable and enjoy fostering connections.
-        **Employment:** You may excel in roles that require teamwork, mediation, or counseling.
-        **Leisure Activities:** You enjoy activities that promote balance and well-being, such as yoga, group activities, or hobbies.
-        **Things to Avoid:** Overextending yourself in trying to maintain balance.
-        **Self-Perception:** You see yourself as harmonious and balanced.
-        **Strengths:** Balanced approach to life, strong connections.
-        **Weaknesses:** Tendency to overextend in maintaining harmony.
-        **Obstacles:** Maintaining balance without neglecting your own needs.
-        **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
+        "Type 17: Reflective Thinker": `**Type 17: Reflective Thinker (Low Confidence, High Stability, Introverted, Moderate Spirituality)**\n
+    **Description:** You have a stable emotional foundation and a moderate connection to spirituality, which provides you with a balanced outlook on life. As an introvert with low self-confidence, you often prefer solitary activities and deep thinking. Your stability helps you manage stress effectively, while your moderate spirituality gives you a sense of purpose without dominating your life.
+    **Behavior in Social Settings:** You tend to be reserved and prefer small, intimate gatherings over large social events. Your emotional stability helps you stay composed, but your low self-confidence may make you hesitant to initiate interactions.
+    **Employment:** You excel in roles that require independent work and deep concentration, such as research, analysis, or writing. Your balanced spiritual perspective and emotional stability make you a reliable and thoughtful team member, especially in environments that value introspection and careful planning.
+    **Leisure Activities:** You enjoy activities that allow for reflection and personal growth, such as reading, journaling, or spending time in nature. You may also engage in spiritual practices occasionally to maintain a sense of balance and inner peace.
+    **Strengths:** Emotional stability, introspective abilities, balanced spiritual outlook.
+    **Weaknesses:** Low self-confidence can hinder your willingness to take risks or assert yourself. You may struggle with self-doubt and find it challenging to express your thoughts and ideas openly.
+    **Obstacles:** Building self-confidence and learning to trust your abilities while maintaining your introspective and balanced nature.
+    **Spiritual Life:** Spirituality is a part of your life, but not the central focus. You engage in spiritual practices moderately, finding them helpful for maintaining balance and perspective without feeling the need to immerse yourself completely.`,
 
-                '6c': `**Type 6c: Balanced Connector (Rational)**\n
-        **Description:** You are a balanced individual who values harmony and connection with others. You rely on logic and reason to maintain balance and build meaningful relationships. Your rational approach helps you navigate life's challenges with clarity and precision.
-        **Behavior in Social Settings:** You are approachable and enjoy fostering connections.
-        **Employment:** You may excel in roles that require teamwork, mediation, or counseling.
-        **Leisure Activities:** You enjoy activities that promote balance and well-being, such as strategic games, discussions, or learning.
-        **Things to Avoid:** Overextending yourself in trying to maintain balance.
-        **Self-Perception:** You see yourself as harmonious and rational.
-        **Strengths:** Balanced approach to life, strong connections, logical thinking.
-        **Weaknesses:** Tendency to overextend in maintaining harmony.
-        **Obstacles:** Maintaining balance without neglecting your own needs.
-        **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`,
+    "Type 18: Resilient Loner": `**Type 18: Resilient Loner (Low Confidence, High Stability, Introverted, Low Spirituality)**\n
+    **Description:** You possess a stable emotional foundation and prefer to spend time alone, finding comfort in solitude. Despite your low self-confidence, your emotional stability helps you navigate life's challenges with resilience. With a low inclination towards spirituality, you rely on practical and tangible approaches to deal with your circumstances.
+    **Behavior in Social Settings:** You are highly reserved and may feel uncomfortable in social situations. Your preference for solitude and low self-confidence often leads you to avoid large gatherings or interactions with unfamiliar people.
+    **Employment:** You excel in roles that allow for independent work, such as research, data analysis, or creative writing. Your emotional stability makes you reliable, while your preference for solitary tasks allows you to focus deeply without the distractions of a busy social environment.
+    **Leisure Activities:** You enjoy solitary activities that allow you to recharge and reflect, such as reading, hiking, or engaging in creative pursuits like painting or writing. Your low interest in spirituality means you might not engage in activities like meditation or spiritual gatherings.
+    **Strengths:** Emotional stability, resilience, ability to work independently.
+    **Weaknesses:** Low self-confidence can prevent you from taking on new challenges or asserting yourself. Social anxiety and discomfort in group settings can limit your opportunities for collaboration and networking.
+    **Obstacles:** Building self-confidence and finding ways to engage socially without compromising your need for solitude and emotional stability.
+    **Spiritual Life:** You have little to no interest in spiritual practices and prefer to rely on practical, evidence-based approaches to life. Your focus is on tangible outcomes and realistic expectations rather than spiritual beliefs or practices.`,
 
-        '7a': `**Type 7a: Analytical Explorer (Spiritual)**\n
-        **Description:** You are curious and analytical, always seeking to understand the world around you. You have a deep spiritual side that provides you with insight and guidance in your explorations. Your analytical approach, combined with your spiritual insights, helps you navigate life's mysteries with curiosity and clarity.
-        **Behavior in Social Settings:** You are thoughtful and enjoy deep, meaningful conversations.
-        **Employment:** You may excel in roles that require research, analysis, or exploration.
-        **Leisure Activities:** You enjoy activities that challenge your mind, such as puzzles, reading, or exploring new ideas.
-        **Things to Avoid:** Getting lost in analysis and neglecting practical aspects of life.
-        **Self-Perception:** You see yourself as curious and insightful.
-        **Strengths:** Analytical thinking, curiosity, deep connection with spirituality.
-        **Weaknesses:** Tendency to overanalyze, difficulty staying grounded.
-        **Obstacles:** Balancing analysis with action and practical considerations.
-        **Spiritual Life:** Your spirituality provides you with insight and guidance in your explorations.`,
+    "Type 19: Spiritual Seeker": `**Type 19: Spiritual Seeker (Low Confidence, Low Stability, Extroverted, High Spirituality)**\n
+    **Description:** You are an extroverted individual who finds solace and purpose in spirituality, despite struggling with low self-confidence and emotional stability. Your high spiritual inclination provides you with a guiding light and a sense of community, helping you navigate through life's uncertainties and challenges.
+    **Behavior in Social Settings:** You thrive in social settings and often seek out interactions with others. Your extroverted nature helps you form connections and build relationships, though your low self-confidence might make you dependent on external validation. Spiritual discussions and gatherings are particularly fulfilling for you.
+    **Employment:** You excel in roles that involve helping and connecting with others, such as counseling, community service, or spiritual guidance. Your extroverted nature and high spirituality make you a compassionate and empathetic communicator, though your low emotional stability might sometimes impact your professional consistency.
+    **Leisure Activities:** You enjoy activities that involve social interaction and spiritual engagement, such as attending spiritual retreats, group meditations, or volunteer work. These activities provide you with a sense of purpose and community, helping you cope with your emotional challenges.
+    **Strengths:** Extroverted, spiritually connected, empathetic.
+    **Weaknesses:** Low self-confidence and emotional instability can lead to dependence on others for validation and support. You may struggle with consistency and resilience in the face of challenges.
+    **Obstacles:** Building self-confidence and emotional stability while maintaining your extroverted and spiritual nature. Finding a balance between seeking external validation and developing inner strength.
+    **Spiritual Life:** Your spirituality is a core aspect of your identity, providing you with guidance, purpose, and a sense of belonging. You are deeply involved in spiritual practices and communities, which help you navigate your personal challenges and find meaning in life.`,
 
-        '7b': `**Type 7b: Analytical Explorer (Balanced)**\n
-        **Description:** You are curious and analytical, always seeking to understand the world around you. You maintain a balance between your analytical pursuits and practical considerations, ensuring that your explorations are both insightful and grounded. Your balanced approach helps you navigate life's mysteries with confidence.
-        **Behavior in Social Settings:** You are thoughtful and enjoy deep, meaningful conversations.
-        **Employment:** You may excel in roles that require research, analysis, or exploration.
-        **Leisure Activities:** You enjoy activities that challenge your mind, such as puzzles, reading, or exploring new ideas.
-        **Things to Avoid:** Getting lost in analysis and neglecting practical aspects of life.
-        **Self-Perception:** You see yourself as curious and balanced.
-        **Strengths:** Analytical thinking, curiosity, balanced approach to exploration.
-        **Weaknesses:** Tendency to overanalyze, difficulty staying grounded at times.
-        **Obstacles:** Balancing analysis with action and practical considerations.
-        **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
+    "Type 20: Uncertain Socialite": `**Type 20: Uncertain Socialite (Low Confidence, Low Stability, Extroverted, Moderate Spirituality)**\n
+    **Description:** You are an extroverted individual who enjoys social interactions and seeks out connections with others. However, you often struggle with low self-confidence and emotional stability. While spirituality is a part of your life, it does not dominate your identity but provides some guidance and comfort.
+    **Behavior in Social Settings:** You thrive in social environments and are often seen as lively and engaging. Your extroverted nature drives you to seek out new connections and experiences. However, your low self-confidence can make you overly reliant on external validation, and your emotional instability might lead to mood swings or inconsistent behavior in social situations.
+    **Employment:** You excel in roles that involve social interaction, networking, and communication, such as sales, public relations, or event planning. Your extroverted nature helps you build rapport easily, though your low stability might impact your long-term consistency in professional settings.
+    **Leisure Activities:** You enjoy activities that involve socializing, such as attending parties, joining clubs, or participating in group sports. Spiritual activities, while not central, still play a role in your life, such as occasional meditation, yoga, or attending spiritual talks.
+    **Strengths:** Extroverted, sociable, capable of forming quick connections.
+    **Weaknesses:** Low self-confidence and emotional instability can make you dependent on others for validation and support. You may struggle with maintaining consistency and resilience.
+    **Obstacles:** Building self-confidence and emotional stability while continuing to enjoy and thrive in social settings. Balancing your need for social interaction with developing inner strength and independence.
+    **Spiritual Life:** Spirituality is moderately important to you, providing some level of guidance and comfort. You engage in spiritual practices occasionally, finding them helpful but not central to your identity. You may turn to spirituality in times of need or when seeking additional support.`,
 
-        '7c': `**Type 7c: Analytical Explorer (Rational)**\n
-        **Description:** You are curious and analytical, always seeking to understand the world around you. You rely on logic and reason to navigate your explorations, ensuring that your insights are grounded in evidence and practicality. Your rational approach helps you make well-informed decisions.
-        **Behavior in Social Settings:** You are thoughtful and enjoy deep, meaningful conversations.
-        **Employment:** You may excel in roles that require research, analysis, or exploration.
-        **Leisure Activities:** You enjoy activities that challenge your mind, such as puzzles, reading, or exploring new ideas.
-        **Things to Avoid:** Getting lost in analysis and neglecting practical aspects of life.
-        **Self-Perception:** You see yourself as curious and rational.
-        **Strengths:** Analytical thinking, curiosity, logical decision-making.
-        **Weaknesses:** Tendency to overanalyze, difficulty staying grounded.
-        **Obstacles:** Balancing analysis with action and practical considerations.
-        **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`,
+    "Type 21: Social Wanderer": `**Type 21: Social Wanderer (Low Confidence, Low Stability, Extroverted, Low Spirituality)**\n
+    **Description:** You are an extroverted individual who struggles with self-confidence and emotional stability. Despite enjoying social interactions, you often feel uncertain and ungrounded. Your low spirituality means you do not rely on spiritual practices or beliefs for comfort, which can make you feel more adrift in life.
+    **Behavior in Social Settings:** You are outgoing and enjoy meeting new people, but you may often feel insecure and unstable in these interactions. You seek validation from others and may frequently change social circles in search of acceptance.
+    **Employment:** You may struggle in high-pressure roles and prefer jobs that offer social interaction without significant responsibility. Careers in customer service, sales, or entertainment might appeal to you due to their social nature.
+    **Leisure Activities:** You enjoy activities that involve socializing, such as parties, group sports, or community events. However, your low confidence might cause you to feel anxious or overwhelmed in these settings.
+    **Strengths:** Sociable, adaptable, and able to make new connections easily.
+    **Weaknesses:** Low self-confidence and emotional instability can lead to feelings of insecurity and inconsistency in your social interactions.
+    **Obstacles:** Building self-confidence and emotional stability while maintaining your extroverted nature. Finding a sense of purpose and direction without relying on spiritual practices.
+    **Spiritual Life:** You do not engage much in spiritual practices and may feel disconnected from spiritual beliefs. You rely more on social interactions for a sense of belonging and validation.`,
 
-        '8a': `**Type 8a: Empathetic Healer (Spiritual)**\n
-        **Description:** You are compassionate and empathetic, often seeking to help and heal others. You have a deep spiritual side that guides you in your efforts to support and nurture those around you. Your empathetic nature, combined with your spiritual insights, makes you a natural healer.
-        **Behavior in Social Settings:** You are warm and approachable, often providing support and comfort to others.
-        **Employment:** You may excel in roles that involve caregiving, counseling, or healing.
-        **Leisure Activities:** You enjoy activities that allow you to help others and connect with your spiritual side.
-        **Things to Avoid:** Neglecting your own needs in favor of others.
-        **Self-Perception:** You see yourself as compassionate and nurturing.
-        **Strengths:** Empathy, compassion, deep connection with spirituality.
-        **Weaknesses:** Tendency to neglect self-care, sensitivity to others' emotions.
-        **Obstacles:** Finding a balance between helping others and taking care of yourself.
-        **Spiritual Life:** Your spirituality provides you with a sense of purpose and guidance in your efforts to heal and support others.`,
+        "Type 22: Turbulent Hermit": `**Type 22: Turbulent Hermit (Low Confidence, Low Stability, Introverted, High Spirituality)**\n
+    **Description:** You are an introverted individual with a deep connection to spirituality. Despite facing challenges with self-confidence and emotional stability, your spiritual beliefs provide you with a strong sense of purpose and inner guidance. You prefer solitude and introspection over social interactions, finding peace and comfort in your spiritual practices.
+    **Behavior in Social Settings:** You tend to avoid large social gatherings and prefer spending time alone or with a small circle of close friends. Social interactions can be draining for you, and you may feel anxious or uncomfortable in unfamiliar social situations. Your introverted nature allows you to focus on your inner world and spiritual growth.
+    **Employment:** You thrive in roles that allow for independent work and deep focus, such as research, writing, or artistic pursuits. Your strong spiritual connection may lead you to careers in spiritual or healing professions, such as counseling, therapy, or holistic health.
+    **Leisure Activities:** You enjoy activities that allow for introspection and spiritual growth, such as meditation, reading, journaling, or spending time in nature. Spiritual practices are a central part of your daily routine, providing you with a sense of peace and purpose.
+    **Strengths:** Deep connection to spirituality, introspective, capable of profound inner growth and understanding.
+    **Weaknesses:** Low self-confidence and emotional instability can make you vulnerable to self-doubt and anxiety. You may struggle with social interactions and rely heavily on your spiritual practices for comfort and guidance.
+    **Obstacles:** Building self-confidence and emotional stability while maintaining your introverted and spiritual nature. Balancing your need for solitude with occasional social interactions to prevent isolation.
+    **Spiritual Life:** Spirituality is a cornerstone of your life, guiding your actions and decisions. You engage in spiritual practices regularly, finding them essential for your well-being and personal growth. Your deep spiritual connection provides you with a sense of purpose and helps you navigate life's challenges.`,
 
-        '8b': `**Type 8b: Empathetic Healer (Balanced)**\n
-        **Description:** You are compassionate and empathetic, often seeking to help and heal others. You maintain a balance between supporting others and taking care of yourself, ensuring that your efforts are sustainable and effective. Your balanced approach helps you provide support without becoming overwhelmed.
-        **Behavior in Social Settings:** You are warm and approachable, often providing support and comfort to others.
-        **Employment:** You may excel in roles that involve caregiving, counseling, or healing.
-        **Leisure Activities:** You enjoy activities that allow you to help others and relax.
-        **Things to Avoid:** Neglecting your own needs in favor of others.
-        **Self-Perception:** You see yourself as compassionate and balanced.
-        **Strengths:** Empathy, compassion, balanced approach to caregiving.
-        **Weaknesses:** Sensitivity to others' emotions, tendency to neglect self-care at times.
-        **Obstacles:** Finding a balance between helping others and taking care of yourself.
-        **Spiritual Life:** You explore different beliefs and practices to find a balance that suits you.`,
+    "Type 23: Uncertain Loner": `**Type 23: Uncertain Loner (Low Confidence, Low Stability, Introverted, Moderate Spirituality)**\n
+    **Description:** You are an introverted individual who struggles with self-confidence and emotional stability. Although you do not engage deeply in spiritual practices, you maintain a moderate level of spiritual belief that provides some comfort. You prefer solitude and often feel overwhelmed by social interactions.
+    **Behavior in Social Settings:** You tend to avoid large social gatherings and prefer spending time alone or with a small circle of close friends. Social interactions can be draining for you, and you may feel anxious or uncomfortable in unfamiliar social situations.
+    **Employment:** You thrive in roles that allow for independent work and deep focus, such as research, writing, or artistic pursuits. Jobs that offer stability and minimal social interaction are ideal for you.
+    **Leisure Activities:** You enjoy activities that allow for introspection and moderate spiritual growth, such as reading, journaling, or spending time in nature. Spiritual practices are a part of your routine but not the central focus.
+    **Strengths:** Introspective, capable of inner growth and understanding, finds comfort in moderate spiritual practices.
+    **Weaknesses:** Low self-confidence and emotional instability can make you vulnerable to self-doubt and anxiety. You may struggle with social interactions and rely moderately on spiritual practices for comfort and guidance.
+    **Obstacles:** Building self-confidence and emotional stability while maintaining your introverted nature. Balancing your need for solitude with occasional social interactions to prevent isolation.
+    **Spiritual Life:** You engage in spiritual practices occasionally, finding them somewhat helpful for your well-being. While spirituality is not the central focus of your life, it provides some comfort and guidance in navigating life's challenges.`,
 
-        '8c': `**Type 8c: Empathetic Healer (Rational)**\n
-        **Description:** You are compassionate and empathetic, often seeking to help and heal others. You rely on logic and reason to ensure that your support is practical and effective. Your rational approach helps you provide support without becoming overwhelmed by emotions.
-        **Behavior in Social Settings:** You are warm and approachable, often providing support and comfort to others.
-        **Employment:** You may excel in roles that involve caregiving, counseling, or healing.
-        **Leisure Activities:** You enjoy activities that allow you to help others and engage your mind.
-        **Things to Avoid:** Neglecting your own needs in favor of others.
-        **Self-Perception:** You see yourself as compassionate and rational.
-        **Strengths:** Empathy, compassion, logical thinking.
-        **Weaknesses:** Sensitivity to others' emotions, tendency to neglect self-care.
-        **Obstacles:** Finding a balance between helping others and taking care of yourself.
-        **Spiritual Life:** You may be skeptical of spiritual concepts and prefer evidence-based beliefs.`
-    };
+    "Type 24: Reclusive Skeptic": `**Type 24: Reclusive Skeptic (Low Confidence, Low Stability, Introverted, Low Spirituality)**\n
+    **Description:** You are an introverted individual who faces significant challenges with self-confidence and emotional stability. You have little to no connection with spirituality, often relying on logic and skepticism to navigate life. You prefer solitude and introspection, avoiding social interactions and spiritual practices.
+    **Behavior in Social Settings:** You tend to avoid large social gatherings and prefer spending time alone or with a very small circle of close friends. Social interactions can be particularly draining and anxiety-inducing for you, and you feel more comfortable in your own company.
+    **Employment:** You excel in roles that allow for independent work and deep focus, such as research, writing, or technical fields. Jobs that offer stability and minimal social interaction are ideal for you.
+    **Leisure Activities:** You enjoy activities that allow for introspection and intellectual stimulation, such as reading, writing, solving puzzles, or engaging in solitary hobbies. Spiritual practices are not a part of your routine, and you may even be skeptical of their value.
+    **Strengths:** Introspective, capable of deep analytical thinking, finds comfort in solitary activities and intellectual pursuits.
+    **Weaknesses:** Low self-confidence and emotional instability can make you vulnerable to self-doubt and anxiety. You may struggle significantly with social interactions and lack a supportive belief system to rely on.
+    **Obstacles:** Building self-confidence and emotional stability while maintaining your introverted and skeptical nature. Balancing your need for solitude with occasional social interactions to prevent isolation.
+    **Spiritual Life:** Spirituality is not a significant part of your life. You may be skeptical of spiritual concepts and prefer evidence-based beliefs. Your focus is on practical and logical approaches to life's challenges.`
+};
 
-    const resultDescription = personalityDescriptions[`${personalityType}${subtype}`];
-    const resultDiv = document.getElementById("result");
-
-    resultDiv.innerHTML = resultDescription;
-    resultDiv.style.display = "block";
+// Display the result
+const resultContainer = document.getElementById("result");
+resultContainer.innerHTML = `<h2>${personalityType}</h2><p>${personalityDescriptions[personalityType]}</p>`;
 });
