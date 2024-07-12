@@ -268,6 +268,8 @@
 document.getElementById("personality-test").addEventListener("submit", function(event) {
     event.preventDefault();
 
+    console.log("Form submission event triggered");
+
     const form = event.target;
     const formData = new FormData(form);
 
@@ -283,6 +285,8 @@ document.getElementById("personality-test").addEventListener("submit", function(
     for (let [name, value] of formData.entries()) {
         let questionNumber = parseInt(name.substring(1));
         let score = parseInt(value);
+
+        console.log(`Question Number: ${questionNumber}, Score: ${score}`);
 
         if (questionNumber <= 8) {
             selfWorthScore += score;
@@ -307,6 +311,11 @@ document.getElementById("personality-test").addEventListener("submit", function(
     const totalStabilityScore = emotionalStabilityScore + newEmotionalStabilityScore;
     const totalExtrovertScore = socialConfidenceScore + interpersonalRelationshipsScore;
     
+    console.log(`Total Confidence Score: ${totalConfidenceScore}`);
+    console.log(`Total Stability Score: ${totalStabilityScore}`);
+    console.log(`Total Extrovert Score: ${totalExtrovertScore}`);
+    console.log(`Spiritual Score: ${spiritualScore}`);
+
     const highConfidence = totalConfidenceScore > 100;  // Adjust threshold as needed
     const highStability = totalStabilityScore > 60;    // Adjust threshold as needed
     const extroverted = totalExtrovertScore > 60;      // Adjust threshold as needed
@@ -364,6 +373,8 @@ document.getElementById("personality-test").addEventListener("submit", function(
     } else if (!highConfidence && !highStability && !extroverted && !highSpirituality && !moderateSpirituality) {
         personalityType = "Type 24: Reclusive Skeptic";
     }
+
+    console.log(`Personality Type: ${personalityType}`);
 
     // Hide the test form
     form.style.display = "none";
