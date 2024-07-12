@@ -273,6 +273,7 @@ document.getElementById("personality-test").addEventListener("submit", function(
 
     let selfWorthScore = 0;
     let resilienceScore = 0;
+    let flexibilityScore = 0;
     let socialConfidenceScore = 0;
     let emotionalStabilityScore = 0;
     let newEmotionalStabilityScore = 0;
